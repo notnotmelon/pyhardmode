@@ -6,7 +6,7 @@
   "author": "notnotmelon",
   "contact": "",
   "homepage": "",
-  "description": "Contains a few 𝘵𝘪𝘯𝘺 changes to Pyanodons mods...",
+  "description": "Contains a few tiny changes to Pyanodons mods...",
   "dependencies": [
     "base >= 1.1.74",
     "pyalternativeenergy >= 1.2.6"
