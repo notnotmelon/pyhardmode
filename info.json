@@ -1,0 +1,18 @@
+{
+  "name": "pyhardmode",
+  "version": "1.0.0",
+  "factorio_version": "1.1",
+  "title": "Pyanodons Hard Mode",
+  "author": "notnotmelon",
+  "contact": "",
+  "homepage": "",
+  "description": "Contains a few 𝘵𝘪𝘯𝘺 changes to Pyanodons mods...",
+  "dependencies": [
+    "base >= 1.1.74",
+    "pyalternativeenergy >= 1.2.6"
+  ],
+  "package": {
+    "ignore": [],
+    "scripts": {}
+  }
+}
