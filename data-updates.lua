@@ -65,11 +65,11 @@ for _, resource in pairs(resource_rocks) do
     categories[resource.category] = true
     resource.infinite = true
     resource.infinite_depletion_amount = 0
-    resource.normal = 1
+    resource.normal = 10
     resource.minimum = resource.normal
     if resource.autoplace then
         resource.autoplace.richness_expression = noise.define_noise_function(function(x, y, tile, map)
-            return 1
+            return 10
         end)
     end
 end
