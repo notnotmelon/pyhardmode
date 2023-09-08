@@ -107,83 +107,83 @@ data.raw['mining-drill']['burner-mining-drill'].input_fluid_box = {
 for name, connections in pairs{
     ['advanced-foundry-mk01'] = {
         {
-            position = {2.7, 0.5},
-            direction = defines.direction.north
+            position = {2.5, 0.5},
+            direction = defines.direction.east
         }
     },
     ['advanced-foundry-mk02'] = {
         {
-            position = {2.7, 0.5},
-            direction = defines.direction.north
+            position = {2.5, 0.5},
+            direction = defines.direction.east
         }
     },
     ['advanced-foundry-mk03'] = {
         {
-            position = {2.7, 0.5},
-            direction = defines.direction.north
+            position = {2.5, 0.5},
+            direction = defines.direction.east
         }
     },
     ['advanced-foundry-mk04'] = {
         {
-            position = {2.7, 0.5},
-            direction = defines.direction.north
+            position = {2.5, 0.5},
+            direction = defines.direction.east
         }
     },
     ['rhe'] = {
         {
-            position = {2.2, 0},
+            position = {2, 0},
             direction = defines.direction.east
         },
         {
-            position = {-2.2, 0},
+            position = {-2, 0},
             direction = defines.direction.west
         }
     },
     ['incubator-mk01'] = {
         {
-            position = {-3.2, 2.0},
+            position = {-3, 2.0},
             direction = defines.direction.west
         }
     },
     ['incubator-mk02'] = {
         {
-            position = {-3.2, 2.0},
+            position = {-3, 2.0},
             direction = defines.direction.west
         }
     },
     ['incubator-mk03'] = {
         {
-            position = {-3.2, 2.0},
+            position = {-3, 2.0},
             direction = defines.direction.west
         }
     },
     ['incubator-mk04'] = {
         {
-            position = {-3.2, 2.0},
+            position = {-3, 2.0},
             direction = defines.direction.west
         }
     },
     ['simik-den-mk01'] = {
         {
-            position = {2.0, -7.8},
+            position = {2.0, -7.5},
             direction = defines.direction.north
         }
     },
     ['simik-den-mk02'] = {
         {
-            position = {2.0, -7.8},
+            position = {2.0, -7.5},
             direction = defines.direction.north
         }
     },
     ['simik-den-mk03'] = {
         {
-            position = {2.0, -7.8},
+            position = {2.0, -7.5},
             direction = defines.direction.north
         }
     },
     ['simik-den-mk04'] = {
         {
-            position = {2.0, -7.8},
+            position = {2.0, -7.5},
             direction = defines.direction.north
         }
     },
@@ -287,3 +287,5 @@ for name, connections in pairs{
         }
     }
 end
+
+data.raw['utility-sprites'].default.heat_exchange_indication.filename = '__core__/graphics/arrows/heat-exchange-indication.png'
