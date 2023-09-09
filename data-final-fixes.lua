@@ -11,7 +11,7 @@ for name, recipe in pairs(data.raw.recipe) do
             data.raw.recipe[name] = nil
         end
     elseif recipe.category == 'py-venting' then
-        recipe.ingredients[1].amount = 500
+        recipe.ingredients[1].amount = 100
         RECIPE(name):add_ingredient('filtration-media'):add_unlock('filtration')
         data.raw.recipe[name].energy_required = 1
         recipe.enabled = false

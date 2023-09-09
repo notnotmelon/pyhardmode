@@ -14,6 +14,7 @@ for _, void_machine in pairs{'py-sinkhole', 'py-gas-vent'} do
     data.raw.furnace[void_machine] = nil
 end
 
+data.raw['assembling-machine']['py-gas-vent'].crafting_speed = 5
 data.raw['assembling-machine']['py-sinkhole'].fixed_recipe = 'water-pyvoid-fluid'
 data.raw['assembling-machine']['py-sinkhole'].collision_mask = {'ground-tile', 'object-layer'}
 
@@ -289,3 +290,7 @@ for name, connections in pairs{
 end
 
 data.raw['utility-sprites'].default.heat_exchange_indication.filename = '__core__/graphics/arrows/heat-exchange-indication.png'
+
+RECIPE('tailings-classification'):remove_unlock('separation')
+
+data.raw.item['ash'].stack_size = 500
