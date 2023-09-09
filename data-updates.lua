@@ -290,7 +290,14 @@ for name, connections in pairs{
 end
 
 data.raw['utility-sprites'].default.heat_exchange_indication.filename = '__core__/graphics/arrows/heat-exchange-indication.png'
-
 RECIPE('tailings-classification'):remove_unlock('separation')
-
 data.raw.item['ash'].stack_size = 500
+data.raw.fluid['acetylene'].fuel_value = '750kJ'
+data.raw.fluid['coke-oven-gas'].fuel_value = '750kJ'
+RECIPE('print-brain'):remove_unlock('organ-printing-mk02'):add_unlock('organ-printing')
+RECIPE('blood-to-zinc'):remove_unlock('molecular-decohesion-mk02'):add_unlock('molecular-decohesion').results[1].amount = 7
+
+data.raw['assembling-machine']['eaf-mk01'].energy_usage = '30MW'
+data.raw['assembling-machine']['eaf-mk02'].energy_usage = '60MW'
+data.raw['assembling-machine']['eaf-mk03'].energy_usage = '90MW'
+data.raw['assembling-machine']['eaf-mk04'].energy_usage = '120MW'

@@ -138,21 +138,148 @@ data.raw.recipe['tailings-classification'].results = {
 }
 
 --coal gas
---aromatics
+
+RECIPE {
+    type = 'recipe',
+    name = 'coal-gas-void',
+    category = 'hpf',
+    enabled = false,
+    energy_required = 5,
+    ingredients = {
+        {type = 'fluid', name = 'coal-gas', amount = 50},
+    },
+    results = {
+        {type = 'item', name = 'ash', amount = 1},
+    },
+    main_product = 'ash'
+}:add_unlock('coal-processing-1')
+
 --slacked lime
---saline water
+
+RECIPE {
+    type = 'recipe',
+    name = 'slacked-lime-void',
+    category = 'gasifier',
+    enabled = false,
+    energy_required = 2,
+    ingredients = {
+        {type = 'fluid', name = 'slacked-lime', amount = 60},
+        {type = 'fluid', name = 'carbon-dioxide', amount = 40},
+        {type = 'item', name = 'coke', amount = 1},
+    },
+    results = {
+        {type = 'fluid', name = 'water', amount = 60},
+        {type = 'fluid', name = 'oxygen', amount = 40},
+    },
+    main_product = 'oxygen'
+}:add_unlock('acetylene')
 
 -- plant/animal
 
 --skin
---photophores
+
+RECIPE {
+    type = 'recipe',
+    name = 'skin-to-lead',
+    category = 'atomizer',
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        {type = 'item', name = 'skin', amount = 7},
+    },
+    results = {
+        {type = 'item', name = 'ore-lead', amount = 5},
+    },
+    main_product = 'ore-lead',
+}:add_unlock('molecular-decohesion')
+
+RECIPE {
+    type = 'recipe',
+    name = 'skin-fatty-acids',
+    category = 'olefin',
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        {type = 'item', name = 'skin', amount = 50},
+        {type = 'fluid', name = 'middle-processed-lard', amount = 10},
+    },
+    results = {
+        {type = 'fluid', name = 'fatty-acids', amount = 50},
+    },
+    main_product = 'fatty-acids',
+}:add_unlock('eva')
+
 --bonemeal
---blood
+
+RECIPE {
+    type = 'recipe',
+    name = 'bonemeal-to-geothermal-water',
+    category = 'atomizer',
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        {type = 'item', name = 'bonemeal', amount = 5},
+    },
+    results = {
+        {type = 'fluid', name = 'geothermal-water', amount = 60},
+    },
+    main_product = 'geothermal-water',
+}:add_unlock('molecular-decohesion-mk02')
+
 --guts
---fish oil
+
+RECIPE {
+    type = 'recipe',
+    name = 'guts-to-acetic-acid',
+    category = 'atomizer',
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        {type = 'item', name = 'guts', amount = 20},
+    },
+    results = {
+        {type = 'fluid', name = 'acetic-acid', amount = 60},
+    },
+    main_product = 'acetic-acid',
+}:add_unlock('molecular-decohesion-mk02')
+
 --wastewater
+
+RECIPE {
+    type = 'recipe',
+    name = 'guts-to-acetic-acid',
+    category = 'quenching-tower',
+    enabled = false,
+    energy_required = 1,
+    ingredients = {
+        {type = 'fluid', name = 'wastewater', amount = 50},
+        {type = 'fluid', name = 'chlorine', amount = 10},
+    },
+    results = {
+        {type = 'fluid', name = 'water', amount = 50},
+    },
+    main_product = 'water',
+}:add_unlock('fish-mk01')
+
 --yaedols spores
 --used comb
+
+RECIPE {
+    type = 'recipe',
+    name = 'used-comb-to-residual-mixture',
+    category = 'eaf',
+    enabled = false,
+    energy_required = 2,
+    ingredients = {
+        {type = 'item', name = 'used-comb', amount = 3},
+        {type = 'item', name = 'graphite', amount = 1},
+    },
+    results = {
+        {type = 'fluid', name = 'residual-mixture', amount = 60},
+    },
+    main_product = 'residual-mixture',
+}:add_unlock('arqad')
+
 --anthropod blood
 
 -- ore
@@ -164,6 +291,23 @@ data.raw.recipe['tailings-classification'].results = {
 --purex concentrate 1
 --antimony phosphate 2
 --plutonium isotopes
+--sand
+
+RECIPE {
+    type = 'recipe',
+    name = 'sand-void-glass',
+    category = 'glassworks',
+    enabled = false,
+    energy_required = 40,
+    ingredients = {
+        {type = 'item', name = 'sand', amount = 30},
+        {type = 'item', name = 'crushed-quartz', amount = 1},
+    },
+    results = {
+        {type = 'fluid', name = 'molten-glass', amount = 100},
+    },
+    main_product = 'molten-glass',
+}:add_unlock('petri-dish')
 
 -- oil
 
