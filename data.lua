@@ -17,7 +17,7 @@ RECIPE {
     main_product = 'pressured-air'
 }:add_unlock('nitrogen-mk01')
 data.raw.recipe['purest-nitrogen-gas'].localised_name = {'recipe-name.fractional-distillation'}
-data.raw.recipe['purest-nitrogen-gas'].localised_description = {'recipe-name.fractional-distillation'}
+data.raw.recipe['purest-nitrogen-gas'].localised_description = {'recipe-description.fractional-distillation'}
 
 --chlorine
 
@@ -247,12 +247,12 @@ RECIPE {
 
 RECIPE {
     type = 'recipe',
-    name = 'guts-to-acetic-acid',
+    name = 'waste-water-void',
     category = 'quenching-tower',
     enabled = false,
     energy_required = 1,
     ingredients = {
-        {type = 'fluid', name = 'wastewater', amount = 50},
+        {type = 'fluid', name = 'waste-water', amount = 50},
         {type = 'fluid', name = 'chlorine', amount = 10},
     },
     results = {
@@ -262,6 +262,22 @@ RECIPE {
 }:add_unlock('fish-mk01')
 
 --yaedols spores
+
+RECIPE {
+    type = 'recipe',
+    name = 'yaedols-spores-to-oxygen',
+    category = 'atomizer',
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        {type = 'item', name = 'yaedols-spores', amount = 20},
+    },
+    results = {
+        {type = 'fluid', name = 'oxygen', amount = 40},
+    },
+    main_product = 'oxygen',
+}--:add_unlock('yaedols-upgrade')
+
 --used comb
 
 RECIPE {
@@ -278,9 +294,26 @@ RECIPE {
         {type = 'fluid', name = 'residual-mixture', amount = 60},
     },
     main_product = 'residual-mixture',
-}:add_unlock('arqad')
+}--:add_unlock('arqad-upgrade')
 
 --anthropod blood
+
+RECIPE {
+    type = 'recipe',
+    name = 'anthropod-blood-to-blood',
+    category = 'bio-reactor',
+    enabled = false,
+    energy_required = 1,
+    ingredients = {
+        {type = 'fluid', name = 'anthropod-blood', amount = 60},
+        {type = 'item', name = 'grade-1-iron', amount = 1},
+    },
+    results = {
+        {type = 'fluid', name = 'blood', amount = 60},
+        {type = 'item', name = 'grade-1-copper', amount = 1},
+    },
+    main_product = 'blood'
+}--:add_unlock('xyhipoe-upgrade')
 
 -- ore
 
@@ -298,13 +331,13 @@ RECIPE {
     name = 'sand-void-glass',
     category = 'glassworks',
     enabled = false,
-    energy_required = 40,
+    energy_required = 5,
     ingredients = {
-        {type = 'item', name = 'sand', amount = 30},
-        {type = 'item', name = 'crushed-quartz', amount = 1},
+        {type = 'item', name = 'sand', amount = 5},
+        {type = 'item', name = 'ore-quartz', amount = 4},
     },
     results = {
-        {type = 'fluid', name = 'molten-glass', amount = 100},
+        {type = 'fluid', name = 'molten-glass', amount = 10},
     },
     main_product = 'molten-glass',
 }:add_unlock('petri-dish')

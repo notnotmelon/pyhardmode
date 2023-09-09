@@ -301,3 +301,21 @@ data.raw['assembling-machine']['eaf-mk01'].energy_usage = '30MW'
 data.raw['assembling-machine']['eaf-mk02'].energy_usage = '60MW'
 data.raw['assembling-machine']['eaf-mk03'].energy_usage = '90MW'
 data.raw['assembling-machine']['eaf-mk04'].energy_usage = '120MW'
+
+RECIPE('used-comb-to-residual-mixture'):add_unlock('arqad-upgrade')
+RECIPE('yaedols-spores-to-oxygen'):add_unlock('yaedols-upgrade')
+RECIPE('anthropod-blood-to-blood'):add_unlock('xyhipoe-upgrade')
+
+for _, chest_type in pairs{'basic', 'active-provider', 'passive-provider', 'buffer', 'storage', 'requester'} do
+    local steel = chest_type == 'basic' and 'steel-chest' or 'logistic-chest-' .. chest_type
+    data.raw.container[steel].inventory_size = 20
+    data.raw.container['py-shed-' .. chest_type].inventory_size = 40
+    data.raw.container['py-storehouse-' .. chest_type].inventory_size = 80
+    data.raw.container['py-warehosue-' .. chest_type].inventory_size = 120
+    data.raw.container['py-deposit-' .. chest_type].inventory_size = 160
+end
+data.raw.container['wooden-chest'].inventory_size = 4
+data.raw.container['iron-chest'].inventory_size = 9
+
+data.raw['electric-energy-interface']['pydrive_skin'].energy_source.buffer_capacity = '200MW'
+data.raw['electric-energy-interface']['pydrive_skin'].energy_usage = '200MW'
