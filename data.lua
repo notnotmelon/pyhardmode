@@ -335,6 +335,9 @@ RECIPE {
     main_product = 'carbolic-oil',
 }:add_unlock('rendering')
 
+-- saline water
+-- flue gas
+
 -- ore
 
 --vanadium pulp stage 3
@@ -403,7 +406,7 @@ RECIPE {
         {type = 'fluid', name = 'purex-concentrate-1', amount = 30},
     },
     results = {
-        {type = 'fluid', name = 'phosphorous-acid', amount = 100},
+        {type = 'fluid', name = 'phosphorous-acid', amount = 120},
         {type = 'item', name = 'sb-oxide', amount = 1, probability = 0.30},
     },
     main_product = 'phosphorous-acid',
@@ -416,7 +419,7 @@ RECIPE {
     name = 'plutonium-shuffle-1',
     category = 'neutron-absorber',
     enabled = false,
-    energy_required = 100 / 0.4517,
+    energy_required = 1000 / 0.4517,
     ingredients = {
         {type = 'fluid', name = 'plutonium-peroxide', amount = 35},
         {type = 'item', name = 'pu-239', amount = 1},
@@ -434,7 +437,7 @@ RECIPE {
     name = 'plutonium-shuffle-2',
     category = 'neutron-absorber',
     enabled = false,
-    energy_required = 100 / 0.986,
+    energy_required = 1000 / 0.986,
     ingredients = {
         {type = 'fluid', name = 'plutonium-peroxide', amount = 35},
         {type = 'item', name = 'pu-239', amount = 1},
@@ -452,7 +455,7 @@ RECIPE {
     name = 'plutonium-shuffle-3',
     category = 'neutron-absorber',
     enabled = false,
-    energy_required = 100 / 0.71,
+    energy_required = 1000 / 0.71,
     ingredients = {
         {type = 'fluid', name = 'plutonium-peroxide', amount = 35},
         {type = 'item', name = 'pu-242', amount = 2},
@@ -469,7 +472,7 @@ RECIPE {
     name = 'plutonium-shuffle-4',
     category = 'neutron-absorber',
     enabled = false,
-    energy_required = 100 / 0.362,
+    energy_required = 1000 / 0.362,
     ingredients = {
         {type = 'fluid', name = 'plutonium-peroxide', amount = 35},
         {type = 'item', name = 'pu-241', amount = 1},
@@ -513,6 +516,9 @@ RECIPE {
 --naphtha
 --gasolene
 --pitch
+--tall oil
+--cumeme
+--condensates
 
 -- other
 

@@ -321,18 +321,29 @@ data.raw['electric-energy-interface']['pydrive_skin'].energy_source.buffer_capac
 data.raw['electric-energy-interface']['pydrive_skin'].energy_usage = '200MW'
 
 RECIPE('neutron-absorber-mk01'):remove_unlock('nuclear-power'):add_unlock('uranium-processing')
-data.raw['assembling-machine']['neutron-absorber-mk02'].energy_source = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].energy_source)
-data.raw['assembling-machine']['neutron-absorber-mk03'].energy_source = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].energy_source)
-data.raw['assembling-machine']['neutron-absorber-mk04'].energy_source = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].energy_source)
-data.raw['assembling-machine']['neutron-absorber-mk02'].energy_usage = '800kW'
-data.raw['assembling-machine']['neutron-absorber-mk03'].energy_usage = '1.2MW'
-data.raw['assembling-machine']['neutron-absorber-mk04'].energy_usage = '1.6MW'
-data.raw['assembling-machine']['neutron-absorber-mk02'].energy_source.fluid_usage_per_tick = 4/60
-data.raw['assembling-machine']['neutron-absorber-mk03'].energy_source.fluid_usage_per_tick = 6/60
-data.raw['assembling-machine']['neutron-absorber-mk04'].energy_source.fluid_usage_per_tick = 8/60
-data.raw['assembling-machine']['neutron-absorber-mk02'].fluid_boxes = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes)
-data.raw['assembling-machine']['neutron-absorber-mk03'].fluid_boxes = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes)
-data.raw['assembling-machine']['neutron-absorber-mk04'].fluid_boxes = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes)
+data.raw['assembling-machine']['neutron-absorber-mk01'].module_specification = nil
+data.raw['assembling-machine']['neutron-absorber-mk01'].module_slots = nil
+data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes = {
+    {
+        production_type = 'input',
+        pipe_picture = DATA.Pipes.pictures('assembling-machine-2', nil, {0.0, -0.96}, nil, nil),
+        pipe_covers = DATA.Pipes.covers(false, true, true, true),
+        base_area = 10,
+        base_level = -1,
+        pipe_connections = {{type = 'input-output', position = {2.0, 0.0}}, {type = 'input-output', position = {-2.0, 0.0}}}
+    },
+    off_when_no_fluid_recipe = true
+}
+table.insert(data.raw['assembling-machine']['neutron-absorber-mk01'].energy_source.fluid_box.pipe_connections, {type = 'input-output', position = {0, 2}})
+for i = 2, 4 do
+    local name = 'neutron-absorber-mk0' .. i
+    data.raw['assembling-machine'][name].fluid_boxes = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes)
+    data.raw['assembling-machine'][name].energy_source = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].energy_source)
+    data.raw['assembling-machine'][name].energy_source.fluid_usage_per_tick = i*2/60
+    data.raw['assembling-machine'][name].energy_usage = (400 * i) .. 'kW'
+    data.raw['assembling-machine'][name].module_specification = nil
+    data.raw['assembling-machine'][name].module_slots = nil
+end
 
 if not mods.pystellarexpedition then
     RECIPE('military-science-pack'):add_ingredient{'guar-gum', 1}
@@ -343,3 +354,5 @@ if not mods.pystellarexpedition then
     RECIPE('arqad-propolis-01'):remove_ingredient('dhilmos-egg'):add_ingredient('dhilmos')
     RECIPE('arqad-propolis-02'):remove_ingredient('dhilmos-egg'):add_ingredient{'dhilmos', 2}
 end
+
+data.raw.recipe['neutron-absorbston'].energy_required = 50
