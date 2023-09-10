@@ -336,8 +336,10 @@ data.raw['assembling-machine']['neutron-absorber-mk04'].fluid_boxes = table.deep
 
 if not mods.pystellarexpedition then
     RECIPE('military-science-pack'):add_ingredient{'guar-gum', 1}
+    RECIPE('military-science-pack'):add_ingredient{'zipir1', 1}
     RECIPE('capacitor2'):add_ingredient{'cadaveric-arum-seeds', 5}
     RECIPE('chemical-science-pack'):add_ingredient{'mukmoux', 2}
     RECIPE('py-science-pack-3'):add_ingredient{'gas-bladder', 5}
     RECIPE('arqad-propolis-01'):remove_ingredient('dhilmos-egg'):add_ingredient('dhilmos')
+    RECIPE('arqad-propolis-02'):remove_ingredient('dhilmos-egg'):add_ingredient{'dhilmos', 2}
 end
