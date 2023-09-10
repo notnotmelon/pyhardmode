@@ -331,5 +331,3 @@ if not mods.pystellarexpedition then
     RECIPE('arqad-propolis-01'):remove_ingredient('dhilmos-egg'):add_ingredient('dhilmos')
     RECIPE('arqad-propolis-02'):remove_ingredient('dhilmos-egg'):add_ingredient{'dhilmos', 2}
 end
-
-data.raw.recipe['neutron-absorbston'].energy_required = 50
