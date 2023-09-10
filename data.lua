@@ -294,7 +294,7 @@ RECIPE {
         {type = 'fluid', name = 'residual-mixture', amount = 60},
     },
     main_product = 'residual-mixture',
-}--:add_unlock('arqad-upgrade')
+}:add_unlock('arqad')
 
 --arthropod blood
 
@@ -305,15 +305,15 @@ RECIPE {
     enabled = false,
     energy_required = 1,
     ingredients = {
-        {type = 'fluid', name = 'arthropod-blood', amount = 60},
+        {type = 'fluid', name = 'arthropod-blood', amount = 30},
         {type = 'item', name = 'grade-1-iron', amount = 1},
     },
     results = {
-        {type = 'fluid', name = 'blood', amount = 60},
+        {type = 'fluid', name = 'blood', amount = 30},
         {type = 'item', name = 'grade-1-copper', amount = 1},
     },
     main_product = 'blood'
-}--:add_unlock('xyhipoe-upgrade')
+}:add_unlock('water-invertebrates-mk01')
 
 -- chitin
 

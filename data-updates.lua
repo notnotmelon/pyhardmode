@@ -302,9 +302,7 @@ data.raw['assembling-machine']['eaf-mk02'].energy_usage = '60MW'
 data.raw['assembling-machine']['eaf-mk03'].energy_usage = '90MW'
 data.raw['assembling-machine']['eaf-mk04'].energy_usage = '120MW'
 
-RECIPE('used-comb-to-residual-mixture'):add_unlock('arqad-upgrade')
 RECIPE('yaedols-spores-to-oxygen'):add_unlock('yaedols-upgrade')
-RECIPE('arthropod-blood-to-blood'):add_unlock('xyhiphoe-upgrade')
 RECIPE('bonemeal-to-geothermal-water'):add_unlock('ulric-upgrade')
 
 for _, chest_type in pairs{'basic', 'active-provider', 'passive-provider', 'buffer', 'storage', 'requester'} do
@@ -335,3 +333,11 @@ data.raw['assembling-machine']['neutron-absorber-mk04'].energy_source.fluid_usag
 data.raw['assembling-machine']['neutron-absorber-mk02'].fluid_boxes = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes)
 data.raw['assembling-machine']['neutron-absorber-mk03'].fluid_boxes = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes)
 data.raw['assembling-machine']['neutron-absorber-mk04'].fluid_boxes = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes)
+
+if not mods.pystellarexpedition then
+    RECIPE('military-science-pack'):add_ingredient{'guar-gum', 1}
+    RECIPE('capacitor2'):add_ingredient{'cadaveric-arum-seeds', 5}
+    RECIPE('chemical-science-pack'):add_ingredient{'mukmoux', 2}
+    RECIPE('py-science-pack-3'):add_ingredient{'gas-bladder', 5}
+    RECIPE('arqad-propolis-01'):remove_ingredient('dhilmos-egg'):add_ingredient('dhilmos')
+end
