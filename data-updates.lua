@@ -329,12 +329,13 @@ data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes = {
         pipe_picture = DATA.Pipes.pictures('assembling-machine-2', nil, {0.0, -0.96}, nil, nil),
         pipe_covers = DATA.Pipes.covers(false, true, true, true),
         base_area = 10,
-        base_level = -1,
+        base_level = 0,
         pipe_connections = {{type = 'input-output', position = {2.0, 0.0}}, {type = 'input-output', position = {-2.0, 0.0}}}
     },
     off_when_no_fluid_recipe = true
 }
 table.insert(data.raw['assembling-machine']['neutron-absorber-mk01'].energy_source.fluid_box.pipe_connections, {type = 'input-output', position = {0, 2}})
+data.raw['assembling-machine']['neutron-absorber-mk01'].energy_source.fluid_box.base_level = 0
 for i = 2, 4 do
     local name = 'neutron-absorber-mk0' .. i
     data.raw['assembling-machine'][name].fluid_boxes = table.deepcopy(data.raw['assembling-machine']['neutron-absorber-mk01'].fluid_boxes)
