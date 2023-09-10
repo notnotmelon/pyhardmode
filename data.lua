@@ -224,7 +224,7 @@ RECIPE {
         {type = 'fluid', name = 'geothermal-water', amount = 60},
     },
     main_product = 'geothermal-water',
-}:add_unlock('molecular-decohesion-mk02')
+}:add_unlock('ulric-upgrade')
 
 --guts
 
@@ -266,14 +266,14 @@ RECIPE {
 RECIPE {
     type = 'recipe',
     name = 'yaedols-spores-to-oxygen',
-    category = 'atomizer',
+    category = 'hpf',
     enabled = false,
-    energy_required = 10,
+    energy_required = 4,
     ingredients = {
         {type = 'item', name = 'yaedols-spores', amount = 20},
     },
     results = {
-        {type = 'fluid', name = 'oxygen', amount = 40},
+        {type = 'fluid', name = 'oxygen', amount = 20},
     },
     main_product = 'oxygen',
 }--:add_unlock('yaedols-upgrade')
@@ -296,16 +296,16 @@ RECIPE {
     main_product = 'residual-mixture',
 }--:add_unlock('arqad-upgrade')
 
---anthropod blood
+--arthropod blood
 
 RECIPE {
     type = 'recipe',
-    name = 'anthropod-blood-to-blood',
+    name = 'arthropod-blood-to-blood',
     category = 'bio-reactor',
     enabled = false,
     energy_required = 1,
     ingredients = {
-        {type = 'fluid', name = 'anthropod-blood', amount = 60},
+        {type = 'fluid', name = 'arthropod-blood', amount = 60},
         {type = 'item', name = 'grade-1-iron', amount = 1},
     },
     results = {
@@ -315,15 +315,175 @@ RECIPE {
     main_product = 'blood'
 }--:add_unlock('xyhipoe-upgrade')
 
+-- chitin
+
+RECIPE {
+    type = 'recipe',
+    name = 'chitin-void',
+    category = 'tar',
+    enabled = false,
+    energy_required = 2,
+    ingredients = {
+        {'chitin', 3},
+        {type = 'fluid', name = 'middle-oil', amount = 100},
+        {type = 'fluid', name = 'steam', amount = 50, min_temperature = 250},
+    },
+    results = {
+        {type = 'fluid', name = 'carbolic-oil', amount = 100},
+        {type = 'fluid', name = 'naphthalene-oil', amount = 50},
+    },
+    main_product = 'carbolic-oil',
+}:add_unlock('rendering')
+
 -- ore
 
 --vanadium pulp stage 3
---coal water slurry
+
+RECIPE {
+    type = 'recipe',
+    name = 'vanadium-pulp-3-void',
+    category = 'agitator',
+    enabled = false,
+    energy_required = 5,
+    ingredients = {
+        {type = 'fluid', name = 'vpulp3', amount = 100},
+        {type = 'fluid', name = 'coalbed-gas', amount = 50},
+    },
+    results = {
+        {type = 'fluid', name = 'vpulp1', amount = 50},
+    },
+    main_product = 'vpulp1',
+}:add_unlock('vanadium-processing')
+
 --titanium overflow waste
+
+RECIPE {
+    type = 'recipe',
+    name = 'titanium-overflow-waste-void',
+    category = 'evaporator',
+    enabled = false,
+    energy_required = 1,
+    ingredients = {
+        {type = 'fluid', name = 'ti-overflow-waste', amount = 25},
+    },
+    results = {
+        {type = 'item', name = 'ti-rejects', amount = 1},
+    },
+    main_product = 'ti-rejects',
+}:add_unlock('titanium-mk02')
+
 --titanium pulp (stage 3)
---purex concentrate 1
---antimony phosphate 2
+
+RECIPE {
+    type = 'recipe',
+    name = 'titanium-pulp-stage-3-void',
+    category = 'pan',
+    enabled = false,
+    energy_required = 3,
+    ingredients = {
+        {type = 'fluid', name = 'ti-pulp-03', amount = 60},
+    },
+    results = {
+        {type = 'fluid', name = 'ti-overflow-waste', amount = 30},
+        {type = 'fluid', name = 'mibc', amount = 30},
+    },
+    main_product = 'mibc',
+}:add_unlock('titanium-mk02')
+
+--purex concentrate 1 & antimony phosphate 2
+
+RECIPE {
+    type = 'recipe',
+    name = 'purex-antimony-void',
+    category = 'scrubber',
+    enabled = false,
+    energy_required = 100,
+    ingredients = {
+        {type = 'fluid', name = 'sb-phosphate-2', amount = 60},
+        {type = 'fluid', name = 'purex-concentrate-1', amount = 30},
+    },
+    results = {
+        {type = 'fluid', name = 'phosphorous-acid', amount = 100},
+        {type = 'item', name = 'sb-oxide', amount = 1, probability = 0.30},
+    },
+    main_product = 'phosphorous-acid',
+}:add_unlock('uranium-processing')
+
 --plutonium isotopes
+
+RECIPE {
+    type = 'recipe',
+    name = 'plutonium-shuffle-1',
+    category = 'neutron-absorber',
+    enabled = false,
+    energy_required = 100 / 0.4517,
+    ingredients = {
+        {type = 'fluid', name = 'plutonium-peroxide', amount = 35},
+        {type = 'item', name = 'pu-239', amount = 1},
+        {type = 'item', name = 'pu-241', amount = 1},
+    },
+    results = {
+        {type = 'item', name = 'pu-240', amount = 1},
+        {type = 'item', name = 'pu-242', amount = 1},
+    },
+    main_product = 'pu-240',
+}:add_unlock('uranium-processing')
+
+RECIPE {
+    type = 'recipe',
+    name = 'plutonium-shuffle-2',
+    category = 'neutron-absorber',
+    enabled = false,
+    energy_required = 100 / 0.986,
+    ingredients = {
+        {type = 'fluid', name = 'plutonium-peroxide', amount = 35},
+        {type = 'item', name = 'pu-239', amount = 1},
+        {type = 'item', name = 'pu-240', amount = 1},
+    },
+    results = {
+        {type = 'item', name = 'pu-238', amount = 1},
+        {type = 'item', name = 'pu-242', amount = 1},
+    },
+    main_product = 'pu-242',
+}:add_unlock('uranium-processing')
+
+RECIPE {
+    type = 'recipe',
+    name = 'plutonium-shuffle-3',
+    category = 'neutron-absorber',
+    enabled = false,
+    energy_required = 100 / 0.71,
+    ingredients = {
+        {type = 'fluid', name = 'plutonium-peroxide', amount = 35},
+        {type = 'item', name = 'pu-242', amount = 2},
+    },
+    results = {
+        {type = 'item', name = 'pu-241', amount = 1},
+        {type = 'item', name = 'pu-239', amount = 1},
+    },
+    main_product = 'pu-241',
+}:add_unlock('uranium-processing')
+
+RECIPE {
+    type = 'recipe',
+    name = 'plutonium-shuffle-4',
+    category = 'neutron-absorber',
+    enabled = false,
+    energy_required = 100 / 0.362,
+    ingredients = {
+        {type = 'fluid', name = 'plutonium-peroxide', amount = 35},
+        {type = 'item', name = 'pu-241', amount = 1},
+        {type = 'item', name = 'pu-242', amount = 1},
+    },
+    results = {
+        {type = 'item', name = 'pu-239', amount = 1},
+        {type = 'item', name = 'pu-240', amount = 1},
+    },
+    main_product = 'pu-239',
+}:add_unlock('uranium-processing')
+
+data.raw.recipe['plutonium-seperation'].energy_required = 60
+
 --sand
 
 RECIPE {
@@ -340,7 +500,7 @@ RECIPE {
         {type = 'fluid', name = 'molten-glass', amount = 10},
     },
     main_product = 'molten-glass',
-}:add_unlock('petri-dish')
+}:add_unlock('basic-substrate')
 
 -- oil
 
