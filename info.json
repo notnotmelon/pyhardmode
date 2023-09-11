@@ -9,7 +9,8 @@
   "description": "Contains a few tiny changes to Pyanodons mods...",
   "dependencies": [
     "base >= 1.1.74",
-    "pyalternativeenergy >= 1.2.6"
+    "pyalternativeenergy >= 1.2.6",
+    "aai-loaders"
   ],
   "package": {
     "ignore": [],

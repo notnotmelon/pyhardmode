@@ -399,3 +399,17 @@ nerf_biomass('wood-seeds', 'item', 2)
 
 RECIPE('seaweed-to-chelator'):remove_unlock('phytomining-mk02')
 data.raw.recipe['seaweed-to-chelator'] = nil
+
+for loader, fluid in pairs{
+    ['aai-loader'] = 'fish-oil',
+    ['aai-fast-loader'] = 'bio-oil',
+    ['aai-express-loader'] = 'grease',
+} do
+    data.raw['storage-tank'][loader .. '-pipe'].fluid_box.filter = fluid
+    local localised_description = data.raw.technology[loader].localised_description
+    localised_description[3] = fluid
+    localised_description = {'', localised_description, ' (', {'fluid-name.' .. fluid}, ')'}
+    data.raw.technology[loader].localised_description = localised_description
+    data.raw['loader-1x1'][loader].localised_description = localised_description
+    data.raw.item[loader].localised_description = localised_description
+end
