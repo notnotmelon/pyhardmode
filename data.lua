@@ -61,14 +61,14 @@ RECIPE {
     name = 'limestone-void',
     category = 'secondary-crusher',
     enabled = false,
-    energy_required = 2,
+    energy_required = 0.5,
     ingredients = {
-        {type = 'item', name = 'soil', amount = 1},
-        {type = 'item', name = 'limestone', amount = 2},
+        {type = 'item', name = 'soil', amount = 2},
+        {type = 'item', name = 'limestone', amount = 3},
     },
     results = {
-        {type = 'item', name = 'soil', amount = 2, catalyst_amount = 1},
-        {type = 'item', name = 'limestone', amount = 1, catalyst_amount = 1},
+        {type = 'item', name = 'soil', amount = 3, catalyst_amount = 2},
+        {type = 'item', name = 'limestone', amount = 2, catalyst_amount = 2},
     },
     main_product = 'soil'
 }:add_unlock('crusher-2')
