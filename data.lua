@@ -243,6 +243,37 @@ RECIPE {
     main_product = 'acetic-acid',
 }:add_unlock('molecular-decohesion-mk02')
 
+RECIPE {
+    type = 'recipe',
+    name = 'guts-to-jerky',
+    category = 'smelting',
+    enabled = false,
+    energy_required = 5,
+    ingredients = {
+        {type = 'item', name = 'guts', amount = 10},
+    },
+    results = {
+        {type = 'item', name = 'dried-meat', amount = 5},
+    },
+    main_product = 'dried-meat',
+}:add_unlock('microbiology-mk01')
+
+RECIPE {
+    type = 'recipe',
+    name = 'jerky-to-phytoplankton',
+    category = 'plankton',
+    enabled = false,
+    energy_required = 30,
+    ingredients = {
+        {type = 'fluid', name = 'water', amount = 500},
+        {type = 'item', name = 'dried-meat', amount = 1},
+    },
+    results = {
+        {type = 'fluid', name = 'phytoplankton', amount = 10},
+    },
+    main_product = 'phytoplankton',
+}:add_unlock('microbiology-mk01')
+
 --wastewater
 
 RECIPE {
