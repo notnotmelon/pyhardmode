@@ -398,7 +398,7 @@ nerf_biomass('fawogae', 'module', 2)
 nerf_biomass('log', 'item', 2)
 nerf_biomass('wood', 'item', 2)
 nerf_biomass('wood-seeds', 'item', 4)
-nerf_biomass('moss', 'module', 3)
+nerf_biomass('moss', 'module', 5)
 nerf_biomass('native-flora', 'item', 2)
 
 RECIPE('seaweed-to-chelator'):remove_unlock('phytomining-mk02')

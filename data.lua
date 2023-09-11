@@ -226,6 +226,23 @@ RECIPE {
     main_product = 'geothermal-water',
 }:add_unlock('ulric-upgrade')
 
+-- bones
+
+RECIPE {
+    type = 'recipe',
+    name = 'bones-to-kerogen',
+    category = 'atomizer',
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        {type = 'item', name = 'bones', amount = 5},
+    },
+    results = {
+        {type = 'item', name = 'kerogen', amount = 8},
+    },
+    main_product = 'kerogen',
+}:add_unlock('molecular-decohesion')
+
 --guts
 
 RECIPE {
