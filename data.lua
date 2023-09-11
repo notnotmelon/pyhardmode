@@ -599,8 +599,44 @@ RECIPE {
 --methanol
 --coke oven gas
 --hydroflouric acid
---vanadates
---glycerol
---ammonia/cyanic acid
+--ammonia
+
+RECIPE('cyanic-acid-01'):remove_unlock('advanced-electronics'):add_unlock('melamine')
+
 --hydrogen chloride
+
+RECIPE {
+    type = 'recipe',
+    name = 'hydrogen-chloride-void',
+    category = 'chemistry',
+    enabled = false,
+    energy_required = 4,
+    ingredients = {
+        {type = 'fluid', name = 'hydrogen-chloride', amount = 100},
+        {type = 'item', name = 'small-lamp', amount = 1},
+    },
+    results = {
+        {type = 'fluid', name = 'chlorine', amount = 100},
+        {type = 'fluid', name = 'hydrogen', amount = 100},
+        {type = 'item', name = 'small-lamp', amount = 1, probability = 0.5},
+    },
+    main_product = 'chlorine'
+}:add_unlock('filtration')
+
 --acetone
+
+RECIPE {
+    type = 'recipe',
+    name = 'acetone-void-degrease',
+    category = 'grease',
+    enabled = false,
+    energy_required = 3,
+    ingredients = {
+        {type = 'fluid', name = 'grease', amount = 25},
+        {type = 'fluid', name = 'water', amount = 100},
+        {type = 'fluid', name = 'acetone', amount = 50},
+    },
+    results = {
+        {type = 'fluid', name = 'dirty-water-heavy', amount = 200},
+    },
+}:add_unlock('paramagnetic-material')
