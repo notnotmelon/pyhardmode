@@ -598,6 +598,23 @@ RECIPE {
 
 --methanol
 --coke oven gas
+
+RECIPE {
+    type = 'recipe',
+    name = 'cog-void-soot',
+    category = 'wet-scrubber',
+    enabled = false,
+    energy_required = 2,
+    ingredients = {
+        {type = 'fluid', name = 'coke-oven-gas', amount = 10, fluidbox_index = 1},
+        {type = 'fluid', name = 'water', amount = 10, fluidbox_index = 2},
+    },
+    results = {
+        {type = 'item', name = 'soot', amount = 1},
+    },
+    main_product = 'soot'
+}:add_unlock('hot-air-mk02')
+
 --fluorine gas
 
 RECIPE {
