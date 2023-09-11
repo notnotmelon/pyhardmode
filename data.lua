@@ -598,7 +598,26 @@ RECIPE {
 
 --methanol
 --coke oven gas
---hydroflouric acid
+--fluorine gas
+
+RECIPE {
+    type = 'recipe',
+    name = 'fluorine-to-olefins',
+    category = 'olefin',
+    enabled = false,
+    energy_required = 5,
+    ingredients = {
+        {type = 'item', name = 'nickel-plate', amount = 1},
+        {type = 'fluid', name = 'fluorine-gas', amount = 100},
+        {type = 'fluid', name = 'water', amount = 100},
+    },
+    results = {
+        {type = 'fluid', name = 'olefin', amount = 100},
+        {type = 'fluid', name = 'naphtha', amount = 25},
+    },
+    main_product = 'olefin'
+}:add_unlock('phosphorous-processing')
+
 --ammonia
 
 RECIPE('cyanic-acid-01'):remove_unlock('advanced-electronics'):add_unlock('melamine')
