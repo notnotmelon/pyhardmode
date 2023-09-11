@@ -626,11 +626,11 @@ RECIPE {
     ingredients = {
         {type = 'item', name = 'nickel-plate', amount = 1},
         {type = 'fluid', name = 'fluorine-gas', amount = 100},
-        {type = 'fluid', name = 'water', amount = 100},
+        {type = 'fluid', name = 'crude-oil', amount = 50},
     },
     results = {
         {type = 'fluid', name = 'olefin', amount = 100},
-        {type = 'fluid', name = 'naphtha', amount = 25},
+        {type = 'fluid', name = 'naphtha', amount = 50},
     },
     main_product = 'olefin'
 }:add_unlock('phosphorous-processing')
