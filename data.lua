@@ -335,8 +335,33 @@ RECIPE {
     main_product = 'carbolic-oil',
 }:add_unlock('rendering')
 
--- saline water
--- flue gas
+--sodium hydroxide
+
+RECIPE {
+    type = 'recipe',
+    name = 'sodium-hydroxide-void',
+    category = 'washer',
+    enabled = false,
+    energy_required = 5,
+    ingredients = {
+        {type = 'fluid', name = 'water', amount = 100},
+        {type = 'item', name = 'sodium-hydroxide', amount = 10},
+    },
+    results = {
+        {type = 'fluid', name = 'water-saline', amount = 100},
+    },
+    main_product = 'water-saline',
+}:add_unlock('electrolysis')
+
+--flue gas
+
+local fluegas_to_ash = table.deepcopy(data.raw.recipe['fluegas-filtration'])
+data.raw.recipe['fluegas-filtration'].results = {}
+data.raw.recipe['fluegas-filtration'].energy_required = 2
+fluegas_to_ash.name = 'fluegas-to-ash'
+fluegas_to_ash.category = 'quenching-tower'
+data:extend{fluegas_to_ash}
+RECIPE('fluegas-to-ash'):add_unlock('tar-processing')
 
 -- ore
 
@@ -354,6 +379,7 @@ RECIPE {
     },
     results = {
         {type = 'fluid', name = 'vpulp1', amount = 50},
+        {type = 'fluid', name = 'flue-gas', amount = 50},
     },
     main_product = 'vpulp1',
 }:add_unlock('vanadium-processing')
