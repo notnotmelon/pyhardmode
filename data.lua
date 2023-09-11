@@ -201,7 +201,7 @@ RECIPE {
     energy_required = 10,
     ingredients = {
         {type = 'item', name = 'skin', amount = 50},
-        {type = 'fluid', name = 'middle-processed-lard', amount = 10},
+        {type = 'fluid', name = 'middle-processed-lard', amount = 20},
     },
     results = {
         {type = 'fluid', name = 'fatty-acids', amount = 50},
