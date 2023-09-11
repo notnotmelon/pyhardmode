@@ -331,3 +331,7 @@ if not mods.pystellarexpedition then
     RECIPE('arqad-propolis-01'):remove_ingredient('dhilmos-egg'):add_ingredient('dhilmos')
     RECIPE('arqad-propolis-02'):remove_ingredient('dhilmos-egg'):add_ingredient{'dhilmos', 2}
 end
+
+data.raw.unit['caravan'].affected_by_tiles = false
+data.raw.unit['flyavan'].affected_by_tiles = false
+data.raw.unit['nukavan'].affected_by_tiles = false
