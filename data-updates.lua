@@ -358,6 +358,9 @@ undo_biomass('yaedols-spores-mk03', 'item')
 undo_biomass('yaedols-spores-mk04', 'item')
 undo_biomass('saps', 'item')
 undo_biomass('sap-seeds', 'item')
+undo_biomass('dirty-water-light', 'fluid')
+
+-- animal parts
 undo_biomass('bonemeal', 'item')
 undo_biomass('bones', 'item')
 undo_biomass('brain', 'item')
@@ -368,10 +371,9 @@ undo_biomass('guts', 'item')
 undo_biomass('skin', 'item')
 undo_biomass('shell', 'item')
 undo_biomass('blood', 'fluid')
-undo_biomass('arthropod-blood', 'fluid')
-undo_biomass('dirty-water-light', 'fluid')
 undo_biomass('psc', 'fluid')
 undo_biomass('xenogenic-cells', 'fluid')
+undo_biomass('arthropod-blood', 'fluid')
 
 local function nerf_biomass(item, type, multiplier)
     local prototype = data.raw[type][item]
