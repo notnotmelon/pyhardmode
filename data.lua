@@ -597,6 +597,24 @@ RECIPE {
 -- other
 
 --methanol
+
+RECIPE {
+    type = 'recipe',
+    name = 'methanol-void-denitrification',
+    category = 'methanol',
+    enabled = false,
+    energy_required = 2,
+    ingredients = {
+        {type = 'fluid', name = 'methanol', amount = 100},
+        {type = 'fluid', name = 'waste-water', amount = 100},
+    },
+    results = {
+        {type = 'fluid', name = 'nitrogen', amount = 100},
+        {type = 'fluid', name = 'water', amount = 100},
+    },
+    main_product = 'water'
+}:add_unlock('methanol-processing-1')
+
 --coke oven gas
 
 RECIPE {
