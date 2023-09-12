@@ -426,7 +426,7 @@ data.raw['logistic-robot']['logistic-robot-ht'].max_payload_size = 4
 for am = 5, 1, -1 do
     for fm = 5, 1, -1 do
         local name = 'beacon-AM' .. am ..'-FM' .. fm
-        local beacon = table.deepcopy(data.raw.beacon[name])
+        local beacon = data.raw.beacon[name]
         beacon.distribution_effectivity = 0.2 * am * fm
     end
 end
