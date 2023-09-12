@@ -418,7 +418,15 @@ for loader, fluid in pairs{
     data.raw.item[loader].localised_description = localised_description
 end
 
-data.raw['logistic-robot']['py-logistic-robot-01'].max_payload_size = 1
+data.raw['logistic-robot']['py-logistic-robot-01'].max_bpayload_size = 1
 data.raw['logistic-robot']['py-logistic-robot-02'].max_payload_size = 2
 data.raw['logistic-robot']['l-pynobot-mk03'].max_payload_size = 3
 data.raw['logistic-robot']['logistic-robot-ht'].max_payload_size = 4
+
+for am = 5, 1, -1 do
+    for fm = 5, 1, -1 do
+        local name = 'beacon-AM' .. am ..'-FM' .. fm
+        local beacon = table.deepcopy(data.raw.beacon[name])
+        beacon.distribution_effectivity = 0.2 * am * fm
+    end
+end
