@@ -417,3 +417,8 @@ for loader, fluid in pairs{
     data.raw['loader-1x1'][loader].localised_description = localised_description
     data.raw.item[loader].localised_description = localised_description
 end
+
+data.raw['logistic-robot']['py-logistic-robot-01'].max_payload_size = 1
+data.raw['logistic-robot']['py-logistic-robot-02'].max_payload_size = 2
+data.raw['logistic-robot']['l-pynobot-mk03'].max_payload_size = 3
+data.raw['logistic-robot']['logistic-robot-ht'].max_payload_size = 4
