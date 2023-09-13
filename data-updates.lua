@@ -5,7 +5,6 @@ require 'prototypes.mining'
 require 'prototypes.biomass'
 
 RECIPE('tailings-classification'):remove_unlock('separation')
-data.raw.item['ash'].stack_size = 500
 data.raw.fluid['acetylene'].fuel_value = '750kJ'
 data.raw.fluid['coke-oven-gas'].fuel_value = '750kJ'
 data.raw.item['raw-coal'].fuel_value = '1.5MJ'
