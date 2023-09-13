@@ -630,6 +630,24 @@ RECIPE {
     main_product = 'water'
 }:add_unlock('methanol-processing-1')
 
+-- msa acid
+
+RECIPE {
+    type = 'recipe',
+    name = 'msa-void-boric-acid',
+    category = 'mixer',
+    enabled = false,
+    energy_required = 1,
+    ingredients = {
+        {type = 'fluid', name = 'boric-acid', amount = 100},
+        {type = 'fluid', name = 'msa', amount = 100},
+    },
+    results = {
+        {type = 'fluid', name = 'water', amount = 200},
+    },
+    main_product = 'water'
+}
+
 --coke oven gas
 
 RECIPE {

@@ -59,3 +59,5 @@ for _, recipe in pairs{
 end
 
 data.raw.fluid['residual-gas'].fuel_value = nil
+
+RECIPE('msa-void-boric-acid'):add_unlock('cadaveric-arum-upgrade')
