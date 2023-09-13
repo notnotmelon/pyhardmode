@@ -21,7 +21,6 @@ undo_biomass('yaedols-spores-mk03', 'item')
 undo_biomass('yaedols-spores-mk04', 'item')
 undo_biomass('saps', 'item')
 undo_biomass('sap-seeds', 'item')
-undo_biomass('dirty-water-light', 'fluid')
 
 -- animal parts
 undo_biomass('bonemeal', 'item')

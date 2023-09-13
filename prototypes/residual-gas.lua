@@ -59,5 +59,10 @@ for _, recipe in pairs{
 end
 
 data.raw.fluid['residual-gas'].fuel_value = nil
+data.raw.fluid['residual-oil'].fuel_value = nil
+data.raw.fluid['residual-mixture'].fuel_value = nil
 
 RECIPE('msa-void-boric-acid'):add_unlock('cadaveric-arum-upgrade')
+
+FUN.remove_ingredient('residual-mixture', 'ash')
+FUN.add_ingredient('residual-mixture', {type = 'item', name = 'chromite-sand', amount = 1})

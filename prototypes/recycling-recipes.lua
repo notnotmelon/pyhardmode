@@ -580,14 +580,40 @@ RECIPE {
 -- oil
 
 --medium disilates
---creosote
+
+RECIPE {
+    type = 'recipe',
+    name = 'medium-distillate-to-high-distillate',
+    category = 'cracker',
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        {type = 'fluid', name = 'medium-distillate', amount = 100},
+        {type = 'fluid', name = 'steam', amount = 300},
+        {type = 'item', name = 'sncr-alloy', amount = 1},
+    },
+    results = {
+        {type = 'fluid', name = 'high-distillate', amount = 100},
+    }
+}:add_unlock('light-oil-mk01')
+
 --anthracene oil
---benzene
---residual oil
---gasolene
---pitch
---tall oil
---cumeme
+
+RECIPE {
+    type = 'recipe',
+    name = 'anthracene-oil-creosote',
+    category = 'tar',
+    enabled = false,
+    energy_required = 2,
+    ingredients = {
+        {type = 'fluid', name = 'anthracene-oil', amount = 50},
+    },
+    results = {
+        {type = 'fluid', name = 'creosote', amount = 20},
+    },
+    main_product = 'creosote'
+}:add_unlock('creosote')
+
 --refined natural gas
 
 RECIPE {
@@ -607,6 +633,25 @@ RECIPE {
         {type = 'fluid', name = 'molten-salt', amount = 30},
     },
     main_product = 'methanal'
+}:add_unlock('petroleum-gas-mk01')
+
+RECIPE {
+    type = 'recipe',
+    name = 'refined-natural-gas-to-condensates',
+    category = 'compressor',
+    enabled = false,
+    energy_required = 4,
+    ingredients = {
+        {type = 'fluid', name = 'refined-natural-gas', amount = 150},
+        {type = 'fluid', name = 'water', amount = 200},
+        {type = 'fluid', name = 'gasoline', amount = 5},
+    },
+    results = {
+        {type = 'fluid', name = 'condensates', amount = 100},
+        {type = 'fluid', name = 'steam', amount = 200, temperature = 150},
+        {type = 'fluid', name = 'naphtha', amount = 50},
+    },
+    main_product = 'condensates',
 }:add_unlock('petroleum-gas-mk01')
 
 -- other

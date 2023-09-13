@@ -8,6 +8,8 @@ RECIPE('tailings-classification'):remove_unlock('separation')
 data.raw.item['ash'].stack_size = 500
 data.raw.fluid['acetylene'].fuel_value = '750kJ'
 data.raw.fluid['coke-oven-gas'].fuel_value = '750kJ'
+data.raw.item['raw-coal'].fuel_value = '1.5MJ'
+data.raw.item['coal-dust'].fuel_value = '1.5MJ'
 RECIPE('print-brain'):remove_unlock('organ-printing-mk02'):add_unlock('organ-printing')
 RECIPE('blood-to-zinc'):remove_unlock('molecular-decohesion-mk02'):add_unlock('molecular-decohesion').results[1].amount = 7
 
@@ -54,9 +56,9 @@ RECIPE('seaweed-to-chelator'):remove_unlock('phytomining-mk02')
 data.raw.recipe['seaweed-to-chelator'] = nil
 
 for loader, fluid in pairs{
-    ['aai-loader'] = 'fish-oil',
-    ['aai-fast-loader'] = 'bio-oil',
-    ['aai-express-loader'] = 'grease',
+    ['aai-loader'] = 'stripped-distillate',
+    ['aai-fast-loader'] = 'grease',
+    ['aai-express-loader'] = 'nexelit-slurry',
 } do
     data.raw['storage-tank'][loader .. '-pipe'].fluid_box.filter = fluid
     local localised_description = data.raw.technology[loader].localised_description
@@ -67,7 +69,11 @@ for loader, fluid in pairs{
     data.raw.item[loader].localised_description = localised_description
 end
 
-data.raw['logistic-robot']['py-logistic-robot-01'].max_bpayload_size = 1
+TECHNOLOGY('aai-loader'):add_prereq('light-oil-mk02').unit.count = 1300
+TECHNOLOGY('aai-fast-loader'):add_pack('py-science-pack-3').unit.count = 1100
+TECHNOLOGY('aai-express-loader'):add_prereq('nexelit-mk03').unit.count = 1200
+
+data.raw['logistic-robot']['py-logistic-robot-01'].max_payload_size = 1
 data.raw['logistic-robot']['py-logistic-robot-02'].max_payload_size = 2
 data.raw['logistic-robot']['l-pynobot-mk03'].max_payload_size = 3
 data.raw['logistic-robot']['logistic-robot-ht'].max_payload_size = 4
@@ -79,3 +85,5 @@ for am = 5, 1, -1 do
         beacon.distribution_effectivity = 0.2 * am * fm
     end
 end
+
+RECIPE('creosote-to-aromatics'):add_unlock('creosote'):add_ingredient{type = 'fluid', name = 'gasoline', amount = 35}.hidden = false
