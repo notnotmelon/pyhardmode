@@ -60,22 +60,23 @@ local coal_plant = {
         direction = defines.direction.north
     },
 }
+local rhe = {
+    {
+        position = {2, 0},
+        direction = defines.direction.east
+    },
+    {
+        position = {-2, 0},
+        direction = defines.direction.west
+    }
+}
 
 for name, connections in pairs{
     ['advanced-foundry-mk01'] = foundry,
     ['advanced-foundry-mk02'] = foundry,
     ['advanced-foundry-mk03'] = foundry,
     ['advanced-foundry-mk04'] = foundry,
-    ['rhe'] = {
-        {
-            position = {2, 0},
-            direction = defines.direction.east
-        },
-        {
-            position = {-2, 0},
-            direction = defines.direction.west
-        }
-    },
+    ['rhe'] = rhe,
     ['incubator-mk01'] = incubator,
     ['incubator-mk02'] = incubator,
     ['incubator-mk03'] = incubator,
@@ -216,12 +217,34 @@ data.raw.recipe['coal-molten-salt-02'] = nil
 data.raw.recipe['coal-molten-salt-03'] = nil
 data.raw.recipe['coal-molten-salt-04'] = nil
 
+for _, coal_plant in pairs{
+    'py-coal-powerplant-mk01',
+    'py-coal-powerplant-mk02',
+    'py-coal-powerplant-mk03',
+    'py-coal-powerplant-mk04',
+} do
+    local animation = {
+        type = 'simple-entity-with-owner',
+        name = coal_plant .. '-animation',
+        icon = data.raw['assembling-machine'][coal_plant].icon,
+        icon_size = 64,
+        flags = {'placeable-neutral', 'player-creation', 'not-on-map'},
+        collision_box = data.raw['assembling-machine'][coal_plant].collision_box,
+        collision_mask = {},
+        selectable_in_game = false,
+        animations = data.raw['assembling-machine'][coal_plant].animation
+    }
+    animation.animations.animation_speed = 0.5
+    data:extend{animation}
+end
+
 for name, info in pairs{
     ['py-burner'] = {type = 'furnace', consumption = '500kW', connections = burner, max_temperature = 500},
     ['py-coal-powerplant-mk01'] = {type = 'assembling-machine', consumption = '10MW', connections = coal_plant, max_temperature = 1000},
-    ['py-coal-powerplant-mk02'] = {type = 'assembling-machine', consumption = '20MW', connections = coal_plant, max_temperature = 1000},
-    ['py-coal-powerplant-mk03'] = {type = 'assembling-machine', consumption = '40MW', connections = coal_plant, max_temperature = 1000},
-    ['py-coal-powerplant-mk04'] = {type = 'assembling-machine', consumption = '80MW', connections = coal_plant, max_temperature = 1000},
+    ['py-coal-powerplant-mk02'] = {type = 'assembling-machine', consumption = '20MW', connections = coal_plant, max_temperature = 2000},
+    ['py-coal-powerplant-mk03'] = {type = 'assembling-machine', consumption = '40MW', connections = coal_plant, max_temperature = 3000},
+    ['py-coal-powerplant-mk04'] = {type = 'assembling-machine', consumption = '80MW', connections = coal_plant, max_temperature = 4000},
+    ['rtg'] = {type = 'burner-generator', consumption = '800kW', connections = rhe, max_temperature = 5000, neighbour_bonus = 10},
 } do
     local type = info.type
     local entity = data.raw[type][name]
@@ -242,7 +265,12 @@ for name, info in pairs{
         max_transfer = '100GW',
         max_temperature = info.max_temperature
     }
-    entity.neighbour_bonus = 0
+    entity.neighbour_bonus = info.neighbour_bonus or 0
     entity.scale_energy_usage = true
+    if not entity.picture then
+        entity.picture = entity.animation
+    end
     data:extend{entity}
 end
+
+data.raw.reactor['rtg'].scale_energy_usage = true

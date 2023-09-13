@@ -1,3 +1,9 @@
+require 'scripts.composite-entity'
+
+local function init()
+    global.composite_entities = global.composite_entities or {}
+end
+
 script.on_init(function()
     if remote.interfaces['freeplay'] and not script.active_mods.Pyblock then
         remote.call('freeplay', 'set_created_items', {})
@@ -8,4 +14,6 @@ script.on_init(function()
             ['offshore-pump'] = 1
         })
     end
+    init()
 end)
+script.on_configuration_changed(init)
