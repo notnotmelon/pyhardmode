@@ -184,4 +184,5 @@ end
 
 data.raw['utility-sprites'].default.heat_exchange_indication.filename = '__core__/graphics/arrows/heat-exchange-indication.png'
 
-RECIPE('heat-pipe'):remove_unlock('advanced-material-processing-2'):add_unlock('py-burner')
+RECIPE('heat-pipe'):remove_unlock('advanced-material-processing-2'):add_unlock('py-burner').ingredients[2].amount = 5
+RECIPE('py-burner'):add_ingredient('heat-pipe')
