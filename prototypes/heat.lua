@@ -1,3 +1,92 @@
+local pipe_covers = make_4way_animation_from_spritesheet{
+    filename = '__base__/graphics/entity/heat-exchanger/heatex-endings.png',
+    width = 32,
+    height = 32,
+    direction_count = 4,
+    hr_version = {
+        filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-endings.png',
+        width = 64,
+        height = 64,
+        direction_count = 4,
+        scale = 0.5
+    }
+},
+local heat_pipe_covers = make_4way_animation_from_spritesheet(apply_heat_pipe_glow{
+    filename = '__base__/graphics/entity/heat-exchanger/heatex-endings-heated.png',
+    width = 32,
+    height = 32,
+    direction_count = 4,
+    hr_version = {
+        filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-endings-heated.png',
+        width = 64,
+        height = 64,
+        direction_count = 4,
+        scale = 0.5
+    }
+}),
+local heat_picture = {
+    north = apply_heat_pipe_glow{
+        filename = '__base__/graphics/entity/heat-exchanger/heatex-N-heated.png',
+        priority = 'extra-high',
+        width = 24,
+        height = 48,
+        shift = util.by_pixel(-1, 8),
+        hr_version = {
+            filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-N-heated.png',
+            priority = 'extra-high',
+            width = 44,
+            height = 96,
+            shift = util.by_pixel(-0.5, 8.5),
+            scale = 0.5
+        }
+    },
+    east = apply_heat_pipe_glow{
+        filename = '__base__/graphics/entity/heat-exchanger/heatex-E-heated.png',
+        priority = 'extra-high',
+        width = 40,
+        height = 40,
+        shift = util.by_pixel(-21, -13),
+        hr_version = {
+            filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-E-heated.png',
+            priority = 'extra-high',
+            width = 80,
+            height = 80,
+            shift = util.by_pixel(-21, -13),
+            scale = 0.5
+        }
+    },
+    south = apply_heat_pipe_glow{
+        filename = '__base__/graphics/entity/heat-exchanger/heatex-S-heated.png',
+        priority = 'extra-high',
+        width = 16,
+        height = 20,
+        shift = util.by_pixel(-1, -30),
+        hr_version = {
+            filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-S-heated.png',
+            priority = 'extra-high',
+            width = 28,
+            height = 40,
+            shift = util.by_pixel(-1, -30),
+            scale = 0.5
+        }
+    },
+    west = apply_heat_pipe_glow{
+        filename = '__base__/graphics/entity/heat-exchanger/heatex-W-heated.png',
+        priority = 'extra-high',
+        width = 32,
+        height = 40,
+        shift = util.by_pixel(23, -13),
+        hr_version = {
+            filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-W-heated.png',
+            priority = 'extra-high',
+            width = 64,
+            height = 76,
+            shift = util.by_pixel(23, -13),
+            scale = 0.5
+        }
+    }
+}
+
 local foundry = {
     {
         position = {2.5, 0.5},
@@ -71,28 +160,28 @@ local rhe = {
     }
 }
 
-for name, connections in pairs{
-    ['advanced-foundry-mk01'] = foundry,
-    ['advanced-foundry-mk02'] = foundry,
-    ['advanced-foundry-mk03'] = foundry,
-    ['advanced-foundry-mk04'] = foundry,
-    ['rhe'] = rhe,
-    ['incubator-mk01'] = incubator,
-    ['incubator-mk02'] = incubator,
-    ['incubator-mk03'] = incubator,
-    ['incubator-mk04'] = incubator,
-    ['simik-den-mk01'] = simik,
-    ['simik-den-mk02'] = simik,
-    ['simik-den-mk03'] = simik,
-    ['simik-den-mk04'] = simik,
-    ['heavy-oil-refinery-mk01'] = heavy_oil,
-    ['heavy-oil-refinery-mk02'] = heavy_oil,
-    ['heavy-oil-refinery-mk03'] = heavy_oil,
-    ['heavy-oil-refinery-mk04'] = heavy_oil,
-    ['cracker-mk01'] = cracker,
-    ['cracker-mk02'] = cracker,
-    ['cracker-mk03'] = cracker,
-    ['cracker-mk04'] = cracker,
+for name, info in pairs{
+    ['advanced-foundry-mk01'] = {min_working_temperature = 450, connections = foundry},
+    ['advanced-foundry-mk02'] = {min_working_temperature = 1900, connections = foundry},
+    ['advanced-foundry-mk03'] = {min_working_temperature = 2900, connections = foundry},
+    ['advanced-foundry-mk04'] = {min_working_temperature = 3900, connections = foundry},
+    ['rhe'] = {min_working_temperature = 350, connections = rhe},
+    ['incubator-mk01'] = {min_working_temperature = 200, connections = incubator},
+    ['incubator-mk02'] = {min_working_temperature = 200, connections = incubator},
+    ['incubator-mk03'] = {min_working_temperature = 200, connections = incubator},
+    ['incubator-mk04'] = {min_working_temperature = 200, connections = incubator},
+    ['simik-den-mk01'] = {min_working_temperature = 4500, connections = simik},
+    ['simik-den-mk02'] = {min_working_temperature = 4500, connections = simik},
+    ['simik-den-mk03'] = {min_working_temperature = 4500, connections = simik},
+    ['simik-den-mk04'] = {min_working_temperature = 4500, connections = simik},
+    ['heavy-oil-refinery-mk01'] = {min_working_temperature = 750, connections = heavy_oil},
+    ['heavy-oil-refinery-mk02'] = {min_working_temperature = 1500, connections = heavy_oil},
+    ['heavy-oil-refinery-mk03'] = {min_working_temperature = 2500, connections = heavy_oil},
+    ['heavy-oil-refinery-mk04'] = {min_working_temperature = 3500, connections = heavy_oil},
+    ['cracker-mk01'] = {min_working_temperature = 750, connections = cracker},
+    ['cracker-mk02'] = {min_working_temperature = 1500, connections = cracker},
+    ['cracker-mk03'] = {min_working_temperature = 2500, connections = cracker},
+    ['cracker-mk04'] = {min_working_temperature = 3500, connections = cracker},
 } do
     local entity = data.raw['assembling-machine'][name]
     entity.energy_source = {
@@ -100,97 +189,12 @@ for name, connections in pairs{
         max_temperature = 1000,
         specific_heat = '1MJ',
         max_transfer = '2GW',
-        min_working_temperature = 500,
+        min_working_temperature = info.min_working_temperature,
         minimum_glow_temperature = 350,
-        connections = connections,
-        pipe_covers = make_4way_animation_from_spritesheet{
-            filename = '__base__/graphics/entity/heat-exchanger/heatex-endings.png',
-            width = 32,
-            height = 32,
-            direction_count = 4,
-            hr_version = {
-                filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-endings.png',
-                width = 64,
-                height = 64,
-                direction_count = 4,
-                scale = 0.5
-            }
-        },
-        heat_pipe_covers = make_4way_animation_from_spritesheet(apply_heat_pipe_glow{
-            filename = '__base__/graphics/entity/heat-exchanger/heatex-endings-heated.png',
-            width = 32,
-            height = 32,
-            direction_count = 4,
-            hr_version = {
-                filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-endings-heated.png',
-                width = 64,
-                height = 64,
-                direction_count = 4,
-                scale = 0.5
-            }
-        }),
-        heat_picture = {
-            north = apply_heat_pipe_glow{
-                filename = '__base__/graphics/entity/heat-exchanger/heatex-N-heated.png',
-                priority = 'extra-high',
-                width = 24,
-                height = 48,
-                shift = util.by_pixel(-1, 8),
-                hr_version = {
-                    filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-N-heated.png',
-                    priority = 'extra-high',
-                    width = 44,
-                    height = 96,
-                    shift = util.by_pixel(-0.5, 8.5),
-                    scale = 0.5
-                }
-            },
-            east = apply_heat_pipe_glow{
-                filename = '__base__/graphics/entity/heat-exchanger/heatex-E-heated.png',
-                priority = 'extra-high',
-                width = 40,
-                height = 40,
-                shift = util.by_pixel(-21, -13),
-                hr_version = {
-                    filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-E-heated.png',
-                    priority = 'extra-high',
-                    width = 80,
-                    height = 80,
-                    shift = util.by_pixel(-21, -13),
-                    scale = 0.5
-                }
-            },
-            south = apply_heat_pipe_glow{
-                filename = '__base__/graphics/entity/heat-exchanger/heatex-S-heated.png',
-                priority = 'extra-high',
-                width = 16,
-                height = 20,
-                shift = util.by_pixel(-1, -30),
-                hr_version = {
-                    filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-S-heated.png',
-                    priority = 'extra-high',
-                    width = 28,
-                    height = 40,
-                    shift = util.by_pixel(-1, -30),
-                    scale = 0.5
-                }
-            },
-            west = apply_heat_pipe_glow{
-                filename = '__base__/graphics/entity/heat-exchanger/heatex-W-heated.png',
-                priority = 'extra-high',
-                width = 32,
-                height = 40,
-                shift = util.by_pixel(23, -13),
-                hr_version = {
-                    filename = '__base__/graphics/entity/heat-exchanger/hr-heatex-W-heated.png',
-                    priority = 'extra-high',
-                    width = 64,
-                    height = 76,
-                    shift = util.by_pixel(23, -13),
-                    scale = 0.5
-                }
-            }
-        }
+        connections = info.connections,
+        pipe_covers = pipe_covers,
+        heat_pipe_covers = heat_pipe_covers,
+        heat_picture = heat_picture
     }
 end
 
@@ -263,7 +267,10 @@ for name, info in pairs{
         connections = info.connections,
         specific_heat = '1W',
         max_transfer = '100GW',
-        max_temperature = info.max_temperature
+        max_temperature = info.max_temperature,
+        pipe_covers = pipe_covers,
+        heat_pipe_covers = heat_pipe_covers,
+        heat_picture = heat_picture
     }
     entity.neighbour_bonus = info.neighbour_bonus or 0
     entity.scale_energy_usage = true
