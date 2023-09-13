@@ -86,3 +86,7 @@ for am = 5, 1, -1 do
 end
 
 RECIPE('creosote-to-aromatics'):add_unlock('creosote'):add_ingredient{type = 'fluid', name = 'gasoline', amount = 35}.hidden = false
+
+RECIPE('primers'):add_ingredient{'shell', 2}
+RECIPE('primers-02'):add_ingredient{'shell', 2}
+RECIPE('primers-03'):add_ingredient{'shell', 2}
