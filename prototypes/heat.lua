@@ -1,3 +1,5 @@
+local FUN = require '__pycoalprocessing__/prototypes/functions/functions'
+
 local pipe_covers = make_4way_animation_from_spritesheet{
     filename = '__base__/graphics/entity/heat-exchanger/heatex-endings.png',
     width = 32,
@@ -10,7 +12,7 @@ local pipe_covers = make_4way_animation_from_spritesheet{
         direction_count = 4,
         scale = 0.5
     }
-},
+}
 local heat_pipe_covers = make_4way_animation_from_spritesheet(apply_heat_pipe_glow{
     filename = '__base__/graphics/entity/heat-exchanger/heatex-endings-heated.png',
     width = 32,
@@ -23,7 +25,7 @@ local heat_pipe_covers = make_4way_animation_from_spritesheet(apply_heat_pipe_gl
         direction_count = 4,
         scale = 0.5
     }
-}),
+})
 local heat_picture = {
     north = apply_heat_pipe_glow{
         filename = '__base__/graphics/entity/heat-exchanger/heatex-N-heated.png',
@@ -186,16 +188,17 @@ for name, info in pairs{
     local entity = data.raw['assembling-machine'][name]
     entity.energy_source = {
         type = 'heat',
-        max_temperature = 1000,
+        max_temperature = 500 + math.floor(info.min_working_temperature / 500) * 500,
         specific_heat = '1MJ',
         max_transfer = '2GW',
         min_working_temperature = info.min_working_temperature,
         minimum_glow_temperature = 350,
         connections = info.connections,
-        pipe_covers = pipe_covers,
-        heat_pipe_covers = heat_pipe_covers,
-        heat_picture = heat_picture
+        --pipe_covers = pipe_covers,
+        --heat_pipe_covers = heat_pipe_covers,
+        --heat_picture = heat_picture
     }
+    FUN.add_to_description('assembling-machine', entity, {'entity-description.required-temperature', info.min_working_temperature})
 end
 
 data.raw['utility-sprites'].default.heat_exchange_indication.filename = '__core__/graphics/arrows/heat-exchange-indication.png'
@@ -278,6 +281,7 @@ for name, info in pairs{
         entity.picture = entity.animation
     end
     data:extend{entity}
+    FUN.add_to_description('reactor', entity, {'entity-description.max-temperature', info.max_temperature})
 end
 
 data.raw.reactor['rtg'].scale_energy_usage = true
