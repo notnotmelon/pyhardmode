@@ -48,6 +48,18 @@ local cracker = {
         direction = defines.direction.west
     }
 }
+local burner = {
+    {
+        position = {1, 0},
+        direction = defines.direction.east
+    },
+}
+local coal_plant = {
+    {
+        position = {0, -6},
+        direction = defines.direction.north
+    },
+}
 
 for name, connections in pairs{
     ['advanced-foundry-mk01'] = foundry,
@@ -203,3 +215,34 @@ data.raw.recipe['coal-molten-salt-01'] = nil
 data.raw.recipe['coal-molten-salt-02'] = nil
 data.raw.recipe['coal-molten-salt-03'] = nil
 data.raw.recipe['coal-molten-salt-04'] = nil
+
+for name, info in pairs{
+    ['py-burner'] = {type = 'furnace', consumption = '500kW', connections = burner, max_temperature = 500},
+    ['py-coal-powerplant-mk01'] = {type = 'assembling-machine', consumption = '10MW', connections = coal_plant, max_temperature = 1000},
+    ['py-coal-powerplant-mk02'] = {type = 'assembling-machine', consumption = '20MW', connections = coal_plant, max_temperature = 1000},
+    ['py-coal-powerplant-mk03'] = {type = 'assembling-machine', consumption = '40MW', connections = coal_plant, max_temperature = 1000},
+    ['py-coal-powerplant-mk04'] = {type = 'assembling-machine', consumption = '80MW', connections = coal_plant, max_temperature = 1000},
+} do
+    local type = info.type
+    local entity = data.raw[type][name]
+    data.raw[type][name] = nil
+    entity.type = 'reactor'
+    entity.consumption = info.consumption
+    entity.working_light_picture = {
+        filename = '__pycoalprocessinggraphics__/graphics/empty.png',
+        size = 1,
+        priority = 'high',
+        direction_count = 1,
+        frame_count = 1,
+        line_length = 1
+    }
+    entity.heat_buffer = {
+        connections = info.connections,
+        specific_heat = '1W',
+        max_transfer = '100GW',
+        max_temperature = info.max_temperature
+    }
+    entity.neighbour_bonus = 0
+    entity.scale_energy_usage = true
+    data:extend{entity}
+end
