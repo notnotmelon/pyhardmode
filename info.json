@@ -10,7 +10,8 @@
   "dependencies": [
     "base >= 1.1.74",
     "pyalternativeenergy >= 1.2.6",
-    "aai-loaders"
+    "aai-loaders",
+    "? PyBlock"
   ],
   "package": {
     "ignore": [],
