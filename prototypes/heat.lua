@@ -1,28 +1,59 @@
+local foundry = {
+    {
+        position = {2.5, 0.5},
+        direction = defines.direction.east
+    }
+}
+local incubator = {
+    {
+        position = {-3, 2.0},
+        direction = defines.direction.west
+    }
+}
+local simik = {
+    {
+        position = {7.5, -7.5},
+        direction = defines.direction.north
+    },
+    {
+        position = {-7.5, -7.5},
+        direction = defines.direction.north
+    },
+    {
+        position = {7.5, 7.5},
+        direction = defines.direction.south
+    },
+    {
+        position = {-7.5, 7.5},
+        direction = defines.direction.south
+    },
+}
+local heavy_oil = {
+    {
+        position = {5, -6},
+        direction = defines.direction.north
+    },
+    {
+        position = {-5, -6},
+        direction = defines.direction.north
+    }
+}
+local cracker = {
+    {
+        position = {3, 0},
+        direction = defines.direction.east
+    },
+    {
+        position = {-3, 0},
+        direction = defines.direction.west
+    }
+}
+
 for name, connections in pairs{
-    ['advanced-foundry-mk01'] = {
-        {
-            position = {2.5, 0.5},
-            direction = defines.direction.east
-        }
-    },
-    ['advanced-foundry-mk02'] = {
-        {
-            position = {2.5, 0.5},
-            direction = defines.direction.east
-        }
-    },
-    ['advanced-foundry-mk03'] = {
-        {
-            position = {2.5, 0.5},
-            direction = defines.direction.east
-        }
-    },
-    ['advanced-foundry-mk04'] = {
-        {
-            position = {2.5, 0.5},
-            direction = defines.direction.east
-        }
-    },
+    ['advanced-foundry-mk01'] = foundry,
+    ['advanced-foundry-mk02'] = foundry,
+    ['advanced-foundry-mk03'] = foundry,
+    ['advanced-foundry-mk04'] = foundry,
     ['rhe'] = {
         {
             position = {2, 0},
@@ -33,54 +64,22 @@ for name, connections in pairs{
             direction = defines.direction.west
         }
     },
-    ['incubator-mk01'] = {
-        {
-            position = {-3, 2.0},
-            direction = defines.direction.west
-        }
-    },
-    ['incubator-mk02'] = {
-        {
-            position = {-3, 2.0},
-            direction = defines.direction.west
-        }
-    },
-    ['incubator-mk03'] = {
-        {
-            position = {-3, 2.0},
-            direction = defines.direction.west
-        }
-    },
-    ['incubator-mk04'] = {
-        {
-            position = {-3, 2.0},
-            direction = defines.direction.west
-        }
-    },
-    ['simik-den-mk01'] = {
-        {
-            position = {2.0, -7.5},
-            direction = defines.direction.north
-        }
-    },
-    ['simik-den-mk02'] = {
-        {
-            position = {2.0, -7.5},
-            direction = defines.direction.north
-        }
-    },
-    ['simik-den-mk03'] = {
-        {
-            position = {2.0, -7.5},
-            direction = defines.direction.north
-        }
-    },
-    ['simik-den-mk04'] = {
-        {
-            position = {2.0, -7.5},
-            direction = defines.direction.north
-        }
-    },
+    ['incubator-mk01'] = incubator,
+    ['incubator-mk02'] = incubator,
+    ['incubator-mk03'] = incubator,
+    ['incubator-mk04'] = incubator,
+    ['simik-den-mk01'] = simik,
+    ['simik-den-mk02'] = simik,
+    ['simik-den-mk03'] = simik,
+    ['simik-den-mk04'] = simik,
+    ['heavy-oil-refinery-mk01'] = heavy_oil,
+    ['heavy-oil-refinery-mk02'] = heavy_oil,
+    ['heavy-oil-refinery-mk03'] = heavy_oil,
+    ['heavy-oil-refinery-mk04'] = heavy_oil,
+    ['cracker-mk01'] = cracker,
+    ['cracker-mk02'] = cracker,
+    ['cracker-mk03'] = cracker,
+    ['cracker-mk04'] = cracker,
 } do
     local entity = data.raw['assembling-machine'][name]
     entity.energy_source = {
@@ -186,3 +185,21 @@ data.raw['utility-sprites'].default.heat_exchange_indication.filename = '__core_
 
 RECIPE('heat-pipe'):remove_unlock('advanced-material-processing-2'):add_unlock('py-burner').ingredients[2].amount = 5
 RECIPE('py-burner'):add_ingredient('heat-pipe')
+
+RECIPE('py-coal-powerplant-mk01'):remove_ingredient('mechanical-parts-01'):remove_unlock('coalplant-mk01'):add_unlock('oil-machines-mk01')
+RECIPE('py-coal-powerplant-mk01'):add_ingredient{'heat-pipe', 10}
+RECIPE('py-coal-powerplant-mk02'):add_ingredient{'heat-pipe', 10}
+RECIPE('py-coal-powerplant-mk03'):add_ingredient{'heat-pipe', 10}
+RECIPE('py-coal-powerplant-mk04'):add_ingredient{'heat-pipe', 10}
+RECIPE('he-01'):remove_unlock('coalplant-mk01')
+RECIPE('he-02'):remove_unlock('coalplant-mk02')
+RECIPE('he-03'):remove_unlock('coalplant-mk03')
+RECIPE('he-04'):remove_unlock('coalplant-mk04')
+RECIPE('coal-molten-salt-01'):remove_unlock('coalplant-mk01')
+RECIPE('coal-molten-salt-02'):remove_unlock('coalplant-mk02')
+RECIPE('coal-molten-salt-03'):remove_unlock('coalplant-mk03')
+RECIPE('coal-molten-salt-04'):remove_unlock('coalplant-mk04')
+data.raw.recipe['coal-molten-salt-01'] = nil
+data.raw.recipe['coal-molten-salt-02'] = nil
+data.raw.recipe['coal-molten-salt-03'] = nil
+data.raw.recipe['coal-molten-salt-04'] = nil
