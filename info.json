@@ -4,8 +4,8 @@
   "factorio_version": "1.1",
   "title": "Pyanodons Hard Mode",
   "author": "notnotmelon",
-  "contact": "",
-  "homepage": "",
+  "contact": "https://discord.gg/SBHM3h5Utj",
+  "homepage": "https://mods.factorio.com/mod/pyhardmode",
   "description": "Contains a few tiny changes to Pyanodons mods...",
   "dependencies": [
     "base >= 1.1.74",

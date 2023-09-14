@@ -395,11 +395,16 @@ data.raw.furnace['electric-furnace'].energy_source = {
 }
 
 RECIPE('py-burner'):remove_ingredient('titanium-plate'):remove_ingredient('steel-plate'):remove_unlock('py-burner'):add_unlock('steel-processing')
-data.raw.technology['py-burner'].hidden = true
 
-data.raw['heat-pipe']['heat-pipe'].min_temperature_gradient = 2
+data.raw['heat-pipe']['heat-pipe'].heat_buffer.min_temperature_gradient = 2
 
-data.raw['assembling-machine']['incubator-mk01'] = '3MW'
-data.raw['assembling-machine']['incubator-mk02'] = '6MW'
-data.raw['assembling-machine']['incubator-mk03'] = '9MW'
-data.raw['assembling-machine']['incubator-mk04'] = '12MW'
+data.raw['assembling-machine']['incubator-mk01'].energy_usage = '3MW'
+data.raw['assembling-machine']['incubator-mk02'].energy_usage = '6MW'
+data.raw['assembling-machine']['incubator-mk03'].energy_usage = '9MW'
+data.raw['assembling-machine']['incubator-mk04'].energy_usage = '12MW'
+data.raw['assembling-machine']['simik-den-mk01'].energy_usage = '10MW'
+data.raw['assembling-machine']['simik-den-mk02'].energy_usage = '15MW'
+data.raw['assembling-machine']['simik-den-mk03'].energy_usage = '20MW'
+data.raw['assembling-machine']['simik-den-mk04'].energy_usage = '25MW'
+
+RECIPE('rtg'):remove_unlock('nuclear-power-mk02'):add_unlock('simik-mk01')
