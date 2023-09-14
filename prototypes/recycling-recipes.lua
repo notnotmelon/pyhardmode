@@ -95,7 +95,7 @@ RECIPE {
     name = 'sulfur-void-water',
     category = 'desulfurization',
     enabled = false,
-    energy_required = 8,
+    energy_required = 1,
     ingredients = {
         {type = 'item', name = 'sulfur', amount = 1},
         {type = 'fluid', name = 'water', amount = 50},
