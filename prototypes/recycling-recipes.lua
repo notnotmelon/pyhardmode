@@ -702,7 +702,7 @@ RECIPE {
     enabled = false,
     energy_required = 2,
     ingredients = {
-        {type = 'fluid', name = 'coke-oven-gas', amount = 10, fluidbox_index = 1},
+        {type = 'fluid', name = 'coke-oven-gas', amount = 30, fluidbox_index = 1},
         {type = 'fluid', name = 'water', amount = 10, fluidbox_index = 2},
     },
     results = {
