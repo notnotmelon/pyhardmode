@@ -472,7 +472,7 @@ RECIPE {
     name = 'purex-antimony-void',
     category = 'scrubber',
     enabled = false,
-    energy_required = 100,
+    energy_required = 10,
     ingredients = {
         {type = 'fluid', name = 'sb-phosphate-2', amount = 60},
         {type = 'fluid', name = 'purex-concentrate-1', amount = 30},
