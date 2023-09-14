@@ -19,7 +19,7 @@ script.on_init(function()
 end)
 script.on_configuration_changed(init)
 
-script.on_nth_tick(37, function(event)
+script.on_nth_tick(87, function(event)
     for unit_number, entities in pairs(global.coal_plants) do
         local coal_plant, picture = entities[1], entities[2]
         if not coal_plant.valid or not picture.valid then

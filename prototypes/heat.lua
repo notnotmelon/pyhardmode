@@ -91,8 +91,8 @@ local heat_picture = {
 
 local foundry = {
     {
-        position = {2.5, 0.5},
-        direction = defines.direction.east
+        position = {-2.5, -1.5},
+        direction = defines.direction.west
     }
 }
 local incubator = {
@@ -151,8 +151,36 @@ local burner = {
 }
 local coal_plant = {
     {
-        position = {0, -6},
+        position = {5, -6},
         direction = defines.direction.north
+    },
+    {
+        position = {4, -6},
+        direction = defines.direction.north
+    },
+    {
+        position = {-5, -6},
+        direction = defines.direction.north
+    },
+    {
+        position = {-4, -6},
+        direction = defines.direction.north
+    },
+    {
+        position = {5, 6},
+        direction = defines.direction.south
+    },
+    {
+        position = {4, 6},
+        direction = defines.direction.south
+    },
+    {
+        position = {-5, 6},
+        direction = defines.direction.south
+    },
+    {
+        position = {-4, 6},
+        direction = defines.direction.south
     },
 }
 local rhe = {
@@ -163,6 +191,24 @@ local rhe = {
     {
         position = {-2, 0},
         direction = defines.direction.west
+    }
+}
+local rtg = {
+    {
+        position = {2, 0},
+        direction = defines.direction.east
+    },
+    {
+        position = {-2, 0},
+        direction = defines.direction.west
+    },
+    {
+        position = {0, -2},
+        direction = defines.direction.north
+    },
+    {
+        position = {0, 2},
+        direction = defines.direction.south
     }
 }
 
@@ -202,7 +248,7 @@ for name, info in pairs{
         heat_pipe_covers = heat_pipe_covers,
         heat_picture = heat_picture
     }
-    entity.localised_description = {'entity-description.' .. entity.name, '\n', {'entity-description.required-temperature', info.min_working_temperature}}
+    entity.localised_description = {'', {'entity-description.' .. entity.name}, '\n', {'entity-description.required-temperature', info.min_working_temperature}}
 end
 
 data.raw['utility-sprites'].default.heat_exchange_indication.filename = '__core__/graphics/arrows/heat-exchange-indication.png'
@@ -263,12 +309,12 @@ for _, coal_plant in pairs{
 end
 
 for name, info in pairs{
-    ['py-burner'] = {copy_animation = true, type = 'furnace', consumption = '500kW', connections = burner, max_temperature = 500},
-    ['py-coal-powerplant-mk01'] = {type = 'assembling-machine', consumption = '10MW', connections = coal_plant, max_temperature = 1000},
-    ['py-coal-powerplant-mk02'] = {type = 'assembling-machine', consumption = '20MW', connections = coal_plant, max_temperature = 2000},
-    ['py-coal-powerplant-mk03'] = {type = 'assembling-machine', consumption = '40MW', connections = coal_plant, max_temperature = 3000},
-    ['py-coal-powerplant-mk04'] = {type = 'assembling-machine', consumption = '80MW', connections = coal_plant, max_temperature = 4000},
-    ['rtg'] = {copy_animation = true, type = 'burner-generator', consumption = '800kW', connections = rhe, max_temperature = 5000, neighbour_bonus = 1},
+    ['py-burner'] = {specific_heat = '10MJ', copy_animation = true, type = 'furnace', consumption = '500kW', connections = burner, max_temperature = 500},
+    ['py-coal-powerplant-mk01'] = {specific_heat = '10MJ', type = 'assembling-machine', consumption = '20MW', connections = coal_plant, max_temperature = 1000},
+    ['py-coal-powerplant-mk02'] = {specific_heat = '20MJ', type = 'assembling-machine', consumption = '40MW', connections = coal_plant, max_temperature = 2000},
+    ['py-coal-powerplant-mk03'] = {specific_heat = '40MJ', type = 'assembling-machine', consumption = '80MW', connections = coal_plant, max_temperature = 3000},
+    ['py-coal-powerplant-mk04'] = {specific_heat = '80MJ', type = 'assembling-machine', consumption = '160MW', connections = coal_plant, max_temperature = 4000},
+    ['rtg'] = {effectivity = 20, specific_heat = '5MJ', copy_animation = true, type = 'burner-generator', consumption = '800kW', connections = rhe, max_temperature = 5000, neighbour_bonus = 2},
 } do
     local type = info.type
     local entity = data.raw[type][name]
@@ -285,7 +331,7 @@ for name, info in pairs{
     }
     entity.heat_buffer = {
         connections = info.connections,
-        specific_heat = '10MJ',
+        specific_heat = '1MJ',
         max_transfer = '100GW',
         max_temperature = info.max_temperature,
         --pipe_covers = pipe_covers,
@@ -297,8 +343,12 @@ for name, info in pairs{
     if info.copy_animation and not entity.picture then
         entity.picture = entity.animation
     end
+    if entity.burner then
+        entity.energy_source = entity.burner
+    end
+    entity.energy_source.effectivity = 10
     data:extend{entity}
-    entity.localised_description = {'entity-description.' .. entity.name, '\n', {'entity-description.max-temperature', info.max_temperature}}
+    entity.localised_description = {'', {'entity-description.' .. entity.name}, '\n', {'entity-description.max-temperature', info.max_temperature}}
 end
 
 data.raw.reactor['rtg'].scale_energy_usage = true
@@ -310,3 +360,6 @@ for i = 1, 4 do
         size = {416, 416}
     }
 end
+
+data.raw.reactor['py-burner'].energy_source.fuel_categories = {'biomass'}
+data.raw.reactor['py-burner'].energy_source.burnt_inventory_size = 0
