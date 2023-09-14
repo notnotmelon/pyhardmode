@@ -90,3 +90,5 @@ RECIPE('creosote-to-aromatics'):add_unlock('creosote'):add_ingredient{type = 'fl
 RECIPE('primers'):add_ingredient{'shell', 2}
 RECIPE('primers-02'):add_ingredient{'shell', 2}
 RECIPE('primers-03'):add_ingredient{'shell', 2}
+
+data.raw.recipe['purex-waste-vitrification'].results[4].amount = 1

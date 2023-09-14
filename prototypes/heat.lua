@@ -239,7 +239,7 @@ for name, info in pairs{
     entity.energy_source = {
         type = 'heat',
         max_temperature = 500 + math.floor(info.min_working_temperature / 500) * 500,
-        specific_heat = '10MJ',
+        specific_heat = '1MJ',
         max_transfer = '10GW',
         min_working_temperature = info.min_working_temperature,
         minimum_glow_temperature = info.min_working_temperature - 50,
@@ -248,13 +248,11 @@ for name, info in pairs{
         heat_pipe_covers = heat_pipe_covers,
         heat_picture = heat_picture
     }
-    entity.localised_description = {'', {'entity-description.' .. entity.name}, '\n', {'entity-description.required-temperature', info.min_working_temperature}}
 end
 
 data.raw['utility-sprites'].default.heat_exchange_indication.filename = '__core__/graphics/arrows/heat-exchange-indication.png'
 
 RECIPE('heat-pipe'):remove_unlock('advanced-material-processing-2'):add_unlock('py-burner').ingredients[2].amount = 5
-RECIPE('py-burner'):add_ingredient('heat-pipe')
 
 RECIPE('py-coal-powerplant-mk01'):remove_ingredient('mechanical-parts-01'):remove_unlock('coalplant-mk01'):add_unlock('oil-machines-mk01')
 RECIPE('py-coal-powerplant-mk01'):add_ingredient{'heat-pipe', 10}
@@ -308,13 +306,20 @@ for _, coal_plant in pairs{
     data:extend{animation, picture}
 end
 
+local rtg_light = {
+    layers = {
+        table.remove(data.raw['burner-generator']['rtg'].animation.layers, 2),
+        table.remove(data.raw['burner-generator']['rtg'].animation.layers, 2),
+    }
+}
+
 for name, info in pairs{
-    ['py-burner'] = {specific_heat = '10MJ', copy_animation = true, type = 'furnace', consumption = '500kW', connections = burner, max_temperature = 500},
-    ['py-coal-powerplant-mk01'] = {specific_heat = '10MJ', type = 'assembling-machine', consumption = '20MW', connections = coal_plant, max_temperature = 1000},
-    ['py-coal-powerplant-mk02'] = {specific_heat = '20MJ', type = 'assembling-machine', consumption = '40MW', connections = coal_plant, max_temperature = 2000},
-    ['py-coal-powerplant-mk03'] = {specific_heat = '40MJ', type = 'assembling-machine', consumption = '80MW', connections = coal_plant, max_temperature = 3000},
-    ['py-coal-powerplant-mk04'] = {specific_heat = '80MJ', type = 'assembling-machine', consumption = '160MW', connections = coal_plant, max_temperature = 4000},
-    ['rtg'] = {effectivity = 20, specific_heat = '5MJ', copy_animation = true, type = 'burner-generator', consumption = '800kW', connections = rhe, max_temperature = 5000, neighbour_bonus = 2},
+    ['py-burner'] = {specific_heat = '2.5MJ', copy_animation = true, type = 'furnace', consumption = '2.5MW', connections = burner, max_temperature = 500},
+    ['py-coal-powerplant-mk01'] = {specific_heat = '10MJ', type = 'assembling-machine', consumption = '10MW', connections = coal_plant, max_temperature = 1000},
+    ['py-coal-powerplant-mk02'] = {specific_heat = '20MJ', type = 'assembling-machine', consumption = '20MW', connections = coal_plant, max_temperature = 2000},
+    ['py-coal-powerplant-mk03'] = {specific_heat = '30MJ', type = 'assembling-machine', consumption = '30MW', connections = coal_plant, max_temperature = 3000},
+    ['py-coal-powerplant-mk04'] = {specific_heat = '40MJ', type = 'assembling-machine', consumption = '40MW', connections = coal_plant, max_temperature = 4000},
+    ['rtg'] = {specific_heat = '5MJ', copy_animation = true, type = 'burner-generator', consumption = '2MW', connections = rtg, max_temperature = 5000, neighbour_bonus = 2},
 } do
     local type = info.type
     local entity = data.raw[type][name]
@@ -334,9 +339,6 @@ for name, info in pairs{
         specific_heat = '1MJ',
         max_transfer = '100GW',
         max_temperature = info.max_temperature,
-        --pipe_covers = pipe_covers,
-        --heat_pipe_covers = heat_pipe_covers,
-        --heat_picture = heat_picture
     }
     entity.neighbour_bonus = info.neighbour_bonus or 0
     entity.scale_energy_usage = true
@@ -346,14 +348,13 @@ for name, info in pairs{
     if entity.burner then
         entity.energy_source = entity.burner
     end
-    entity.energy_source.effectivity = 10
+    entity.energy_source.effectivity = 5
     data:extend{entity}
     entity.localised_description = {'', {'entity-description.' .. entity.name}, '\n', {'entity-description.max-temperature', info.max_temperature}}
 end
 
+data.raw.reactor['rtg'].working_light_picture = rtg_light
 data.raw.reactor['rtg'].scale_energy_usage = true
-data.raw.reactor['rtg'].energy_source = data.raw.reactor['rtg'].burner
-data.raw.reactor['rtg'].energy_source.effectivity = 20
 for i = 1, 4 do
     data.raw.reactor['py-coal-powerplant-mk0' .. i].integration_patch = {
         filename = '__pyhardmode__/graphics/coal-plant.png',
@@ -363,3 +364,42 @@ end
 
 data.raw.reactor['py-burner'].energy_source.fuel_categories = {'biomass'}
 data.raw.reactor['py-burner'].energy_source.burnt_inventory_size = 0
+local horizontal_pipe = {
+    hr_version = {
+        filename = '__base__/graphics/entity/heat-pipe/hr-heat-pipe-straight-horizontal-1.png',
+        size = {64, 64},
+        scale = 0.5
+    },
+    filename = '__base__/graphics/entity/heat-pipe/heat-pipe-straight-horizontal-1.png',
+    size = {32, 32},
+}
+data.raw.reactor['py-burner'].connection_patches_connected = {horizontal_pipe, horizontal_pipe}
+
+data.raw['heat-pipe']['heat-pipe'].heat_buffer.specific_heat = '200kJ'
+data.raw['heat-pipe']['heat-pipe'].heat_buffer.max_temperature = 5000
+
+local nuclear_reactor = data.raw.reactor['nuclear-reactor']
+nuclear_reactor.scale_energy_usage = true
+nuclear_reactor.heat_buffer.max_temperature = 1000
+nuclear_reactor.heat_buffer.specific_heat = '200kJ'
+nuclear_reactor.energy_source.effectivity = 0.01
+nuclear_reactor.consumption = '100MW'
+nuclear_reactor.localised_description = {'', {'entity-description.nuclear-reactor'}, '\n', {'entity-description.max-temperature', 1000}}
+
+data.raw.furnace['electric-furnace'].energy_usage = '5MW'
+data.raw.furnace['electric-furnace'].crafting_speed = 4
+data.raw.furnace['electric-furnace'].energy_source = {
+    type = 'electric',
+    usage_priority = 'secondary-input',
+    emissions_per_minute = 10,
+}
+
+RECIPE('py-burner'):remove_ingredient('titanium-plate'):remove_ingredient('steel-plate'):remove_unlock('py-burner'):add_unlock('steel-processing')
+data.raw.technology['py-burner'].hidden = true
+
+data.raw['heat-pipe']['heat-pipe'].min_temperature_gradient = 2
+
+data.raw['assembling-machine']['incubator-mk01'] = '3MW'
+data.raw['assembling-machine']['incubator-mk02'] = '6MW'
+data.raw['assembling-machine']['incubator-mk03'] = '9MW'
+data.raw['assembling-machine']['incubator-mk04'] = '12MW'
