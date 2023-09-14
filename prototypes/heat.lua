@@ -144,6 +144,10 @@ local burner = {
         position = {1, 0},
         direction = defines.direction.east
     },
+    {
+        position = {-1, 0},
+        direction = defines.direction.west
+    },
 }
 local coal_plant = {
     {
@@ -189,16 +193,16 @@ for name, info in pairs{
     entity.energy_source = {
         type = 'heat',
         max_temperature = 500 + math.floor(info.min_working_temperature / 500) * 500,
-        specific_heat = '1MJ',
-        max_transfer = '2GW',
+        specific_heat = '10MJ',
+        max_transfer = '10GW',
         min_working_temperature = info.min_working_temperature,
-        minimum_glow_temperature = 350,
+        minimum_glow_temperature = info.min_working_temperature - 50,
         connections = info.connections,
-        --pipe_covers = pipe_covers,
-        --heat_pipe_covers = heat_pipe_covers,
-        --heat_picture = heat_picture
+        pipe_covers = pipe_covers,
+        heat_pipe_covers = heat_pipe_covers,
+        heat_picture = heat_picture
     }
-    FUN.add_to_description('assembling-machine', entity, {'entity-description.required-temperature', info.min_working_temperature})
+    entity.localised_description = {'entity-description.' .. entity.name, '\n', {'entity-description.required-temperature', info.min_working_temperature}}
 end
 
 data.raw['utility-sprites'].default.heat_exchange_indication.filename = '__core__/graphics/arrows/heat-exchange-indication.png'
@@ -241,17 +245,30 @@ for _, coal_plant in pairs{
         selectable_in_game = false,
         animations = data.raw['assembling-machine'][coal_plant].animation
     }
-    animation.animations.animation_speed = 0.5
-    data:extend{animation}
+    for _, layer in pairs(animation.animations.layers) do
+        layer.animation_speed = 1/6
+    end
+    local picture = {
+        type = 'simple-entity-with-owner',
+        name = coal_plant .. '-picture',
+        icon = data.raw['assembling-machine'][coal_plant].icon,
+        icon_size = 64,
+        flags = {'placeable-neutral', 'player-creation', 'not-on-map'},
+        collision_box = data.raw['assembling-machine'][coal_plant].collision_box,
+        collision_mask = {},
+        selectable_in_game = false,
+        picture = data.raw['assembling-machine'][coal_plant].animation
+    }
+    data:extend{animation, picture}
 end
 
 for name, info in pairs{
-    ['py-burner'] = {type = 'furnace', consumption = '500kW', connections = burner, max_temperature = 500},
+    ['py-burner'] = {copy_animation = true, type = 'furnace', consumption = '500kW', connections = burner, max_temperature = 500},
     ['py-coal-powerplant-mk01'] = {type = 'assembling-machine', consumption = '10MW', connections = coal_plant, max_temperature = 1000},
     ['py-coal-powerplant-mk02'] = {type = 'assembling-machine', consumption = '20MW', connections = coal_plant, max_temperature = 2000},
     ['py-coal-powerplant-mk03'] = {type = 'assembling-machine', consumption = '40MW', connections = coal_plant, max_temperature = 3000},
     ['py-coal-powerplant-mk04'] = {type = 'assembling-machine', consumption = '80MW', connections = coal_plant, max_temperature = 4000},
-    ['rtg'] = {type = 'burner-generator', consumption = '800kW', connections = rhe, max_temperature = 5000, neighbour_bonus = 10},
+    ['rtg'] = {copy_animation = true, type = 'burner-generator', consumption = '800kW', connections = rhe, max_temperature = 5000, neighbour_bonus = 1},
 } do
     local type = info.type
     local entity = data.raw[type][name]
@@ -268,20 +285,28 @@ for name, info in pairs{
     }
     entity.heat_buffer = {
         connections = info.connections,
-        specific_heat = '1W',
+        specific_heat = '10MJ',
         max_transfer = '100GW',
         max_temperature = info.max_temperature,
-        pipe_covers = pipe_covers,
-        heat_pipe_covers = heat_pipe_covers,
-        heat_picture = heat_picture
+        --pipe_covers = pipe_covers,
+        --heat_pipe_covers = heat_pipe_covers,
+        --heat_picture = heat_picture
     }
     entity.neighbour_bonus = info.neighbour_bonus or 0
     entity.scale_energy_usage = true
-    if not entity.picture then
+    if info.copy_animation and not entity.picture then
         entity.picture = entity.animation
     end
     data:extend{entity}
-    FUN.add_to_description('reactor', entity, {'entity-description.max-temperature', info.max_temperature})
+    entity.localised_description = {'entity-description.' .. entity.name, '\n', {'entity-description.max-temperature', info.max_temperature}}
 end
 
 data.raw.reactor['rtg'].scale_energy_usage = true
+data.raw.reactor['rtg'].energy_source = data.raw.reactor['rtg'].burner
+data.raw.reactor['rtg'].energy_source.effectivity = 20
+for i = 1, 4 do
+    data.raw.reactor['py-coal-powerplant-mk0' .. i].integration_patch = {
+        filename = '__pyhardmode__/graphics/coal-plant.png',
+        size = {416, 416}
+    }
+end

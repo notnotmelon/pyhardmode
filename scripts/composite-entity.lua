@@ -1,12 +1,11 @@
 local coal_plant = function(entity)
-    local surface = entity.surface
-    local position = entity.position
-    local animation = surface.create_entity{
-        name = entity.name .. '-animation',
-        position = position,
+    local picture = entity.surface.create_entity{
+        name = entity.name .. '-picture',
+        position = entity.position,
         force = entity.force_index
     }
-    return {animation}
+    global.coal_plants[entity.unit_number] = {entity, picture}
+    return {picture}
 end
 
 local composite_entity_creation = {
