@@ -476,10 +476,12 @@ RECIPE {
     ingredients = {
         {type = 'fluid', name = 'sb-phosphate-2', amount = 60},
         {type = 'fluid', name = 'purex-concentrate-1', amount = 30},
+        {type = 'item', name = 'plastic-bar', amount = 1},
     },
     results = {
         {type = 'fluid', name = 'phosphorous-acid', amount = 120},
         {type = 'item', name = 'sb-oxide', amount = 1, probability = 0.30},
+        {type = 'item', name = 'plastic-bar', amount = 1, probability = 0.7},
     },
     main_product = 'phosphorous-acid',
 }:add_unlock('uranium-processing')
