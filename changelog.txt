@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2023-9-15
+  Features:
+    - Fixed weird fluidboxes for neutron absorbers
+    - Fixed that the Pyblock compatibility wasn't working (for real this time)
+    - Removed .git folder from mod files
+---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 2023-9-15
   Features:

@@ -97,3 +97,8 @@ data.raw.module['vatbrain-1'].effect.productivity.bonus = 0.15
 data.raw.module['vatbrain-2'].effect.productivity.bonus = 0.30
 data.raw.module['vatbrain-3'].effect.productivity.bonus = 0.45
 data.raw.module['vatbrain-4'].effect.productivity.bonus = 0.60
+
+require 'prototypes.neutron-absorber.neutron-absorber-mk01'
+require 'prototypes.neutron-absorber.neutron-absorber-mk02'
+require 'prototypes.neutron-absorber.neutron-absorber-mk03'
+require 'prototypes.neutron-absorber.neutron-absorber-mk04'
