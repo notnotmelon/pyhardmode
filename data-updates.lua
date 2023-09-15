@@ -92,3 +92,8 @@ RECIPE('primers-02'):add_ingredient{'shell', 2}
 RECIPE('primers-03'):add_ingredient{'shell', 2}
 
 data.raw.recipe['purex-waste-vitrification'].results[4].amount = 1
+
+data.raw.module['vatbrain-1'].effect.productivity.bonus = 0.15
+data.raw.module['vatbrain-2'].effect.productivity.bonus = 0.30
+data.raw.module['vatbrain-3'].effect.productivity.bonus = 0.45
+data.raw.module['vatbrain-4'].effect.productivity.bonus = 0.60

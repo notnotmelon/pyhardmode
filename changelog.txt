@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2023-9-14
+  Features:
+    - Fixed that copper wasn't minable
+    - Nerfed vatbrains
+    - Fixed that muddy sludge was too easy to void
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2023-9-14
   Features:

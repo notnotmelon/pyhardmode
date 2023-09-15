@@ -58,14 +58,14 @@ end
 
 data.raw.resource['stone'].minable.fluid_amount = 30
 data.raw.resource['stone'].minable.required_fluid = 'carbolic-oil'
-data.raw.resource['copper-ore'].minable.fluid_amount = 500
+data.raw.resource['copper-ore'].minable.fluid_amount = 200
 data.raw.resource['copper-ore'].minable.required_fluid = 'water'
 
 data.raw['mining-drill']['electric-mining-drill'].input_fluid_box = electric_mining_drill_fluidbox
 data.raw['mining-drill']['burner-mining-drill'].input_fluid_box = {
     production_type = 'input',
     pipe_covers = pipecoverspictures(),
-    base_area = 1,
+    base_area = 2,
     height = 1,
     base_level = -1,
     pipe_connections = {

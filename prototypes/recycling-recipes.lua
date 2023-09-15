@@ -108,6 +108,8 @@ RECIPE {
 
 --muddy sludge
 
+RECIPE('organics-from-dirty-water'):remove_unlock('fluid-separation'):add_unlock('biomassplant-mk04')
+
 RECIPE {
     type = 'recipe',
     name = 'muddy-sludge-void-electrolyzer',
