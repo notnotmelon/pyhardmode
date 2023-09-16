@@ -3,6 +3,8 @@ Version: 1.0.5
 Date: 2023-9-16
   Features:
     - Better mod thumbnail
+    - Made it easier to void muddy sludge if pyblock is installed
+    - Increased ash consumption in planter box recipe 3 -> 9
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 2023-9-15

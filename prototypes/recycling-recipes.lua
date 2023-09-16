@@ -128,22 +128,40 @@ RECIPE {
 
 RECIPE('organics-from-dirty-water'):remove_unlock('fluid-separation'):add_unlock('biomassplant-mk04')
 
-RECIPE {
-    type = 'recipe',
-    name = 'muddy-sludge-void-electrolyzer',
-    category = 'electrolyzer',
-    enabled = false,
-    energy_required = 3,
-    ingredients = {
-        {type = 'fluid', name = 'dirty-water-light', amount = 100},
-    },
-    results = {
-        {type = 'fluid', name = 'water', amount = 100},
-        {type = 'fluid', name = 'oxygen', amount = 10},
-        {type = 'item', name = 'soil', amount = 5},
-    },
-    main_product = 'water'
-}:add_unlock('electrolysis')
+if mods.PyBlock then
+    RECIPE {
+        type = 'recipe',
+        name = 'muddy-sludge-void',
+        category = 'washer',
+        enabled = true,
+        energy_required = 4,
+        ingredients = {
+            {type = 'fluid', name = 'dirty-water-light', amount = 100},
+        },
+        results = {
+            {type = 'fluid', name = 'water', amount = 100},
+            {type = 'item', name = 'soil', amount = 10},
+        },
+        main_product = 'soil'
+    }
+else
+    RECIPE {
+        type = 'recipe',
+        name = 'muddy-sludge-void-electrolyzer',
+        category = 'electrolyzer',
+        enabled = false,
+        energy_required = 3,
+        ingredients = {
+            {type = 'fluid', name = 'dirty-water-light', amount = 100},
+        },
+        results = {
+            {type = 'fluid', name = 'water', amount = 100},
+            {type = 'fluid', name = 'oxygen', amount = 10},
+            {type = 'item', name = 'soil', amount = 5},
+        },
+        main_product = 'water'
+    }:add_unlock('electrolysis')
+end
 
 --tailings dust
 

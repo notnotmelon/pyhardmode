@@ -102,3 +102,5 @@ require 'prototypes.neutron-absorber.neutron-absorber-mk01'
 require 'prototypes.neutron-absorber.neutron-absorber-mk02'
 require 'prototypes.neutron-absorber.neutron-absorber-mk03'
 require 'prototypes.neutron-absorber.neutron-absorber-mk04'
+
+data.raw.recipe['planter-box'].ingredients[3].amount = 9
