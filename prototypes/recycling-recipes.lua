@@ -17,6 +17,24 @@ RECIPE {
 data.raw.recipe['purest-nitrogen-gas'].localised_name = {'recipe-name.fractional-distillation'}
 data.raw.recipe['purest-nitrogen-gas'].localised_description = {'recipe-description.fractional-distillation'}
 
+--oxygen
+
+RECIPE {
+    type = 'recipe',
+    name = 'water-from-oxygen-and-hydrogen',
+    category = 'quenching-tower',
+    enabled = false,
+    energy_required = 2,
+    ingredients = {
+        {type = 'fluid', name = 'oxygen', amount = 100},
+        {type = 'fluid', name = 'hydrogen', amount = 200},
+    },
+    results = {
+        {type = 'fluid', name = 'water', amount = 300},
+    },
+    main_product = 'water'
+}:add_unlock('electrolysis')
+
 --chlorine
 
 RECIPE {
@@ -144,7 +162,7 @@ RECIPE {
     name = 'coal-gas-void',
     category = 'hpf',
     enabled = false,
-    energy_required = 5,
+    energy_required = 1,
     ingredients = {
         {type = 'fluid', name = 'coal-gas', amount = 50},
     },
@@ -226,7 +244,7 @@ RECIPE {
     main_product = 'geothermal-water',
 }--:add_unlock('ulric-upgrade')
 
--- bones
+--bones
 
 RECIPE {
     type = 'recipe',
@@ -363,7 +381,7 @@ RECIPE {
     main_product = 'blood'
 }:add_unlock('water-invertebrates-mk01')
 
--- chitin
+--chitin
 
 RECIPE {
     type = 'recipe',
@@ -374,7 +392,7 @@ RECIPE {
     ingredients = {
         {'chitin', 3},
         {type = 'fluid', name = 'middle-oil', amount = 100},
-        {type = 'fluid', name = 'steam', amount = 50, min_temperature = 250},
+        {type = 'fluid', name = 'steam', amount = 50, minimum_temperature = 250},
     },
     results = {
         {type = 'fluid', name = 'carbolic-oil', amount = 100},
@@ -582,6 +600,28 @@ RECIPE {
 }:add_unlock('basic-substrate')
 
 -- oil
+
+--tar
+
+RECIPE {
+    type = 'recipe',
+    name = 'tar-to-carbolic',
+    category = 'distilator',
+    enabled = false,
+    energy_required = 5,
+    ingredients = {
+        {type = 'fluid', name = 'tar', amount = 100},
+        {type = 'fluid', name = 'steam', amount = 100, minimum_temperature = 250},
+        {type = 'item', name = 'raw-coal', amount = 1},
+    },
+    results = {
+        {type = 'item', name = 'rich-clay', amount = 1, probability = 0.3},
+        {type = 'item', name = 'ash', amount = 1},
+        {type = 'fluid', name = 'coal-gas', amount = 35},
+        {type = 'fluid', name = 'carbolic-oil', amount = 10},
+    },
+    main_product = 'carbolic-oil'
+}:add_unlock('coal-processing-1')
 
 --medium disilates
 

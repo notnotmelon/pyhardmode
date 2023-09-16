@@ -56,10 +56,14 @@ for _, miner in pairs(data.raw['mining-drill']) do
     end
 end
 
-data.raw.resource['stone'].minable.fluid_amount = 30
-data.raw.resource['stone'].minable.required_fluid = 'carbolic-oil'
-data.raw.resource['copper-ore'].minable.fluid_amount = 200
-data.raw.resource['copper-ore'].minable.required_fluid = 'water'
+if data.raw.resource['stone'] then
+    data.raw.resource['stone'].minable.fluid_amount = 30
+    data.raw.resource['stone'].minable.required_fluid = 'carbolic-oil'
+end
+if data.raw.resource['copper-ore'] then
+    data.raw.resource['copper-ore'].minable.fluid_amount = 200
+    data.raw.resource['copper-ore'].minable.required_fluid = 'water'
+end
 
 data.raw['mining-drill']['electric-mining-drill'].input_fluid_box = electric_mining_drill_fluidbox
 data.raw['mining-drill']['burner-mining-drill'].input_fluid_box = {
@@ -69,6 +73,6 @@ data.raw['mining-drill']['burner-mining-drill'].input_fluid_box = {
     height = 1,
     base_level = -1,
     pipe_connections = {
-        {type = 'input', position = {0.5, 1.5}}
+        {type = 'input', position = {0.5, -1.5}}
     }
 }

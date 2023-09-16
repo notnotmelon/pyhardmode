@@ -1,9 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 2023-9-15
+  Features:
+    - Removed grindy stone mining in the early game
+    - "Fixed" the pipe connections for the burner mining drill
+    - Added a new use for tar
+    - Sped up the coal gas voiding recipe 5x
+    - Added a new use for oxygen
+    - Fixed some issues with Py touched by an angel
+---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 2023-9-15
   Features:
     - Fixed weird fluidboxes for neutron absorbers
-    - Fixed that the Pyblock compatibility wasn't working (for real this time)
+    - Fixed forced_value for AAI loaders setting was not applied properly
     - Removed .git folder from mod files
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
