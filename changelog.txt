@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+Date: 2023-9-17
+  Features:
+    - Added dependency on undeletable fluids
+    - Decreased copper mining water usage 20 -> 10
+    - Changed slacked lime voiding recipe
+---------------------------------------------------------------------------------------------------
 Version: 1.0.5
 Date: 2023-9-16
   Features:

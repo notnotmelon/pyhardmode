@@ -163,16 +163,6 @@ else
     }:add_unlock('electrolysis')
 end
 
---tailings dust
-
-RECIPE('tailings-classification'):add_unlock('fluid-processing-machines-1').category = 'solid-separator'
-data.raw.recipe['tailings-classification'].energy_required = 1
-data.raw.recipe['tailings-classification'].results = {
-    data.raw.recipe['tailings-classification'].results[1],
-    {'ore-titanium', 1},
-    {'ore-tin', 1},
-}
-
 --coal gas
 
 RECIPE {
@@ -195,20 +185,28 @@ RECIPE {
 RECIPE {
     type = 'recipe',
     name = 'slacked-lime-void',
-    category = 'gasifier',
+    category = 'evaporator',
     enabled = false,
     energy_required = 2,
     ingredients = {
         {type = 'fluid', name = 'slacked-lime', amount = 60},
-        {type = 'fluid', name = 'carbon-dioxide', amount = 40},
-        {type = 'item', name = 'coke', amount = 1},
     },
     results = {
-        {type = 'fluid', name = 'water', amount = 60},
-        {type = 'fluid', name = 'oxygen', amount = 40},
+        {type = 'item', name = 'lime', amount = 1},
+        {type = 'item', name = 'gravel', amount = 1},
     },
-    main_product = 'oxygen'
-}:add_unlock('acetylene')
+    main_product = 'lime'
+}:add_unlock('fluid-processing-machines-1')
+
+--tailings dust
+
+RECIPE('tailings-classification'):add_unlock('fluid-processing-machines-1').category = 'solid-separator'
+data.raw.recipe['tailings-classification'].energy_required = 1
+data.raw.recipe['tailings-classification'].results = {
+    data.raw.recipe['tailings-classification'].results[1],
+    {'ore-titanium', 1},
+    {'ore-tin', 1},
+}
 
 -- plant/animal
 

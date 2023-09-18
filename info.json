@@ -1,6 +1,6 @@
 {
   "name": "pyhardmode",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "factorio_version": "1.1",
   "title": "Pyanodons Hard Mode",
   "author": "notnotmelon",
@@ -10,6 +10,7 @@
   "dependencies": [
     "base >= 1.1.74",
     "pyalternativeenergy >= 1.2.6",
+    "undeletable-fluids >= 1.0.3",
     "aai-loaders",
     "? PyBlock"
   ],

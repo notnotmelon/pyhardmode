@@ -3,6 +3,10 @@ require 'scripts.composite-entity'
 local function init()
     global.composite_entities = global.composite_entities or {}
     global.coal_plants = global.coal_plants or {}
+    for _, force in pairs(game.forces) do
+        force.manual_crafting_speed_modifier = 2
+    end
+    remote.call('undeletable-fluids', 'add_deletable_fluid', 'water')
 end
 
 script.on_init(function()
@@ -10,8 +14,8 @@ script.on_init(function()
         remote.call('freeplay', 'set_created_items', {})
         remote.call('freeplay', 'set_ship_items', {
             ['burner-mining-drill'] = 10,
-            ['py-overflow-valve'] = 5,
-            ['py-underflow-valve'] = 5,
+            ['py-overflow-valve'] = 3,
+            ['py-underflow-valve'] = 3,
             ['offshore-pump'] = 1
         })
     end

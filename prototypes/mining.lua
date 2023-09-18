@@ -61,7 +61,7 @@ if data.raw.resource['stone'] then
     data.raw.resource['stone'].minable.required_fluid = 'carbolic-oil'
 end
 if data.raw.resource['copper-ore'] then
-    data.raw.resource['copper-ore'].minable.fluid_amount = 200
+    data.raw.resource['copper-ore'].minable.fluid_amount = 100
     data.raw.resource['copper-ore'].minable.required_fluid = 'water'
 end
 
