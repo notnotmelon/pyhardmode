@@ -48,21 +48,17 @@ RECIPE {
     main_product = 'olefin'
 }:add_unlock('cadaveric-arum')
 
-for _, recipe in pairs(mods.PyBlock and {
-    'cadaveric-arum-2',
-    'cadaveric-arum-3',
-    'cadaveric-arum-4',
-} or {
+for _, recipe in pairs{
     'cadaveric-arum-1',
     'cadaveric-arum-2',
     'cadaveric-arum-3',
     'cadaveric-arum-4',
-}) do
+} do
     FUN.add_result(recipe, {name = 'residual-gas', amount = 35, type = 'fluid'})
     data.raw.recipe[recipe].main_product = 'cadaveric-arum'
 end
 
-data.raw.fluid['residual-gas'].fuel_value = nil
+if not mods.PyBlock then data.raw.fluid['residual-gas'].fuel_value = nil end
 data.raw.fluid['residual-oil'].fuel_value = nil
 data.raw.fluid['residual-mixture'].fuel_value = nil
 
