@@ -48,12 +48,16 @@ RECIPE {
     main_product = 'olefin'
 }:add_unlock('cadaveric-arum')
 
-for _, recipe in pairs{
+for _, recipe in pairs(mods.PyBlock and {
+    'cadaveric-arum-2',
+    'cadaveric-arum-3',
+    'cadaveric-arum-4',
+} or {
     'cadaveric-arum-1',
     'cadaveric-arum-2',
     'cadaveric-arum-3',
     'cadaveric-arum-4',
-} do
+}) do
     FUN.add_result(recipe, {name = 'residual-gas', amount = 35, type = 'fluid'})
     data.raw.recipe[recipe].main_product = 'cadaveric-arum'
 end

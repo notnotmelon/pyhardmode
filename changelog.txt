@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 2023-10-12
+  Features:
+    - Fixed no way to void residual gas in pyblock
+    - Reduced void amount for gas vent from 100->50. speed doubled to compensate (2x as many filters needed)
+---------------------------------------------------------------------------------------------------
 Version: 1.0.6
 Date: 2023-9-17
   Features:
