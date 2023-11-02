@@ -1,0 +1,55 @@
+ITEM {
+    type = 'item',
+    name = 'macguffin',
+    icon = '__pyhardmode__/graphics/mip/macguffin-1.png',
+    icon_size = 64,
+    pictures = {
+        {size = 64, filename = '__pyhardmode__/graphics/mip/macguffin-1.png', scale = 0.33},
+        {size = 64, filename = '__pyhardmode__/graphics/mip/macguffin-2.png', scale = 0.33},
+        {size = 64, filename = '__pyhardmode__/graphics/mip/macguffin-3.png', scale = 0.33},
+        {size = 64, filename = '__pyhardmode__/graphics/mip/macguffin-4.png', scale = 0.33},
+        {size = 64, filename = '__pyhardmode__/graphics/mip/macguffin-5.png', scale = 0.33},
+        {size = 64, filename = '__pyhardmode__/graphics/mip/macguffin-6.png', scale = 0.33},
+    },
+    flags = {'not-stackable'},
+    subgroup = 'space-related',
+    order = 'z',
+    stack_size = 1
+}
+
+--Nexelit-titanium-kevlar-aramid-tritium-unobtanium superpolymer nanowoven biocomposite smart self-healing quantum N-dimensional hyperfabric
+RECIPE {
+    type = 'recipe',
+    name = 'macguffin',
+    category = 'antelope',
+    enabled = false,
+    energy_required = 60,
+    ingredients = {
+        {type = 'item', name = 'reduced-nexelit', amount = 3},
+        {type = 'item', name = 'sintered-ti', amount = 1},
+        {type = 'item', name = 'kevlar-coating', amount = 2},
+        {type = 'item', name = 'aramid', amount = 5},
+        {type = 'fluid', name = 'tritium', amount = 50},
+        {type = 'item', name = 'ernico', amount = 2},
+        {type = 'item', name = 'phthalic-anhydride', amount = 3},
+        {type = 'item', name = 'nanofibrils', amount = 1},
+        {type = 'item', name = 'biopolymer', amount = 2},
+        {type = 'item', name = 'intelligent-unit', amount = 1},
+        {type = 'item', name = 'fish-egg-mk04', amount = 3},
+        {type = 'item', name = 'quantum-dots', amount = 1},
+        {type = 'item', name = 'time-crystal', amount = 1},
+        {type = 'item', name = 'hyperelastic-material', amount = 2},
+        {type = 'item', name = 'cage-antelope', amount = 1},
+        {type = 'item', name = 'strangelets', amount = 1},
+        {type = 'item', name = 'ulric-infusion', amount = 1},
+        {type = 'fluid', name = 'ac-oxygenated', amount = 50},
+        {type = 'item', name = 'numal-mk04', amount = 1},
+        {type = 'item', name = 'antelope', amount = 1},
+        {type = 'item', name = 'replicator-bioreserve', amount = 1},
+    },
+    results = {
+        {type = 'item', name = 'macguffin', amount = 1, probability = 0.1},
+        {type = 'item', name = 'caged-antelope', amount = 1, probability = 0.5},
+    },
+    main_product = 'macguffin',
+}:add_unlock('space-science-pack')
