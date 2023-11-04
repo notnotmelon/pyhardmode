@@ -88,5 +88,6 @@ RECIPE {
 }:add_unlock('quantum')
 
 if not mods['pystellarexpedition'] then
-    data.raw['assembling-machine']['quantum-computer'].energy_usage = '10GW'
+    data.raw['assembling-machine']['quantum-computer'].energy_usage = '5GW'
+    data.raw['assembling-machine']['quantum-computer'].module_specification.module_slots = 6
 end

@@ -4,6 +4,8 @@ Date: 2023-11-4
   Features:
     - Added nexelit-titanium-kevlar-aramid-tritium-unobtanium superpolymer nanowoven biocomposite smart self-healing quantum N-dimensional hyperfabric
     - Blowing up chests will now spill their items on the ground
+    - Increased quantum computer energy usage 6MW -> 5GW
+    - Increased quantum computer module slots 1 -> 5
     - I am completely and mentally stable
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.7
