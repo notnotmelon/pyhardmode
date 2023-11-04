@@ -49,3 +49,18 @@ script.on_nth_tick(87, function(event)
         end
     end
 end)
+
+-- when a chest is killed, drop all its contents
+script.on_event(defines.events.on_entity_died, function(event)
+    local entity = event.entity
+    if not entity.valid or not entity.unit_number then return end
+    local inventory = entity.get_inventory(defines.inventory.chest)
+    if not inventory then return end
+    for i = 1, #inventory do
+        local stack = inventory[i]
+        if stack.valid_for_read then
+            entity.surface.spill_item_stack(entity.position, stack)
+        end
+    end
+    inventory.clear()
+end)

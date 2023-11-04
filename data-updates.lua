@@ -125,3 +125,6 @@ data.raw['assembling-machine']['antelope-enclosure-mk01'].fluid_boxes = {
     },
     off_when_no_fluid_recipe = true
 }
+
+local FUN = require('__pycoalprocessing__/prototypes/functions/functions')
+FUN.productivity({'space-science-pack-real'})
