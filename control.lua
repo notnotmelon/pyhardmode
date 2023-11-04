@@ -7,6 +7,7 @@ local function init()
         force.manual_crafting_speed_modifier = 2
     end
     remote.call('undeletable-fluids', 'add_deletable_fluid', 'water')
+    remote.call('undeletable-fluids', 'add_deletable_fluid', 'steam')
 end
 
 script.on_init(function()
