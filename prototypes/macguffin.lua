@@ -137,4 +137,4 @@ RECIPE {
         {type = 'item', name = 'sweater', amount = 1},
     },
     category = 'quantum'
-}:add_unlock('space-science-pack')
+}:add_unlock('quantum')
