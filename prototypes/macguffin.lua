@@ -91,3 +91,50 @@ if not mods['pystellarexpedition'] then
     data.raw['assembling-machine']['quantum-computer'].energy_usage = '5GW'
     data.raw['assembling-machine']['quantum-computer'].module_specification.module_slots = 6
 end
+
+data:extend{{
+	name = 'sweater-equipment-grid',
+	type = 'equipment-grid',
+	height = 12,
+	width = 12,
+	equipment_categories = {'armor'}
+}}
+
+data:extend{{
+    type = 'armor',
+    name = 'sweater',
+    icon = '__pyhardmode__/graphics/sweater.png',
+    icon_size = 64,
+    resistances = {
+        {type = 'physical', decrease = 0, percent = 100},
+        {type = 'acid', decrease = 0, percent = 100},
+        {type = 'explosion', decrease = 0, percent = 100},
+        {type = 'fire', decrease = 0, percent = 100},
+        {type = 'laser', decrease = 0, percent = 100},
+        {type = 'impact', decrease = 0, percent = 100},
+        {type = 'electric', decrease = 0, percent = 100},
+        {type = 'poison', decrease = 0, percent = 100},
+    },
+    equipment_grid = 'sweater-equipment-grid',
+    inventory_size_bonus = 120,
+    infinite = true,
+    flags = {'not-stackable'},
+    subgroup = data.raw.armor['power-armor-mk2'].subgroup,
+    order = 'z',
+    stack_size = 1
+}}
+
+RECIPE {
+    type = 'recipe',
+    name = 'sweater',
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        {type = 'item', name = 'macguffin', amount = 5},
+        {type = 'item', name = 'power-armor-mk2', amount = 1},
+    },
+    results = {
+        {type = 'item', name = 'sweater', amount = 1},
+    },
+    category = 'quantum'
+}:add_unlock('space-science-pack')
