@@ -21,3 +21,5 @@ for name, recipe in pairs(data.raw.recipe) do
 end
 
 RECIPE('zipir1-pyvoid'):add_unlock('zipir')
+
+require 'prototypes.pyrrhic'

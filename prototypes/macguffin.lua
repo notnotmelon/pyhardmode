@@ -1,7 +1,7 @@
 ITEM {
     type = 'item',
     name = 'macguffin',
-    icon = '__pyhardmode__/graphics/macguffin.png',
+    icon = '__pyhardmode__/graphics/icons/macguffin.png',
     icon_size = 64,
     pictures = {
         {size = 256, filename = '__pyhardmode__/graphics/glitch.png', scale = 10, blend_mode = 'multiplicative-with-alpha'},
@@ -63,7 +63,7 @@ RECIPE {
 ITEM {
     type = 'item',
     name = 'quantum-simulation-data',
-    icon = '__pyhardmode__/graphics/quantum-simulation-data.png',
+    icon = '__pyhardmode__/graphics/icons/quantum-simulation-data.png',
     icon_size = 64,
     subgroup = 'space-related',
     order = 'y',
@@ -103,7 +103,7 @@ data:extend{{
 data:extend{{
     type = 'armor',
     name = 'sweater',
-    icon = '__pyhardmode__/graphics/sweater.png',
+    icon = '__pyhardmode__/graphics/icons/sweater.png',
     icon_size = 64,
     resistances = {
         {type = 'physical', decrease = 0, percent = 100},
@@ -124,6 +124,32 @@ data:extend{{
     stack_size = 1
 }}
 
+TECHNOLOGY {
+    type = 'technology',
+    name = 'sweater',
+    icon = '__pyhardmode__/graphics/technology/sweater.png',
+    icon_size = 128,
+    order = 'c-a',
+    prerequisites = {'power-armor-mk2'},
+    effects = {},
+    unit = {
+        count = 500,
+        ingredients = {
+            {'automation-science-pack', 200},
+            {'py-science-pack-1', 100},
+            {'logistic-science-pack', 60},
+            {'py-science-pack-2', 30},
+            {'chemical-science-pack', 20},
+            {'py-science-pack-3', 10},
+            {'production-science-pack', 6},
+            {'py-science-pack-4', 3},
+            {'utility-science-pack', 2},
+            {'space-science-pack', 1},
+        },
+        time = 1200
+    }
+}
+
 RECIPE {
     type = 'recipe',
     name = 'sweater',
@@ -137,4 +163,4 @@ RECIPE {
         {type = 'item', name = 'sweater', amount = 1},
     },
     category = 'quantum'
-}:add_unlock('quantum')
+}:add_unlock('sweater')
