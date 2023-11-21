@@ -66,6 +66,7 @@ script.on_event(defines.events.on_entity_died, function(event)
     inventory.clear()
 end)
 
+-- teleport player to cursor position when they are in map view & wearing a sweater
 local armor_inventory = defines.inventory.character_armor
 local render_mode = defines.render_mode.game
 script.on_event('open-gui', function(event)

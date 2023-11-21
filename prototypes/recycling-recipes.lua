@@ -853,3 +853,50 @@ RECIPE {
     },
     main_product = 'control-rod'
 }:add_unlock('nuclear-power')
+
+-- pressured water
+RECIPE {
+    type = 'recipe',
+    name = 'pressured-water-inverted',
+    category = 'vacuum',
+    enabled = false,
+    energy_required = 2.5,
+    ingredients = {
+        {type = 'fluid', name = 'pressured-water', amount = 200}
+    },
+    results = {
+        {type = 'fluid', name = 'water', amount = 200}
+    }
+}:add_unlock('fluid-pressurization')
+
+--vaccumm
+RECIPE {
+    type = 'recipe',
+    name = 'vacuum-void',
+    category = 'vacuum',
+    enabled = false,
+    energy_required = 1,
+    ingredients = {
+        {type = 'fluid', name = 'vacuum', amount = 10}
+    },
+    results = {},
+    icon = data.raw.fluid['vacuum'].icon,
+    icon_size = data.raw.fluid['vacuum'].icon_size,
+    subgroup = data.raw.fluid['vacuum'].subgroup,
+}:add_unlock('fluid-pressurization')
+
+--pressured air
+RECIPE {
+    type = 'recipe',
+    name = 'pressured-air-void',
+    category = 'vacuum',
+    enabled = false,
+    energy_required = 2,
+    ingredients = {
+        {type = 'fluid', name = 'pressured-air', amount = 20}
+    },
+    results = {},
+    icon = data.raw.fluid['pressured-air'].icon,
+    icon_size = data.raw.fluid['pressured-air'].icon_size,
+    subgroup = data.raw.fluid['pressured-air'].subgroup,
+}:add_unlock('fluid-pressurization')

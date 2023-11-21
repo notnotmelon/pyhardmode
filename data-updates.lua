@@ -128,3 +128,7 @@ data.raw['assembling-machine']['antelope-enclosure-mk01'].fluid_boxes = {
 
 local FUN = require('__pycoalprocessing__/prototypes/functions/functions')
 FUN.productivity({'space-science-pack-real'})
+
+if register_cache_file ~= nil then
+    register_cache_file({'pyhardmode','pycoalprocessing','pyfusionenergy','pyindustry','pyrawores','pyhightech','pypetroleumhandling','pyalienlife','pyalternativeenergy'}, '__pyhardmode__/cached-configs/pyalienlife+pyalternativeenergy+pycoalprocessing+pyfusionenergy+pyhardmode+pyhightech+pyindustry+pypetroleumhandling+pyrawores')
+end
