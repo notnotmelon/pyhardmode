@@ -65,3 +65,14 @@ script.on_event(defines.events.on_entity_died, function(event)
     end
     inventory.clear()
 end)
+
+local armor_inventory = defines.inventory.character_armor
+local render_mode = defines.render_mode.game
+script.on_event('open-gui', function(event)
+    local player = game.get_player(event.player_index)
+    if player.render_mode == render_mode then return end
+    local armor = player.get_inventory(armor_inventory)[1]
+    if armor.valid_for_read and armor.name == 'sweater' then
+        player.teleport(event.cursor_position)
+    end
+end)
