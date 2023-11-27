@@ -72,8 +72,10 @@ local render_mode = defines.render_mode.game
 script.on_event('open-gui', function(event)
     local player = game.get_player(event.player_index)
     if player.render_mode == render_mode then return end
-    local armor = player.get_inventory(armor_inventory)[1]
-    if armor.valid_for_read and armor.name == 'sweater' then
+    local armor = player.get_inventory(armor_inventory)
+    if not armor then return end
+    local armor_slot = armor[1]    
+    if armor_slot.valid_for_read and armor_slot.name == 'sweater' then
         player.teleport(event.cursor_position)
     end
 end)
