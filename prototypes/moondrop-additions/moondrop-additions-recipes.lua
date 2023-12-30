@@ -12,13 +12,13 @@ RECIPE {
     results = {
         {type = 'fluid', name = 'methane', amount = 60}
     },
-    main_product = 'water'
+    main_product = 'methane'
 }:add_unlock("moondrop")
 
 RECIPE {
     type = 'recipe',
     name = 'methane-reconstitution-moondrop',
-    category = 'distillator',
+    category = 'distilator',
     enabled = false,
     energy_required = 10,
     ingredients = {
@@ -31,5 +31,5 @@ RECIPE {
         {type = 'fluid', name = 'oxygen', amount = 400},
         {type = 'fluid', name = 'methane', amount = 550},
     },
-    main_product = 'oxygen'
+    main_product = 'methane'
 }:add_unlock("moondrop")

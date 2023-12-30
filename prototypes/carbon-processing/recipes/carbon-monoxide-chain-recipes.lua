@@ -32,7 +32,7 @@ RECIPE {
 RECIPE {
     type = 'recipe',
     name = 'carbon-monoxide-methane-breakup',
-    category = 'distillator',
+    category = 'distilator',
     enabled = false,
     energy_required = 10,
     ingredients = {
@@ -43,13 +43,14 @@ RECIPE {
     results = {
         {type = 'fluid', name = 'carbon-dioxide', amount = 900},
         {type = 'fluid', name = 'hydrogen', amount = 1200}
-    }
+    },
+    main_product = 'hydrogen'
 }:add_unlock("coal-processing-1")
 
 RECIPE {
     type = 'recipe',
     name = 'methane-reconstitution',
-    category = 'distillator',
+    category = 'distilator',
     enabled = false,
     energy_required = 10,
     ingredients = {
@@ -67,7 +68,7 @@ RECIPE {
 RECIPE {
     type = 'recipe',
     name = 'methane-to-water',
-    category = 'distillator',
+    category = 'distilator',
     enabled = false,
     energy_required = 10,
     ingredients = {
