@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.14
+Date: 2023-12-30
+  Features:
+    - Added methane to water recipe chain
+    - Added carbon monoxide / rough carbon
+    - Added residual gas to methane with moondrop farm
+---------------------------------------------------------------------------------------------------
 Version: 1.0.13
 Date: ?
   Features:

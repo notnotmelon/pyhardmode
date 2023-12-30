@@ -22,14 +22,14 @@ RECIPE {
     enabled = false,
     energy_required = 10,
     ingredients = {
-        {type = 'fluid', name = 'carbon-dioxide', amount = 900},
-        {type = 'fluid', name = 'hydrogen', amount = 400},
+        {type = 'fluid', name = 'carbon-dioxide', amount = 225},
+        {type = 'fluid', name = 'hydrogen', amount = 100},
         {type = 'item', name = 'moondrop-seeds', amount = 1}
     },
     results = {
-        {type = 'fluid', name = 'carbon-monoxide', amount = 400},
-        {type = 'fluid', name = 'oxygen', amount = 400},
-        {type = 'fluid', name = 'methane', amount = 550},
+        {type = 'fluid', name = 'carbon-monoxide', amount = 100},
+        {type = 'fluid', name = 'oxygen', amount = 100},
+        {type = 'fluid', name = 'methane', amount = 175},
     },
     main_product = 'methane'
 }:add_unlock("moondrop")
