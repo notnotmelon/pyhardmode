@@ -11,7 +11,7 @@ RECIPE {
         {type = 'item', name = 'rough-carbon-dust', amount = 1},
     },
     main_product = 'rough-carbon-dust'
-}:add_unlock("moondrop")
+}:add_unlock("coal-processing-1")
 
 RECIPE {
     type = 'recipe',
@@ -27,7 +27,7 @@ RECIPE {
         {type = 'fluid', name = 'carbon-monoxide', amount = 400},
     },
     main_product = 'carbon-monoxide'
-}:add_unlock("moondrop")
+}:add_unlock("coal-processing-1")
 
 RECIPE {
     type = 'recipe',
@@ -44,7 +44,7 @@ RECIPE {
         {type = 'fluid', name = 'carbon-dioxide', amount = 900},
         {type = 'fluid', name = 'hydrogen', amount = 1200}
     }
-}:add_unlock("moondrop")
+}:add_unlock("coal-processing-1")
 
 RECIPE {
     type = 'recipe',
@@ -54,8 +54,7 @@ RECIPE {
     energy_required = 10,
     ingredients = {
         {type = 'fluid', name = 'carbon-dioxide', amount = 900},
-        {type = 'fluid', name = 'hydrogen', amount = 400},
-        {type = 'item', name = 'moondrop-seeds', amount = 1}
+        {type = 'fluid', name = 'hydrogen', amount = 400}
     },
     results = {
         {type = 'fluid', name = 'carbon-monoxide', amount = 400},
@@ -63,7 +62,7 @@ RECIPE {
         {type = 'fluid', name = 'methane', amount = 500},
     },
     main_product = 'oxygen'
-}:add_unlock("moondrop")
+}:add_unlock("coal-processing-1")
 
 RECIPE {
     type = 'recipe',
@@ -80,4 +79,4 @@ RECIPE {
         {type = 'fluid', name = 'water', amount = 600}
     },
     main_product = 'water'
-}:add_unlock("moondrop")
+}:add_unlock("coal-processing-1")
