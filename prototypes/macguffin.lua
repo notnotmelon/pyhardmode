@@ -9,10 +9,9 @@ ITEM {
         {size = 256, filename = '__pyhardmode__/graphics/glitch.png', scale = 10, blend_mode = 'additive'},
         {size = 256, filename = '__pyhardmode__/graphics/glitch.png', scale = 10, blend_mode = 'normal'},
     },
-    flags = {'not-stackable'},
     subgroup = 'space-related',
     order = 'z',
-    stack_size = 1
+    stack_size = 5
 }
 
 --Nexelit-titanium-kevlar-aramid-tritium-unobtanium superpolymer nanowoven biocomposite smart self-healing quantum N-dimensional hyperfabric
@@ -49,8 +48,6 @@ RECIPE {
         {type = 'item', name = 'cognition-osteochain', amount = 2},
         {type = 'item', name = 'pyrolytic-carbon', amount = 2},
         {type = 'item', name = 'pheromones', amount = 1},
-        {type = 'item', name = 'navens-abomination', amount = 3},
-        {type = 'item', name = 'fungicide', amount = 5},
     },
     results = {
         {type = 'item', name = 'macguffin', amount = 1, probability = 0.1},

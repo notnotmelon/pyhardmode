@@ -308,8 +308,8 @@ end
 
 local rtg_light = {
     layers = {
-        table.remove(data.raw['burner-generator']['rtg'].animation.layers, 2),
-        table.remove(data.raw['burner-generator']['rtg'].animation.layers, 2),
+        table.remove(data.raw['burner-generator']['py-rtg'].animation.layers, 2),
+        table.remove(data.raw['burner-generator']['py-rtg'].animation.layers, 2),
     }
 }
 
@@ -319,7 +319,7 @@ for name, info in pairs{
     ['py-coal-powerplant-mk02'] = {specific_heat = '20MJ', type = 'assembling-machine', consumption = '20MW', connections = coal_plant, max_temperature = 2000},
     ['py-coal-powerplant-mk03'] = {specific_heat = '30MJ', type = 'assembling-machine', consumption = '30MW', connections = coal_plant, max_temperature = 3000},
     ['py-coal-powerplant-mk04'] = {specific_heat = '40MJ', type = 'assembling-machine', consumption = '40MW', connections = coal_plant, max_temperature = 4000},
-    ['rtg'] = {specific_heat = '5MJ', copy_animation = true, type = 'burner-generator', consumption = '2MW', connections = rtg, max_temperature = 5000, neighbour_bonus = 2},
+    ['py-rtg'] = {specific_heat = '5MJ', copy_animation = true, type = 'burner-generator', consumption = '2MW', connections = rtg, max_temperature = 5000, neighbour_bonus = 2},
 } do
     local type = info.type
     local entity = data.raw[type][name]
@@ -353,8 +353,8 @@ for name, info in pairs{
     entity.localised_description = {'', {'entity-description.' .. entity.name}, '\n', {'entity-description.max-temperature', info.max_temperature}}
 end
 
-data.raw.reactor['rtg'].working_light_picture = rtg_light
-data.raw.reactor['rtg'].scale_energy_usage = true
+data.raw.reactor['py-rtg'].working_light_picture = rtg_light
+data.raw.reactor['py-rtg'].scale_energy_usage = true
 for i = 1, 4 do
     data.raw.reactor['py-coal-powerplant-mk0' .. i].integration_patch = {
         filename = '__pyhardmode__/graphics/coal-plant.png',
@@ -407,4 +407,4 @@ data.raw['assembling-machine']['simik-den-mk02'].energy_usage = '15MW'
 data.raw['assembling-machine']['simik-den-mk03'].energy_usage = '20MW'
 data.raw['assembling-machine']['simik-den-mk04'].energy_usage = '25MW'
 
-RECIPE('rtg'):remove_unlock('nuclear-power-mk02'):add_unlock('simik-mk01')
+RECIPE('py-rtg'):remove_unlock('nuclear-power-mk02'):add_unlock('simik-mk01')

@@ -1,8 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.13
-Date: ?
+Date: 2024-4-29
   Features:
     - updated chinese translation (翻译：aotix，基于咸鱼拓展而来。)
+    - removed turd items from space science pack recipe
+    - made sweaters craftable
+    - changed all refrences of "rtg" to "py-rtg" in order to comply with the new pyae update
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.12
 Date: 2023-11-27
