@@ -23,6 +23,7 @@ script.on_init(function()
     init()
 end)
 script.on_configuration_changed(init)
+script.on_event(defines.events.on_technology_effects_reset, init)
 
 script.on_nth_tick(87, function(event)
     for unit_number, entities in pairs(global.coal_plants) do
