@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2024-08-04
+  Features:
+    - Added automatic portal deployment with via https://github.com/fgardt/factorio-mod-template
+  Locale:
+    - Added localization for mod-name and mod-description
+---------------------------------------------------------------------------------------------------
 Version: 1.0.14
 Date: ??
   Bugfixes:
