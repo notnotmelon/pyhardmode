@@ -61,7 +61,14 @@ script.on_event(defines.events.on_entity_died, function(event)
     for i = 1, #inventory do
         local stack = inventory[i]
         if stack.valid_for_read then
-            entity.surface.spill_item_stack(entity.position, stack)
+            entity.surface.spill_item_stack{
+                position = entity.position,
+                stack = stack,
+                enable_looted = true,
+                force = entity.force_index,
+                allow_belts = false,
+                use_start_position_on_failure = true,
+            }
         end
     end
     inventory.clear()
