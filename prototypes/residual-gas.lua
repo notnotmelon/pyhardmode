@@ -1,5 +1,3 @@
-local FUN = require '__pycoalprocessing__/prototypes/functions/functions'
-
 RECIPE {
     type = 'recipe',
     name = 'residual-gas-to-gasoline',
@@ -54,7 +52,7 @@ for _, recipe in pairs{
     'cadaveric-arum-3',
     'cadaveric-arum-4',
 } do
-    FUN.add_result(recipe, {name = 'residual-gas', amount = 35, type = 'fluid'})
+    RECIPE(recipe):add_result{name = "residual-gas", amount = 35, type = "fluid"}
     data.raw.recipe[recipe].main_product = 'cadaveric-arum'
 end
 
@@ -64,5 +62,5 @@ data.raw.fluid['residual-mixture'].fuel_value = nil
 
 RECIPE('msa-void-boric-acid'):add_unlock('cadaveric-arum-upgrade')
 
-FUN.remove_ingredient('residual-mixture', 'ash')
-FUN.add_ingredient('residual-mixture', {type = 'item', name = 'chromite-sand', amount = 1})
+RECIPE('residual-mixture'):remove_ingredient('ash')
+RECIPE("residual-mixture"):add_ingredient{type = "item", name = "chromite-sand", amount = 1}

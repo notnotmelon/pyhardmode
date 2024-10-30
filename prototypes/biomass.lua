@@ -1,5 +1,3 @@
-local FUN = require '__pycoalprocessing__/prototypes/functions/functions'
-
 local function undo_biomass(item, type)
     local prototype = data.raw[type][item]
     if not prototype then error(item) end
@@ -44,7 +42,7 @@ local function nerf_biomass(item, type, multiplier)
     local biomass_amount = data.raw.recipe['biomass-' .. item].results[1].amount
     input.amount = input.amount * multiplier
     prototype.localised_description = nil
-    FUN.add_to_description(type, prototype, {'item-description.compost-amount', math.floor(biomass_amount / input.amount * 10) / 10})
+    py.add_to_description(type, prototype, {'item-description.compost-amount', tostring(math.floor(biomass_amount / input.amount * 10) / 10)})
 end
 
 nerf_biomass('kicalk-seeds', 'item', 2)

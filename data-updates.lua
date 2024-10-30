@@ -22,7 +22,7 @@ RECIPE('bonemeal-to-geothermal-water'):add_unlock('ulric-upgrade')
 
 for _, chest_type in pairs{'basic', 'active-provider', 'passive-provider', 'buffer', 'storage', 'requester'} do
     local container_type = chest_type == 'basic' and 'container' or 'logistic-container'
-    local steel = chest_type == 'basic' and 'steel-chest' or ('logistic-chest-' .. chest_type)
+    local steel = chest_type == 'basic' and 'steel-chest' or (chest_type .. '-chest')
     data.raw[container_type][steel].inventory_size = 20
     data.raw[container_type]['py-shed-' .. chest_type].inventory_size = 40
     data.raw[container_type]['py-storehouse-' .. chest_type].inventory_size = 80
@@ -31,9 +31,6 @@ for _, chest_type in pairs{'basic', 'active-provider', 'passive-provider', 'buff
 end
 data.raw.container['wooden-chest'].inventory_size = 4
 data.raw.container['iron-chest'].inventory_size = 8
-
-data.raw['electric-energy-interface']['pydrive_skin'].energy_source.buffer_capacity = '200MW'
-data.raw['electric-energy-interface']['pydrive_skin'].energy_usage = '200MW'
 
 RECIPE('neutron-absorber-mk01'):remove_unlock('nuclear-power'):add_unlock('uranium-processing')
 
@@ -77,14 +74,6 @@ data.raw['logistic-robot']['py-logistic-robot-02'].max_payload_size = 2
 data.raw['logistic-robot']['l-pynobot-mk03'].max_payload_size = 3
 data.raw['logistic-robot']['logistic-robot-ht'].max_payload_size = 4
 
-for am = 5, 1, -1 do
-    for fm = 5, 1, -1 do
-        local name = 'beacon-AM' .. am ..'-FM' .. fm
-        local beacon = data.raw.beacon[name]
-        beacon.distribution_effectivity = 0.2 * am * fm
-    end
-end
-
 RECIPE('creosote-to-aromatics'):add_unlock('creosote'):add_ingredient{type = 'fluid', name = 'gasoline', amount = 35}.hidden = false
 
 RECIPE('primers'):add_ingredient{'shell', 2}
@@ -93,41 +82,33 @@ RECIPE('primers-03'):add_ingredient{'shell', 2}
 
 data.raw.recipe['purex-waste-vitrification'].results[4].amount = 1
 
-data.raw.module['vatbrain-1'].effect.productivity.bonus = 0.15
-data.raw.module['vatbrain-2'].effect.productivity.bonus = 0.30
-data.raw.module['vatbrain-3'].effect.productivity.bonus = 0.45
-data.raw.module['vatbrain-4'].effect.productivity.bonus = 0.60
-
-require 'prototypes.neutron-absorber.neutron-absorber-mk01'
-require 'prototypes.neutron-absorber.neutron-absorber-mk02'
-require 'prototypes.neutron-absorber.neutron-absorber-mk03'
-require 'prototypes.neutron-absorber.neutron-absorber-mk04'
+data.raw.module['vatbrain-1'].effect.productivity = 0.15
+data.raw.module['vatbrain-2'].effect.productivity = 0.30
+data.raw.module['vatbrain-3'].effect.productivity = 0.45
+data.raw.module['vatbrain-4'].effect.productivity = 0.60
 
 data.raw.recipe['planter-box'].ingredients[3].amount = 9
 
 -- add fluid inputs to antelope-enclosure-mk01
+data.raw['assembling-machine']['antelope-enclosure-mk01'].fluid_boxes_off_when_no_fluid_recipe = true
 data.raw['assembling-machine']['antelope-enclosure-mk01'].fluid_boxes = {
     {
         production_type = 'input',
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
-        pipe_connections = {{type = 'input', position = {-9, 0}}}
+        volume = 1000,
+        pipe_connections = {{flow_direction = "input", position = {-8, 0}, direction = defines.direction.east}}
     },
     {
         production_type = 'input',
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
-        pipe_connections = {{type = 'input', position = {9, 0}}}
+        volume = 1000,
+        pipe_connections = {{flow_direction = "input", position = {8, 0}, direction = defines.direction.east}}
     },
-    off_when_no_fluid_recipe = true
 }
 
-local FUN = require('__pycoalprocessing__/prototypes/functions/functions')
-FUN.productivity({'space-science-pack-real'})
+data.raw.recipe["space-science-pack-real"].allow_productivity = true
 
 if not mods.PyBlock and register_cache_file ~= nil then
     register_cache_file({'pyhardmode','pycoalprocessing','pyfusionenergy','pyindustry','pyrawores','pyhightech','pypetroleumhandling','pyalienlife','pyalternativeenergy'}, '__pyhardmode__/cached-configs/pyalienlife+pyalternativeenergy+pycoalprocessing+pyfusionenergy+pyhardmode+pyhightech+pyindustry+pypetroleumhandling+pyrawores')

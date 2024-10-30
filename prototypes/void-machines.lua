@@ -5,7 +5,6 @@ for _, void_machine in pairs{'py-sinkhole', 'py-gas-vent'} do
     data.raw['assembling-machine'][void_machine].energy_source = {
         type = 'electric',
         usage_priority = 'secondary-input',
-        emissions_per_minute = 0,
     }
     data.raw['assembling-machine'][void_machine].energy_usage = '100kW'
     data.raw.furnace[void_machine] = nil
@@ -13,7 +12,7 @@ end
 
 data.raw['assembling-machine']['py-gas-vent'].crafting_speed = 5
 data.raw['assembling-machine']['py-sinkhole'].fixed_recipe = 'water-pyvoid-fluid'
-data.raw['assembling-machine']['py-sinkhole'].collision_mask = {'ground-tile', 'object-layer'}
+data.raw['assembling-machine']['py-sinkhole'].collision_mask = {layers = {ground_tile = true, object = true}}
 
 RECIPE('py-gas-vent'):remove_unlock('coal-processing-1')
 RECIPE('py-gas-vent'):add_unlock('filtration')

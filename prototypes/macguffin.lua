@@ -86,7 +86,7 @@ RECIPE {
 
 if not mods['pystellarexpedition'] then
     data.raw['assembling-machine']['quantum-computer'].energy_usage = '5GW'
-    data.raw['assembling-machine']['quantum-computer'].module_specification.module_slots = 6
+    data.raw['assembling-machine']['quantum-computer'].module_slots = 6
 end
 
 data:extend{{
@@ -118,7 +118,8 @@ data:extend{{
     flags = {'not-stackable'},
     subgroup = data.raw.armor['power-armor-mk2'].subgroup,
     order = 'z',
-    stack_size = 1
+    stack_size = 1,
+    provides_flight = true
 }}
 
 TECHNOLOGY {

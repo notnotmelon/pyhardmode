@@ -1,5 +1,3 @@
-local FUN = require '__pycoalprocessing__/prototypes/functions/functions'
-
 local pipe_covers = make_4way_animation_from_spritesheet{
     filename = '__base__/graphics/entity/heat-exchanger/heatex-endings.png',
     width = 32,
@@ -285,9 +283,9 @@ for _, coal_plant in pairs{
         icon_size = 64,
         flags = {'placeable-neutral', 'player-creation', 'not-on-map'},
         collision_box = data.raw['assembling-machine'][coal_plant].collision_box,
-        collision_mask = {},
+        collision_mask = {layers = {}},
         selectable_in_game = false,
-        animations = data.raw['assembling-machine'][coal_plant].animation
+        animations = data.raw['assembling-machine'][coal_plant].graphics_set.animation
     }
     for _, layer in pairs(animation.animations.layers) do
         layer.animation_speed = 1/6
@@ -299,9 +297,9 @@ for _, coal_plant in pairs{
         icon_size = 64,
         flags = {'placeable-neutral', 'player-creation', 'not-on-map'},
         collision_box = data.raw['assembling-machine'][coal_plant].collision_box,
-        collision_mask = {},
+        collision_mask = {layers = {}},
         selectable_in_game = false,
-        picture = data.raw['assembling-machine'][coal_plant].animation
+        picture = data.raw["assembling-machine"][coal_plant].graphics_set.animation
     }
     data:extend{animation, picture}
 end
@@ -350,7 +348,7 @@ for name, info in pairs{
     end
     entity.energy_source.effectivity = 5
     data:extend{entity}
-    entity.localised_description = {'', {'entity-description.' .. entity.name}, '\n', {'entity-description.max-temperature', info.max_temperature}}
+    entity.localised_description = {'', {'entity-description.' .. entity.name}, '\n', {'entity-description.max-temperature', tostring(info.max_temperature)}}
 end
 
 data.raw.reactor['py-rtg'].working_light_picture = rtg_light
@@ -384,14 +382,14 @@ nuclear_reactor.heat_buffer.max_temperature = 1000
 nuclear_reactor.heat_buffer.specific_heat = '200kJ'
 nuclear_reactor.energy_source.effectivity = 0.01
 nuclear_reactor.consumption = '100MW'
-nuclear_reactor.localised_description = {'', {'entity-description.nuclear-reactor'}, '\n', {'entity-description.max-temperature', 1000}}
+nuclear_reactor.localised_description = {'', {'entity-description.nuclear-reactor'}, '\n', {'entity-description.max-temperature', "1000"}}
 
 data.raw.furnace['electric-furnace'].energy_usage = '5MW'
 data.raw.furnace['electric-furnace'].crafting_speed = 4
 data.raw.furnace['electric-furnace'].energy_source = {
     type = 'electric',
     usage_priority = 'secondary-input',
-    emissions_per_minute = 10,
+    emissions_per_minute = {pollution = 10},
 }
 
 RECIPE('py-burner'):remove_ingredient('titanium-plate'):remove_ingredient('steel-plate'):remove_unlock('py-burner'):add_unlock('steel-processing')

@@ -397,26 +397,6 @@ RECIPE {
     main_product = 'blood'
 }:add_unlock('water-invertebrates-mk01')
 
---chitin
-
-RECIPE {
-    type = 'recipe',
-    name = 'chitin-void',
-    category = 'tar',
-    enabled = false,
-    energy_required = 2,
-    ingredients = {
-        {'chitin', 3},
-        {type = 'fluid', name = 'middle-oil', amount = 100},
-        {type = 'fluid', name = 'steam', amount = 50, minimum_temperature = 250},
-    },
-    results = {
-        {type = 'fluid', name = 'carbolic-oil', amount = 100},
-        {type = 'fluid', name = 'naphthalene-oil', amount = 50},
-    },
-    main_product = 'carbolic-oil',
-}:add_unlock('rendering')
-
 --sodium hydroxide
 
 RECIPE {
@@ -656,23 +636,6 @@ RECIPE {
         {type = 'fluid', name = 'high-distillate', amount = 100},
     }
 }:add_unlock('light-oil-mk01')
-
---anthracene oil
-
-RECIPE {
-    type = 'recipe',
-    name = 'anthracene-oil-creosote',
-    category = 'tar',
-    enabled = false,
-    energy_required = 2,
-    ingredients = {
-        {type = 'fluid', name = 'anthracene-oil', amount = 50},
-    },
-    results = {
-        {type = 'fluid', name = 'creosote', amount = 20},
-    },
-    main_product = 'creosote'
-}:add_unlock('creosote')
 
 --refined natural gas
 

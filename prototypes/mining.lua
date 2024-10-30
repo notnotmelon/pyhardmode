@@ -1,5 +1,4 @@
 local collision_mask_util = require '__core__/lualib/collision-mask-util'
-local noise = require('noise')
 
 local resource_rocks = {
     'titanium-rock',
@@ -29,7 +28,7 @@ local categories = {}
 for _, resource in pairs(resource_rocks) do
     resource = data.raw.resource[resource]
     local mask = collision_mask_util.get_mask(resource)
-    collision_mask_util.add_layer(mask, 'object-layer')
+    mask.layers["object"] = true
     resource.collision_mask = mask
     categories[resource.category] = true
     resource.infinite = true
@@ -37,9 +36,7 @@ for _, resource in pairs(resource_rocks) do
     resource.normal = 10
     resource.minimum = resource.normal
     if resource.autoplace then
-        resource.autoplace.richness_expression = noise.define_noise_function(function(x, y, tile, map)
-            return 10
-        end)
+        resource.autoplace.richness_expression = "10"
     end
 end
 
@@ -48,7 +45,7 @@ for _, miner in pairs(data.raw['mining-drill']) do
         for _, category in pairs(miner.resource_categories) do
             if categories[category] then
                 local mask = collision_mask_util.get_mask(miner)
-                collision_mask_util.remove_layer(mask, 'object-layer')
+                mask.layers['object-layer'] = nil
                 miner.collision_mask = mask
                 break
             end
@@ -69,10 +66,8 @@ data.raw['mining-drill']['electric-mining-drill'].input_fluid_box = electric_min
 data.raw['mining-drill']['burner-mining-drill'].input_fluid_box = {
     production_type = 'input',
     pipe_covers = pipecoverspictures(),
-    base_area = 2,
-    height = 1,
-    base_level = -1,
+    volume = 2,
     pipe_connections = {
-        {type = 'input', position = {0.5, -1.5}}
+        {flow_direction = 'input', position = {0.5, -0.5}, direction = defines.direction.north},
     }
 }
