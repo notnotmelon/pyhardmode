@@ -1,4 +1,4 @@
-require 'scripts.composite-entity'
+require "scripts.composite-entity"
 
 local function init()
     storage.composite_entities = storage.composite_entities or {}
@@ -6,18 +6,18 @@ local function init()
     for _, force in pairs(game.forces) do
         force.manual_crafting_speed_modifier = 2
     end
-    remote.call('undeletable-fluids', 'add_deletable_fluid', 'water')
-    remote.call('undeletable-fluids', 'add_deletable_fluid', 'steam')
+    remote.call("undeletable-fluids", "add_deletable_fluid", "water")
+    remote.call("undeletable-fluids", "add_deletable_fluid", "steam")
 end
 
 script.on_init(function()
-    if remote.interfaces['freeplay'] and not script.active_mods.PyBlock then
-        remote.call('freeplay', 'set_created_items', {})
-        remote.call('freeplay', 'set_ship_items', {
-            ['burner-mining-drill'] = 10,
-            ['py-overflow-valve'] = 3,
-            ['py-underflow-valve'] = 3,
-            ['offshore-pump'] = 1
+    if remote.interfaces["freeplay"] and not script.active_mods.PyBlock then
+        remote.call("freeplay", "set_created_items", {})
+        remote.call("freeplay", "set_ship_items", {
+            ["burner-mining-drill"] = 10,
+            ["py-overflow-valve"] = 3,
+            ["py-underflow-valve"] = 3,
+            ["offshore-pump"] = 1
         })
     end
     init()
@@ -37,8 +37,8 @@ script.on_nth_tick(87, function(event)
             storage.coal_plants[unit_number] = nil
         elseif coal_plant.energy ~= 0 then
             picture.destroy()
-            local animation = coal_plant.surface.create_entity{
-                name = coal_plant.name .. '-animation',
+            local animation = coal_plant.surface.create_entity {
+                name = coal_plant.name .. "-animation",
                 position = coal_plant.position,
                 force = coal_plant.force_index
             }
@@ -70,13 +70,13 @@ end)
 -- teleport player to cursor position when they are in map view & wearing a sweater
 local armor_inventory = defines.inventory.character_armor
 local render_mode = defines.render_mode.game
-script.on_event('open-gui', function(event)
+script.on_event("open-gui", function(event)
     local player = game.get_player(event.player_index)
     if player.render_mode == render_mode then return end
     local armor = player.get_inventory(armor_inventory)
     if not armor then return end
-    local armor_slot = armor[1]    
-    if armor_slot.valid_for_read and armor_slot.name == 'sweater' then
+    local armor_slot = armor[1]
+    if armor_slot.valid_for_read and armor_slot.name == "sweater" then
         player.teleport(event.cursor_position)
     end
 end)

@@ -1,27 +1,27 @@
-local collision_mask_util = require '__core__/lualib/collision-mask-util'
+local collision_mask_util = require "__core__/lualib/collision-mask-util"
 
 local resource_rocks = {
-    'titanium-rock',
-    'regolites',
-    'salt-rock',
-    'sulfur-patch',
-    'uranium-rock',
-    'tin-rock',
-    'rare-earth-bolide',
-    'quartz-rock',
-    'phosphate-rock-02',
-    'phosphate-rock',
-    'nickel-rock',
-    'nexelit-rock',
-    'lead-rock',
-    'iron-rock',
-    'zinc-rock',
-    'aluminium-rock',
-    'chromium-rock',
-    'coal-rock',
-    'copper-rock',
-    'geothermal-crack',
-    'volcanic-pipe'
+    "titanium-rock",
+    "regolites",
+    "salt-rock",
+    "sulfur-patch",
+    "uranium-rock",
+    "tin-rock",
+    "rare-earth-bolide",
+    "quartz-rock",
+    "phosphate-rock-02",
+    "phosphate-rock",
+    "nickel-rock",
+    "nexelit-rock",
+    "lead-rock",
+    "iron-rock",
+    "zinc-rock",
+    "aluminium-rock",
+    "chromium-rock",
+    "coal-rock",
+    "copper-rock",
+    "geothermal-crack",
+    "volcanic-pipe"
 }
 
 local categories = {}
@@ -40,12 +40,12 @@ for _, resource in pairs(resource_rocks) do
     end
 end
 
-for _, miner in pairs(data.raw['mining-drill']) do
+for _, miner in pairs(data.raw["mining-drill"]) do
     if miner.resource_categories then
         for _, category in pairs(miner.resource_categories) do
             if categories[category] then
                 local mask = collision_mask_util.get_mask(miner)
-                mask.layers['object-layer'] = nil
+                mask.layers["object-layer"] = nil
                 miner.collision_mask = mask
                 break
             end
@@ -53,21 +53,21 @@ for _, miner in pairs(data.raw['mining-drill']) do
     end
 end
 
-if data.raw.resource['stone'] then
-    data.raw.resource['stone'].minable.fluid_amount = 30
-    data.raw.resource['stone'].minable.required_fluid = 'carbolic-oil'
+if data.raw.resource["stone"] then
+    data.raw.resource["stone"].minable.fluid_amount = 30
+    data.raw.resource["stone"].minable.required_fluid = "carbolic-oil"
 end
-if data.raw.resource['copper-ore'] then
-    data.raw.resource['copper-ore'].minable.fluid_amount = 100
-    data.raw.resource['copper-ore'].minable.required_fluid = 'water'
+if data.raw.resource["copper-ore"] then
+    data.raw.resource["copper-ore"].minable.fluid_amount = 100
+    data.raw.resource["copper-ore"].minable.required_fluid = "water"
 end
 
-data.raw['mining-drill']['electric-mining-drill'].input_fluid_box = electric_mining_drill_fluidbox
-data.raw['mining-drill']['burner-mining-drill'].input_fluid_box = {
-    production_type = 'input',
+data.raw["mining-drill"]["electric-mining-drill"].input_fluid_box = electric_mining_drill_fluidbox
+data.raw["mining-drill"]["burner-mining-drill"].input_fluid_box = {
+    production_type = "input",
     pipe_covers = pipecoverspictures(),
     volume = 2,
     pipe_connections = {
-        {flow_direction = 'input', position = {0.5, -0.5}, direction = defines.direction.north},
+        {flow_direction = "input", position = {0.5, -0.5}, direction = defines.direction.north},
     }
 }

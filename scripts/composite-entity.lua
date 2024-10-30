@@ -1,6 +1,6 @@
 local coal_plant = function(entity)
-    local picture = entity.surface.create_entity{
-        name = entity.name .. '-picture',
+    local picture = entity.surface.create_entity {
+        name = entity.name .. "-picture",
         position = entity.position,
         force = entity.force_index
     }
@@ -9,10 +9,10 @@ local coal_plant = function(entity)
 end
 
 local composite_entity_creation = {
-    ['py-coal-powerplant-mk01'] = coal_plant,
-    ['py-coal-powerplant-mk02'] = coal_plant,
-    ['py-coal-powerplant-mk03'] = coal_plant,
-    ['py-coal-powerplant-mk04'] = coal_plant,
+    ["py-coal-powerplant-mk01"] = coal_plant,
+    ["py-coal-powerplant-mk02"] = coal_plant,
+    ["py-coal-powerplant-mk03"] = coal_plant,
+    ["py-coal-powerplant-mk04"] = coal_plant,
 }
 
 local on_built = {defines.events.on_built_entity, defines.events.on_robot_built_entity, defines.events.script_raised_revive, defines.events.script_raised_built}
@@ -24,9 +24,9 @@ script.on_event(on_built, function(event)
     local sub_entities = f(entity)
     for _, sub_entity in pairs(sub_entities) do
         sub_entity.destructible = false
-		sub_entity.operable = false
-		sub_entity.minable = false
-		sub_entity.rotatable = false
+        sub_entity.operable = false
+        sub_entity.minable = false
+        sub_entity.rotatable = false
     end
     storage.composite_entities[entity.unit_number] = sub_entities
 end)
@@ -48,7 +48,7 @@ end)
 script.on_event(defines.events.on_entity_cloned, function(event)
     local source = event.source
     if not composite_entity_creation[source.name] then return end
-    on_destroyed{entity = source}
-    on_built{entity = event.destination}
+    on_destroyed {entity = source}
+    on_built {entity = event.destination}
     if source.valid then source.destroy() end
 end)
