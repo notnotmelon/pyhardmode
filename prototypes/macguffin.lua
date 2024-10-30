@@ -119,7 +119,7 @@ data:extend {{
     subgroup = data.raw.armor["power-armor-mk2"].subgroup,
     order = "z",
     stack_size = 1,
-    provides_flight = true
+    provides_flight = feature_flags.space_travel
 }}
 
 TECHNOLOGY {
