@@ -285,6 +285,7 @@ for _, coal_plant in pairs {
         collision_box = data.raw["assembling-machine"][coal_plant].collision_box,
         collision_mask = {layers = {}},
         selectable_in_game = false,
+        hidden = true,
         animations = data.raw["assembling-machine"][coal_plant].graphics_set.animation
     }
     for _, layer in pairs(animation.animations.layers) do
@@ -299,6 +300,7 @@ for _, coal_plant in pairs {
         collision_box = data.raw["assembling-machine"][coal_plant].collision_box,
         collision_mask = {layers = {}},
         selectable_in_game = false,
+        hidden = true,
         picture = data.raw["assembling-machine"][coal_plant].graphics_set.animation
     }
     data:extend {animation, picture}
