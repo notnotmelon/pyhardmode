@@ -66,7 +66,7 @@ data.raw["mining-drill"]["electric-mining-drill"].input_fluid_box = electric_min
 data.raw["mining-drill"]["burner-mining-drill"].input_fluid_box = {
     production_type = "input",
     pipe_covers = pipecoverspictures(),
-    volume = 2,
+    volume = 200,
     pipe_connections = {
         {flow_direction = "input", position = {0.5, -0.5}, direction = defines.direction.north},
     }
