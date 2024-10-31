@@ -110,6 +110,11 @@ data.raw["assembling-machine"]["antelope-enclosure-mk01"].fluid_boxes = {
 
 data.raw.recipe["space-science-pack-real"].allow_productivity = true
 
+table.insert(data.raw.technology["steam-power"].effects, {
+    type = "mining-with-fluid",
+    modifier = true
+})
+
 if not mods.PyBlock and register_cache_file ~= nil then
     register_cache_file({"pyhardmode", "pycoalprocessing", "pyfusionenergy", "pyindustry", "pyrawores", "pyhightech", "pypetroleumhandling", "pyalienlife", "pyalternativeenergy"}, "__pyhardmode__/cached-configs/pyalienlife+pyalternativeenergy+pycoalprocessing+pyfusionenergy+pyhardmode+pyhightech+pyindustry+pypetroleumhandling+pyrawores")
 end
