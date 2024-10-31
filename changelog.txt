@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2024-10-31
+  Bugfixes:
+    - Fixed softlock involving uranium mining and copper ore. Resolves [#14](https://github.com/notnotmelon/pyhardmode/issues/14)
+---------------------------------------------------------------------------------------------------
 Version: 1.2.1
 Date: 2024-10-30
   Bugfixes:
