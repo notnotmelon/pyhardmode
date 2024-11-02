@@ -3,6 +3,7 @@ require "prototypes.residual-gas"
 require "prototypes.heat"
 require "prototypes.mining"
 require "prototypes.biomass"
+require "prototypes.spoilage"
 
 RECIPE("tailings-classification"):remove_unlock("separation")
 data.raw.fluid["acetylene"].fuel_value = "750kJ"
