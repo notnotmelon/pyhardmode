@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.4
+Date: 2024-11-02
+  Bugfixes:
+    - Fixed burner & RTG did not have any graphics. Resolves [#15](https://github.com/notnotmelon/pyhardmode/issues/15)
+---------------------------------------------------------------------------------------------------
 Version: 1.2.3
 Date: 2024-10-31
   Bugfixes:
