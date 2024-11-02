@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 2024-11-02
+  Changes:
+    - Added optional dependancy on the configurable-valves mod. If you use this mod you will get 6 valves for free at the start of the game.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.4
 Date: 2024-11-02
   Bugfixes:
