@@ -13,12 +13,20 @@ end
 script.on_init(function()
     if remote.interfaces["freeplay"] and not script.active_mods.PyBlock then
         remote.call("freeplay", "set_created_items", {})
-        remote.call("freeplay", "set_ship_items", {
-            ["burner-mining-drill"] = 10,
-            --["py-overflow-valve"] = 3,
-            --["py-underflow-valve"] = 3,
-            ["offshore-pump"] = 1
-        })
+        if script.active_mods["configurable-valves"] then
+            remote.call("freeplay", "set_ship_items", {
+                ["burner-mining-drill"] = 10,
+                ["configurable-valve"] = 6,
+                ["offshore-pump"] = 1
+            })
+        else
+            remote.call("freeplay", "set_ship_items", {
+                ["burner-mining-drill"] = 10,
+                --["py-overflow-valve"] = 3,
+                --["py-underflow-valve"] = 3,
+                ["offshore-pump"] = 1
+            })
+        end
     end
     init()
 end)

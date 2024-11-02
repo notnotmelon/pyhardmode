@@ -11,7 +11,8 @@
     "base >= 2.0.12",
     "pyalternativeenergy >= 3.0.0",
     "aai-loaders >= 0.2.3",
-    "? PyBlock"
+    "? PyBlock",
+    "? configurable-valves"
   ],
   "package": {
     "ignore": [],
