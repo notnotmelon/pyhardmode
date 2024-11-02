@@ -343,7 +343,11 @@ for name, info in pairs {
     entity.neighbour_bonus = info.neighbour_bonus or 0
     entity.scale_energy_usage = true
     if info.copy_animation and not entity.picture then
-        entity.picture = entity.animation
+        if entity.graphics_set and entity.graphics_set.animation then
+            entity.picture = entity.graphics_set.animation
+        else
+            entity.picture = entity.animation
+        end
     end
     if entity.burner then
         entity.energy_source = entity.burner
