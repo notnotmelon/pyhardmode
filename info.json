@@ -18,5 +18,11 @@
   "package": {
     "ignore": [],
     "scripts": {}
-  }
+  },
+  "quality_required": false,
+  "space_travel_required": true,
+  "spoiling_required": true,
+  "freezing_required": false,
+  "segmented_units_required": false,
+  "expansion_shaders_required": false
 }
