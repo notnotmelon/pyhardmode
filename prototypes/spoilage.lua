@@ -159,7 +159,7 @@ for _, food in pairs(meaty_foods) do
     food:add_ingredient {type = "item", name = "dried-meat", amount = 15}
 end
 
-ITEM("native-flora"):spoil("biomass", hour)
+ITEM("native-flora"):spoil("biomass", 2.5 * hour)
 
 RECIPE {
     name = "ash",
@@ -183,9 +183,9 @@ data.raw.recipe["dried-meat-01"] = nil
 data.raw.recipe["guts-to-jerky"] = nil
 
 ITEM("fish-egg"):spoil("fishmeal", 30 * minute)
-ITEM("fish-egg-mk02"):spoil("fishmeal", hour)
-ITEM("fish-egg-mk03"):spoil("fishmeal", 2 * hour)
-ITEM("fish-egg-mk04"):spoil("fishmeal", 4 * hour)
+ITEM("fish-egg-mk02"):spoil("fish-egg", hour)
+ITEM("fish-egg-mk03"):spoil("fish-egg-mk02", 2 * hour)
+ITEM("fish-egg-mk04"):spoil("fish-egg-mk03", 4 * hour)
 
 RECIPE("citric-acid"):add_ingredient {type = "item", name = "barrel", amount = 1}
 ITEM("citric-acid"):spoil("water-barrel", 2 * hour)
@@ -396,8 +396,8 @@ ITEM("charged-dingrit"):spoil("dingrits", 6 * hour)
 ITEM("collagen"):spoil("urea", 10 * minute)
 ITEM("blood-meal"):spoil("fiberboard", 16 * hour)
 ITEM("myoglobin"):spoil("meat", 12 * minute)
-ITEM("resilin"):spoil("myoglobin", 4 * minute)
-ITEM("aerogel"):spoil(py.spoil_triggers.puff_of_smoke(), 40 * minute)
-ITEM("carbon-aerogel"):spoil(py.spoil_triggers.puff_of_smoke(), 50 * minute)
+ITEM("resilin"):spoil("myoglobin", 444 * minute)
+ITEM("aerogel"):spoil(py.spoil_triggers.puff_of_smoke(), 400 * minute)
+ITEM("carbon-aerogel"):spoil(py.spoil_triggers.puff_of_smoke(), 500 * minute)
 ITEM("albumin"):spoil("urea", 10 * minute)
 ITEM("urea"):spoil("biocrud", 3 * minute)
