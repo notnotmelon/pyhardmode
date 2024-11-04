@@ -207,6 +207,9 @@ ITEM {
     fuel_category = "biomass"
 }:spoil("biomass", 45 * minute)
 
+ITEM("native-flora").fuel_value = "175kJ"
+ITEM("native-flora").fuel_category = "biomass"
+
 RECIPE {
     name = "ash",
     type = "recipe",
