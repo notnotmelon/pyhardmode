@@ -11,18 +11,11 @@
     "base >= 2.0.12",
     "pyalternativeenergy >= 3.0.0",
     "aai-loaders >= 0.2.3",
-    "enable-all-feature-flags",
     "? PyBlock",
     "? configurable-valves"
   ],
   "package": {
     "ignore": [],
     "scripts": {}
-  },
-  "quality_required": false,
-  "space_travel_required": true,
-  "spoiling_required": true,
-  "freezing_required": false,
-  "segmented_units_required": false,
-  "expansion_shaders_required": false
+  }
 }
