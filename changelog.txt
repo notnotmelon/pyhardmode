@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+Date: 2024-11-04
+  Changes:
+    - Rich biocrud, biocrud, denatured-seismite, nonconductive-phazogen, negasium, paragen, and solidified-sarcorus now spoil
+---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 2024-11-04
   Features:
