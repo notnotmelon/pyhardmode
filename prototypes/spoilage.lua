@@ -362,6 +362,12 @@ ITEM("yotoi-leaves"):spoil("biocrud", 13 * minute)
 ITEM("mova"):spoil("biocrud", hour)
 ITEM("washed-mova"):spoil("mova", minute)
 
+ITEM("denatured-seismite"):spoil("nonconductive-phazogen", 41 * minute)
+ITEM("nonconductive-phazogen"):spoil("negasium", 39 * minute)
+ITEM("negasium"):spoil("paragen", 37 * minute)
+ITEM("paragen"):spoil("solidified-sarcorus", 31 * minute)
+ITEM("solidified-sarcorus"):spoil("chitin", 29 * minute)
+
 ITEM("sea-sponge-sprouts-mk04"):spoil("sea-sponge-sprouts-mk03", 2 * minute)
 ITEM("sea-sponge-sprouts-mk03"):spoil("sea-sponge-sprouts-mk02", 4 * minute)
 ITEM("sea-sponge-sprouts-mk02"):spoil("sea-sponge-sprouts", 8 * minute)
