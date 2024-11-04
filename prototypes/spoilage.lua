@@ -17,6 +17,11 @@ ITEM("processed-iron-ore"):spoil("iron-oxide", 35 * minute)
 
 -- alternative energy
 
+RECIPE("biomass-molten-salt-01"):add_ingredient {type = "item", name = "biocrud", amount = 1}
+RECIPE("biomass-molten-salt-02"):add_ingredient {type = "item", name = "biocrud", amount = 1}
+RECIPE("biomass-molten-salt-03"):add_ingredient {type = "item", name = "biocrud", amount = 1}
+RECIPE("biomass-molten-salt-04"):add_ingredient {type = "item", name = "biocrud", amount = 1}
+
 ITEM { -- todo: Allow composting
     type = "item",
     name = "biocarnation",

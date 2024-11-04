@@ -49,6 +49,7 @@ Loaders have been added 𝘣𝘶𝘵 𝘢𝘵 𝘸𝘩𝘢𝘵 𝘤𝘰𝘴𝘵.
 - Several free sources of biomass have been nerfed or removed
 - This includes `spores, sap, seaweed, moss, and fawogae`
 - Composting of certain animal parts is no longer allowed
+- The biomass powerplant is nerfed and requires biocrud to function.
 
 ### pYAL Creatures
 
