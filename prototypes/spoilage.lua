@@ -12,6 +12,8 @@ local max_spoilage = 4294967295
 -- coal processing
 
 ITEM("animal-sample-01"):spoil("plasmids", hour)
+ITEM("crushed-iron"):spoil("iron-oxide", 35 * minute)
+ITEM("processed-iron-ore"):spoil("iron-oxide", 35 * minute)
 
 -- alternative energy
 
@@ -111,7 +113,6 @@ ITEM("high-energy-waste-1"):spoil("ash", 5 * minute)
 
 ITEM("petri-dish-bacteria"):spoil("petri-dish", 15 * second)
 ITEM("fawogae-substrate"):spoil("fawogae-spore", minute * 10)
-ITEM("albumin"):spoil("fawogae", 30 * minute)
 
 ITEM("brain"):spoil("dried-meat", 2 * hour)
 ITEM("meat"):spoil("dried-meat", 4 * hour)
@@ -351,7 +352,6 @@ ITEM("mukmoux-fat"):spoil("biocrud", 2 * hour)
 ITEM("organics"):spoil("biocrud", hour)
 ITEM("agar"):spoil("biocrud", 5 * minute)
 ITEM("seeds-extract-01"):spoil("biocrud", 10 * hour)
-ITEM("albumin"):spoil("biocrud", hour)
 ITEM("pineal-gland"):spoil("biocrud", 10 * minute)
 ITEM("gas-bladder"):spoil("biocrud", 4 * hour)
 ITEM("photophore"):spoil("biocrud", 5 * minute)
@@ -393,3 +393,5 @@ ITEM("myoglobin"):spoil("meat", 12 * minute)
 ITEM("resilin"):spoil("myoglobin", 4 * minute)
 ITEM("aerogel"):spoil(py.spoil_triggers.puff_of_smoke(), 40 * minute)
 ITEM("carbon-aerogel"):spoil(py.spoil_triggers.puff_of_smoke(), 50 * minute)
+ITEM("albumin"):spoil("urea", 10 * minute)
+ITEM("urea"):spoil("biocrud", 3 * minute)
