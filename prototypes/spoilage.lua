@@ -210,7 +210,7 @@ ITEM {
     subgroup = "py-alienlife-items",
     order = "ga",
     stack_size = 1000
-}
+}:spoil("biomass", 2 * hour)
 
 ITEM {
     type = "item",
@@ -228,7 +228,7 @@ ITEM {
     subgroup = "py-alienlife-items",
     order = "ga",
     stack_size = 1000
-}
+}:spoil("biocrud", 3 * hour)
 
 RECIPE {
     name = "biocrud-reprocessing",
