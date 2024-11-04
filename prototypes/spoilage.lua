@@ -17,11 +17,6 @@ ITEM("processed-iron-ore"):spoil("iron-oxide", 35 * minute)
 
 -- alternative energy
 
-RECIPE("biomass-molten-salt-01"):add_ingredient {type = "item", name = "biocrud", amount = 1}
-RECIPE("biomass-molten-salt-02"):add_ingredient {type = "item", name = "biocrud", amount = 1}
-RECIPE("biomass-molten-salt-03"):add_ingredient {type = "item", name = "biocrud", amount = 1}
-RECIPE("biomass-molten-salt-04"):add_ingredient {type = "item", name = "biocrud", amount = 1}
-
 ITEM { -- todo: Allow composting
     type = "item",
     name = "biocarnation",
@@ -203,11 +198,13 @@ ITEM {
     order = data.raw.item["native-flora"].order .. "j",
     stack_size = data.raw.item["native-flora"].stack_size,
     pictures = {
-        {size = 64, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-1.png", scale = 1},
-        {size = 64, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-2.png", scale = 1},
-        {size = 48, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-3.png", scale = 1},
-        {size = 48, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-4.png", scale = 1},
+        {size = 64, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-1.png", scale = 1.2},
+        {size = 64, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-2.png", scale = 1.2},
+        {size = 64, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-3.png", scale = 1.2},
+        {size = 64, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-4.png", scale = 1.2},
     },
+    fuel_value = "450kJ",
+    fuel_category = "biomass"
 }:spoil("biomass", 45 * minute)
 
 RECIPE {
@@ -365,6 +362,11 @@ RECIPE {
     order = "gab",
 }:add_unlock("microbiology-mk03")
 
+RECIPE("biomass-molten-salt-01"):add_ingredient {type = "item", name = "biocrud", amount = 1}
+RECIPE("biomass-molten-salt-02"):add_ingredient {type = "item", name = "biocrud", amount = 1}
+RECIPE("biomass-molten-salt-03"):add_ingredient {type = "item", name = "biocrud", amount = 1}
+RECIPE("biomass-molten-salt-04"):add_ingredient {type = "item", name = "biocrud", amount = 1}
+
 RECIPE("bacteria-2"):remove_unlock("microbiology-mk04"):add_unlock("microbiology-mk03")
 RECIPE("perfect-samples"):remove_ingredient("tendon")
 
@@ -450,3 +452,4 @@ ITEM("aerogel"):spoil(py.spoil_triggers.puff_of_smoke(), 400 * minute)
 ITEM("carbon-aerogel"):spoil(py.spoil_triggers.puff_of_smoke(), 500 * minute)
 ITEM("albumin"):spoil("urea", 10 * minute)
 ITEM("urea"):spoil("biocrud", 3 * minute)
+RECIPE("blood-to-urea"):replace_ingredient("blood", {type = "fluid", name = "blood", amount = 250})

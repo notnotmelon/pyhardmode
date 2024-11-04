@@ -50,6 +50,7 @@ Loaders have been added 𝘣𝘶𝘵 𝘢𝘵 𝘸𝘩𝘢𝘵 𝘤𝘰𝘴𝘵.
 - This includes `spores, sap, seaweed, moss, and fawogae`
 - Composting of certain animal parts is no longer allowed
 - The biomass powerplant is nerfed and requires biocrud to function.
+- Blood -> Urea now requires 2.5x as much blood.
 
 ### pYAL Creatures
 
