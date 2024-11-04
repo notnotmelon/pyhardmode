@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/dynamic/json?color=orange&label=Factorio&query=downloads_count&suffix=%20downloads&url=https%3A%2F%2Fmods.factorio.com%2Fapi%2Fmods%2Fpyhardmode&style=for-the-badge)](https://mods.factorio.com/mod/pyhardmode) [![](https://img.shields.io/badge/Discord-Community-blue?style=for-the-badge)](https://discord.gg/SBHM3h5Utj) [![](https://img.shields.io/github/issues/notnotmelon/pyhardmode?label=Bug%20Reports&style=for-the-badge)](https://github.com/notnotmelon/pyhardmode/issues) [![](https://img.shields.io/github/issues-pr/notnotmelon/pyhardmode?label=Pull%20Requests&style=for-the-badge)](https://github.com/notnotmelon/pyhardmode/pulls)
+[![](https://img.shields.io/badge/dynamic/json?color=orange&label=Factorio&query=downloads_count&suffix=%20downloads&url=https%3A%2F%2Fmods.factorio.com%2Fapi%2Fmods%2Fpyhardmode&style=for-the-badge)](https://mods.factorio.com/mod/pyhardmode) [![](https://img.shields.io/badge/Discord-Community-blue?style=for-the-badge)](https://discord.gg/SBHM3h5Utj) [![](https://img.shields.io/github/issues/notnotmelon/pyhardmode?label=Bug%20Reports&style=for-the-badge)](https://github.com/notnotmelon/pyhardmode/issues) [![](https://img.shields.io/github/issues-pr/notnotmelon/pyhardmode?label=Pull%20Requests&style=for-the-badge)](https://github.com/notnotmelon/pyhardmode/pulls) [![Ko-Fi](https://img.shields.io/badge/Ko--fi-support%20me-ff5e5b?logo=kofi&logoColor=white&style=for-the-badge)](https://ko-fi.com/notnotmelon)
 
 ![](https://raw.githubusercontent.com/notnotmelon/pyhardmode/fee69e05cfd8fea0464ae2189dfb286537c26cc3/banner.png)
 
@@ -22,6 +22,12 @@ Pyanodons Hard Mode is an extension to [Pyanodons Alternative Energy](https://mo
 
 ```purest nitrogen, chlorine, limestone, sulfur, muddy sludge, tailings dust, coal gas, slacked lime, skin, bonemeal, guts, wastewater, yaedols spores, used comb, arthropod blood, chitin, sodium hydroxide, flue gas, vanadium pulp stage 3, titanium overflow waste, titanium pulp (stage 3), purex concentrate 1, antimony phosphate 2, plutonium isotopes, sand, medium disilates, creosote, refined natural gas, anthracene oil, residual oil, naphtha, gasolene, cumeme, methanol, coke oven gas, ammonia, hydrogen chloride, acetone, carbolic oil, bones, fluorine gas, residual-gas, msa acid, shells, tar, oxygen, pressurized air, vacuum, pressurized water, used control rods, oleochemicals```
 
+### Spoilage
+
+Pyanodons hard mode adds spoilage to over 100 items. Problem?
+
+![](https://files.catbox.moe/zzhrtl.mp4)
+
 ### Heat Management
 
 - Several machines have been changed to require heat. This includes incubator, regenerative heat exchanger, simik den, multipurpose cracker, advanced foundry, and the heavy oil refinery
@@ -33,7 +39,6 @@ Pyanodons Hard Mode is an extension to [Pyanodons Alternative Energy](https://mo
 
 - Moving stuff around is more difficult. Will require more planning and infrastructure
 - Chests, sheds, storehouses, warehouses, and deposits have a much smaller inventory size
-- Logistic station energy use increased from 10MW -> 200MW
 - Logistic bots have a lower stack size
 - Resource rocks now have collision and have infinite richness. Say goodbye to your city blocks and main busses
 
