@@ -118,7 +118,7 @@ ITEM("brain"):spoil("dried-meat", 2 * hour)
 ITEM("meat"):spoil("dried-meat", 4 * hour)
 ITEM("guts"):spoil("dried-meat", 8 * hour)
 
-ITEM("manure"):spoil("rich-clay", day)
+ITEM("manure"):spoil("rich-clay", 5.5 * hour)
 
 local meaty_foods = {
     "workers-food",
