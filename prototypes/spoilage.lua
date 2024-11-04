@@ -159,7 +159,51 @@ for _, food in pairs(meaty_foods) do
     food:add_ingredient {type = "item", name = "dried-meat", amount = 15}
 end
 
-ITEM("native-flora"):spoil("biomass", 2.5 * hour)
+ITEM("native-flora"):spoil("floraspollinin", 45 * minute)
+
+RECIPE {
+    name = "floraspollinin-reprocessing",
+    type = "recipe",
+    category = "nursery",
+    energy_required = 10,
+    enabled = false,
+    ingredients = {
+        {type = "item", name = "floraspollinin", amount = 10},
+        {type = "fluid", name = "steam", amount = 30},
+    },
+    results = {
+        {type = "item", name = "native-flora", amount_min = 5, amount_max = 10},
+    },
+    main_product = "native-flora",
+    icons = {
+        {
+            icon = "__pyhardmode__/graphics/icons/reprocessing.png"
+        },
+        {
+            icon = "__pyhardmode__/graphics/icons/mip/floraspollinin-1.png",
+            scale = 0.4
+        },
+    },
+    localised_name = {"recipe-name.floraspollinin-reprocessing"},
+    localised_description = {"recipe-description.floraspollinin-reprocessing"},
+}:add_unlock("botany-mk01")
+
+ITEM {
+    type = "item",
+    name = "floraspollinin",
+    icon = "__pyhardmode__/graphics/icons/mip/floraspollinin-1.png",
+    icon_size = 64,
+    flags = {},
+    subgroup = "py-alienlife-items",
+    order = data.raw.item["native-flora"].order .. "j",
+    stack_size = data.raw.item["native-flora"].stack_size,
+    pictures = {
+        {size = 64, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-1.png", scale = 1},
+        {size = 64, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-2.png", scale = 1},
+        {size = 48, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-3.png", scale = 1},
+        {size = 48, filename = "__pyhardmode__/graphics/icons/mip/floraspollinin-4.png", scale = 1},
+    },
+}:spoil("biomass", 45 * minute)
 
 RECIPE {
     name = "ash",
