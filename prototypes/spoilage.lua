@@ -71,7 +71,7 @@ ITEM("metastable-quasicrystal"):spoil("time-crystal", hour)
 ITEM("bio-ore"):spoil("biocarnation", hour)
 ITEM("erbium"):spoil("er-oxide", hour)
 ITEM("er-oxide"):spoil("impure-er-oxide", hour)
-ITEM("biocarnation"):spoil("native-flora", 2 * hour)
+ITEM("biocarnation"):spoil("advanced-substrate", 2 * hour)
 
 -- alternative energy nuclear
 
