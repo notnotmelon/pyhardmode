@@ -2,6 +2,7 @@ data.raw.technology["tar-processing"].ignore_tech_cost_multiplier = true
 data.raw.technology["engine"].ignore_tech_cost_multiplier = true
 data.raw.technology["ash-separation"].ignore_tech_cost_multiplier = true
 data.raw.technology["concrete"].ignore_tech_cost_multiplier = true
+data.raw.technology["crusher"].ignore_tech_cost_multiplier = true
 
 for name, recipe in pairs(data.raw.recipe) do
     if recipe.category == "py-incineration" or recipe.category == "py-runoff" then
