@@ -51,23 +51,25 @@ data.raw.unit["nukavan"].affected_by_tiles = false
 RECIPE("seaweed-to-chelator"):remove_unlock("phytomining-mk02")
 data.raw.recipe["seaweed-to-chelator"] = nil
 
-for loader, fluid in pairs {
-    ["aai-loader"] = "stripped-distillate",
-    ["aai-fast-loader"] = "grease",
-    ["aai-express-loader"] = "nexelit-slurry",
-} do
-    data.raw["storage-tank"][loader .. "-pipe"].fluid_box.filter = fluid
-    local localised_description = data.raw.technology[loader].localised_description
-    localised_description[3] = fluid
-    localised_description = {"", localised_description, " (", {"fluid-name." .. fluid}, ")"}
-    data.raw.technology[loader].localised_description = localised_description
-    data.raw["loader-1x1"][loader].localised_description = localised_description
-    data.raw.item[loader].localised_description = localised_description
-end
+if mods["aai-loaders"] then
+    for loader, fluid in pairs {
+        ["aai-loader"] = "stripped-distillate",
+        ["aai-fast-loader"] = "grease",
+        ["aai-express-loader"] = "nexelit-slurry",
+    } do
+        data.raw["storage-tank"][loader .. "-pipe"].fluid_box.filter = fluid
+        local localised_description = data.raw.technology[loader].localised_description
+        localised_description[3] = fluid
+        localised_description = {"", localised_description, " (", {"fluid-name." .. fluid}, ")"}
+        data.raw.technology[loader].localised_description = localised_description
+        data.raw["loader-1x1"][loader].localised_description = localised_description
+        data.raw.item[loader].localised_description = localised_description
+    end
 
-TECHNOLOGY("aai-loader"):add_prereq("light-oil-mk02").unit.count = 1300
-TECHNOLOGY("aai-fast-loader"):add_pack("py-science-pack-3").unit.count = 1100
-TECHNOLOGY("aai-express-loader"):add_prereq("nexelit-mk03").unit.count = 1200
+    TECHNOLOGY("aai-loader"):add_prereq("light-oil-mk02").unit.count = 1300
+    TECHNOLOGY("aai-fast-loader"):add_pack("py-science-pack-3").unit.count = 1100
+    TECHNOLOGY("aai-express-loader"):add_prereq("nexelit-mk03").unit.count = 1200
+end
 
 data.raw["logistic-robot"]["py-logistic-robot-01"].max_payload_size = 1
 data.raw["logistic-robot"]["py-logistic-robot-02"].max_payload_size = 2
