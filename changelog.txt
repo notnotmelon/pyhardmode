@@ -1,4 +1,89 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.8
+Date: 2024-11-05
+  Changes:
+    - Spoilage setting is now forced enabled.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.7
+Date: 2024-11-05
+  Changes:
+    - Tar processing and engine techs are no longer effected by the tech cost multipler.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.6
+Date: 2024-11-05
+  Compatibility:
+    - AAI loaders is downgraded from required dependancy to optional dependancy
+---------------------------------------------------------------------------------------------------
+Version: 1.3.5
+Date: 2024-11-04
+  Bugfixes:
+    - Removed duplicate spoilage code that was added upstream
+---------------------------------------------------------------------------------------------------
+Version: 1.3.4
+Date: 2024-11-04
+  Changes:
+    - Native flora now has a fuel value
+---------------------------------------------------------------------------------------------------
+Version: 1.3.3
+Date: 2024-11-04
+  Changes:
+    - Increased blood usage in blood -> urea by 2.5x
+    - Native flora now spoils into something more useful than biomass.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.2
+Date: 2024-11-04
+  Changes:
+    - Adjusted some spoilage times to be more forgiving
+---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+Date: 2024-11-04
+  Changes:
+    - Rich biocrud, biocrud, denatured-seismite, nonconductive-phazogen, negasium, paragen, and solidified-sarcorus now spoil
+---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2024-11-04
+  Features:
+    - Added biocarnation, biocrud, and rich biocrud
+    - Added spoilage
+  Locale:
+    - Renamed spoilage percentage to decay percentage
+---------------------------------------------------------------------------------------------------
+Version: 1.2.6
+Date: 2024-11-04
+---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 2024-11-02
+  Changes:
+    - Added optional dependancy on the configurable-valves mod. If you use this mod you will get 6 valves for free at the start of the game.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.4
+Date: 2024-11-02
+  Bugfixes:
+    - Fixed burner & RTG did not have any graphics. Resolves [#15](https://github.com/notnotmelon/pyhardmode/issues/15)
+---------------------------------------------------------------------------------------------------
+Version: 1.2.3
+Date: 2024-10-31
+  Bugfixes:
+    - Fixed that the burner mining drill could not mine any ores due to max fluidbox size of 2.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2024-10-31
+  Bugfixes:
+    - Fixed softlock involving uranium mining and copper ore. Resolves [#14](https://github.com/notnotmelon/pyhardmode/issues/14)
+---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2024-10-30
+  Bugfixes:
+    - Fixed crash when installing the mod without the "enable all feature flags" mod
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2024-10-30
+  Features:
+    - Updated the mod for 2.0
+  Changes:
+    - Removed ability for the sweater to teleport to map as I could not find a way to make this work with the new remote view.
+    - Removed dependancy on "undeletable fluids" as this is not yet ported for 2.0
+---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 2024-08-04
   Features:

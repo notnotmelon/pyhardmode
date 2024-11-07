@@ -1,21 +1,28 @@
 {
   "name": "pyhardmode",
-  "version": "1.1.0",
-  "factorio_version": "1.1",
+  "version": "1.3.8",
+  "factorio_version": "2.0",
   "title": "Pyanodons Hard Mode",
   "author": "notnotmelon",
   "contact": "https://discord.gg/SBHM3h5Utj",
   "homepage": "https://mods.factorio.com/mod/pyhardmode",
   "description": "Contains a few tiny changes to Pyanodons mods...",
   "dependencies": [
-    "base >= 1.1.74",
-    "pyalternativeenergy >= 1.2.6",
-    "undeletable-fluids >= 1.0.3",
-    "aai-loaders",
-    "? PyBlock"
+    "base >= 2.0.12",
+    "pyalternativeenergy >= 3.0.0",
+    "enable-all-feature-flags",
+    "? aai-loaders >= 0.2.3",
+    "? PyBlock",
+    "? configurable-valves"
   ],
   "package": {
     "ignore": [],
     "scripts": {}
-  }
+  },
+  "quality_required": false,
+  "space_travel_required": true,
+  "spoiling_required": true,
+  "freezing_required": false,
+  "segmented_units_required": false,
+  "expansion_shaders_required": false
 }

@@ -1,4 +1,4 @@
-_G.electric_mining_drill_fluidbox = data.raw['mining-drill']['electric-mining-drill'].input_fluid_box
+_G.electric_mining_drill_fluidbox = data.raw["mining-drill"]["electric-mining-drill"].input_fluid_box
 
-require 'prototypes.recycling-recipes'
-require 'prototypes.macguffin'
+require "prototypes.recycling-recipes"
+require "prototypes.macguffin"
