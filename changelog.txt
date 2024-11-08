@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.9
+Date: 2024-11-08
+  Bugfixes:
+    - Fixed that big mines were not buildable
+  Changes:
+    - No longer force-enabling the spoilage setting.
+---------------------------------------------------------------------------------------------------
 Version: 1.3.8
 Date: 2024-11-05
   Changes:
