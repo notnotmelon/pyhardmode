@@ -45,7 +45,7 @@ for _, miner in pairs(data.raw["mining-drill"]) do
         for _, category in pairs(miner.resource_categories) do
             if categories[category] then
                 local mask = collision_mask_util.get_mask(miner)
-                mask.layers["object-layer"] = nil
+                mask.layers["object"] = nil
                 miner.collision_mask = mask
                 break
             end
