@@ -1,7 +1,3 @@
-data.raw["bool-setting"]["py-enable-decay"].default_value = true
-data.raw["bool-setting"]["py-enable-decay"].forced_value  = true
-data.raw["bool-setting"]["py-enable-decay"].hidden        = true
-
 local function force_string_setting(setting, type, value)
     data.raw[type][setting].allowed_values = {value}
     data.raw[type][setting].default_value = value
