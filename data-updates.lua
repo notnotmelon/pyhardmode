@@ -71,10 +71,10 @@ if mods["aai-loaders"] then
     TECHNOLOGY("aai-express-loader"):add_prereq("nexelit-mk03").unit.count = 1200
 end
 
-data.raw["logistic-robot"]["py-logistic-robot-01"].max_payload_size = 1
-data.raw["logistic-robot"]["py-logistic-robot-02"].max_payload_size = 2
-data.raw["logistic-robot"]["l-pynobot-mk03"].max_payload_size = 3
-data.raw["logistic-robot"]["logistic-robot-ht"].max_payload_size = 4
+data.raw["logistic-robot"]["py-logistic-robot-mk01"].max_payload_size = 1
+data.raw["logistic-robot"]["py-logistic-robot-mk02"].max_payload_size = 2
+data.raw["logistic-robot"]["py-logistic-robot-mk03"].max_payload_size = 3
+data.raw["logistic-robot"]["py-logistic-robot-mk04"].max_payload_size = 4
 
 RECIPE("creosote-to-aromatics"):add_unlock("creosote"):add_ingredient {type = "fluid", name = "gasoline", amount = 35}.hidden = false
 
