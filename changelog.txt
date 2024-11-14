@@ -1,5 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.10
+Date: 2024-11-14
+  Locale:
+    - Ukrainian translation (by bootseller)
+---------------------------------------------------------------------------------------------------
+Version: 1.3.10
 Date: after I nerf ash
   Bugfixes:
     - Ukrainian translation (by bootseller)
