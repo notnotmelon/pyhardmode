@@ -7,6 +7,7 @@ require "prototypes.biomass"
 RECIPE("tailings-classification"):remove_unlock("separation")
 data.raw.fluid["acetylene"].fuel_value = "750kJ"
 data.raw.fluid["coke-oven-gas"].fuel_value = "750kJ"
+data.raw.fluid["black-liquor"].fuel_value = nil
 data.raw.item["raw-coal"].fuel_value = "1.5MJ"
 data.raw.item["coal-dust"].fuel_value = "1.5MJ"
 RECIPE("print-brain"):remove_unlock("organ-printing-mk02"):add_unlock("organ-printing")
