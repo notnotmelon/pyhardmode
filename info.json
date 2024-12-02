@@ -10,7 +10,7 @@
   "dependencies": [
     "base >= 2.0.12",
     "pyalternativeenergy >= 3.0.0",
-    "enable-all-feature-flags",
+    "? enable-all-feature-flags",
     "? aai-loaders >= 0.2.3",
     "? PyBlock",
     "? configurable-valves"
@@ -20,8 +20,8 @@
     "scripts": {}
   },
   "quality_required": false,
-  "space_travel_required": true,
-  "spoiling_required": true,
+  "space_travel_required": false,
+  "spoiling_required": false,
   "freezing_required": false,
   "segmented_units_required": false,
   "expansion_shaders_required": false
