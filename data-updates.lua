@@ -21,17 +21,19 @@ data.raw["assembling-machine"]["eaf-mk04"].energy_usage = "120MW"
 RECIPE("yaedols-spores-to-oxygen"):add_unlock("yaedols-upgrade")
 RECIPE("bonemeal-to-geothermal-water"):add_unlock("ulric-upgrade")
 
-for _, chest_type in pairs {"basic", "active-provider", "passive-provider", "buffer", "storage", "requester"} do
-    local container_type = chest_type == "basic" and "container" or "logistic-container"
-    local steel = chest_type == "basic" and "steel-chest" or (chest_type .. "-chest")
-    data.raw[container_type][steel].inventory_size = 20
-    data.raw[container_type]["py-shed-" .. chest_type].inventory_size = 40
-    data.raw[container_type]["py-storehouse-" .. chest_type].inventory_size = 80
-    data.raw[container_type]["py-warehouse-" .. chest_type].inventory_size = 120
-    data.raw[container_type]["py-deposit-" .. chest_type].inventory_size = 160
+if settings.startup["pyhm-decrease-containers-inventory-size"].value then
+    for _, chest_type in pairs {"basic", "active-provider", "passive-provider", "buffer", "storage", "requester"} do
+        local container_type = chest_type == "basic" and "container" or "logistic-container"
+        local steel = chest_type == "basic" and "steel-chest" or (chest_type .. "-chest")
+        data.raw[container_type][steel].inventory_size = 20
+        data.raw[container_type]["py-shed-" .. chest_type].inventory_size = 40
+        data.raw[container_type]["py-storehouse-" .. chest_type].inventory_size = 80
+        data.raw[container_type]["py-warehouse-" .. chest_type].inventory_size = 120
+        data.raw[container_type]["py-deposit-" .. chest_type].inventory_size = 160
+    end
+    data.raw.container["wooden-chest"].inventory_size = 4
+    data.raw.container["iron-chest"].inventory_size = 8
 end
-data.raw.container["wooden-chest"].inventory_size = 4
-data.raw.container["iron-chest"].inventory_size = 8
 
 RECIPE("neutron-absorber-mk01"):remove_unlock("nuclear-power"):add_unlock("uranium-processing")
 

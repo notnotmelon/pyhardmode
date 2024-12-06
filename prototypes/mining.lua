@@ -24,30 +24,38 @@ local resource_rocks = {
     "volcanic-pipe"
 }
 
+local setting_resource_rocks_disallow_building_over = settings.startup["pyhm-resource-rocks-disallow-building-over"].value
+
 local categories = {}
 for _, resource in pairs(resource_rocks) do
     resource = data.raw.resource[resource]
-    local mask = collision_mask_util.get_mask(resource)
-    mask.layers["object"] = true
-    resource.collision_mask = mask
-    categories[resource.category] = true
-    resource.infinite = true
-    resource.infinite_depletion_amount = 0
-    resource.normal = 10
-    resource.minimum = resource.normal
-    if resource.autoplace then
-        resource.autoplace.richness_expression = "10"
+    if setting_resource_rocks_disallow_building_over then
+        local mask = collision_mask_util.get_mask(resource)
+        mask.layers["object"] = true
+        resource.collision_mask = mask
+        categories[resource.category] = true
+    end
+    if settings.startup["pyhm-resource-rocks-infinite"].value then
+        resource.infinite = true
+        resource.infinite_depletion_amount = 0
+        resource.normal = 10
+        resource.minimum = resource.normal
+        if resource.autoplace then
+            resource.autoplace.richness_expression = "10"
+        end
     end
 end
 
-for _, miner in pairs(data.raw["mining-drill"]) do
-    if miner.resource_categories then
-        for _, category in pairs(miner.resource_categories) do
-            if categories[category] then
-                local mask = collision_mask_util.get_mask(miner)
-                mask.layers["object"] = nil
-                miner.collision_mask = mask
-                break
+if setting_resource_rocks_disallow_building_over then
+    for _, miner in pairs(data.raw["mining-drill"]) do
+        if miner.resource_categories then
+            for _, category in pairs(miner.resource_categories) do
+                if categories[category] then
+                    local mask = collision_mask_util.get_mask(miner)
+                    mask.layers["object"] = nil
+                    miner.collision_mask = mask
+                    break
+                end
             end
         end
     end

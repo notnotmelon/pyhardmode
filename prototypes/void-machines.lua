@@ -11,8 +11,13 @@ for _, void_machine in pairs {"py-sinkhole", "py-gas-vent"} do
 end
 
 data.raw["assembling-machine"]["py-gas-vent"].crafting_speed = 5
+
 data.raw["assembling-machine"]["py-sinkhole"].fixed_recipe = "water-pyvoid-fluid"
-data.raw["assembling-machine"]["py-sinkhole"].collision_mask = {layers = {ground_tile = true, object = true}}
+if settings.startup["pyhm-replace-sinkhole-with-outfall"].value then
+    data.raw["assembling-machine"]["py-sinkhole"].collision_mask = {layers = {ground_tile = true, object = true}}
+    data.raw["assembling-machine"]["py-sinkhole"].localised_description = { "entity-description.pyhm-outfall" }
+    data.raw["assembling-machine"]["py-sinkhole"].localised_name = { "entity-name.pyhm-outfall" }
+end
 
 RECIPE("py-gas-vent"):remove_unlock("coal-processing-1")
 RECIPE("py-gas-vent"):add_unlock("filtration")
