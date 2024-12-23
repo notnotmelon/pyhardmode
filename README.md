@@ -74,7 +74,6 @@ Several pYAL creatures are optional or only have uses far after they are unlocke
 - Arum farming will generate residual gas
 - Added underflow and overflow valves to your starting items
 - Removed fuel value from residual gas, residual mixture, and residual oil. Find another way to get rid of these byproducts.
-- Vatbrains nerfed from 25%/tier to 15%/tier
 - Ash requirement for planter boxes increased 3 -> 9.
 - Reworked neutron absorbers & plutonium chain.
 - Raw coal & coal dust fuel value nerfed 50%
