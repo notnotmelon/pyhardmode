@@ -22,17 +22,40 @@ RECIPE("yaedols-spores-to-oxygen"):add_unlock("yaedols-upgrade")
 RECIPE("bonemeal-to-geothermal-water"):add_unlock("ulric-upgrade")
 
 if settings.startup["pyhm-decrease-containers-inventory-size"].value then
-    for _, chest_type in pairs {"basic", "active-provider", "passive-provider", "buffer", "storage", "requester"} do
-        local container_type = chest_type == "basic" and "container" or "logistic-container"
-        local steel = chest_type == "basic" and "steel-chest" or (chest_type .. "-chest")
-        data.raw[container_type][steel].inventory_size = 20
-        data.raw[container_type]["py-shed-" .. chest_type].inventory_size = 40
-        data.raw[container_type]["py-storehouse-" .. chest_type].inventory_size = 80
-        data.raw[container_type]["py-warehouse-" .. chest_type].inventory_size = 120
-        data.raw[container_type]["py-deposit-" .. chest_type].inventory_size = 160
+    local function reduce_size(prototype_type, prototype_name, reduction_factor)
+        data.raw[prototype_type][prototype_name].inventory_size = math.ceil(data.raw[prototype_type][prototype_name].inventory_size / reduction_factor)
     end
-    data.raw.container["wooden-chest"].inventory_size = 4
-    data.raw.container["iron-chest"].inventory_size = 8
+    local function reduce_container_size(prototype_type, container)
+        for container_filter, reduction_factor in pairs{
+            ["wooden-chest"] = 4,         -- 4
+            ["iron-chest"] = 4,           -- 8
+            ["steel-chest"] = 2.4,        -- 20
+            ["py-shed"] = 1.875,          -- 40
+            ["py-storehouse"] = 1.875,    -- 80
+            ["py-warehouse"] = 3.75,      -- 120
+            ["py-deposit"] = 5,           -- 160
+            ["active-provider-chest"] = 2.4,
+            ["passive-provider-chest"] = 2.4,
+            ["buffer-chest"] = 2.4,
+            ["storage-chest"] = 2.4,
+            ["requester-chest"] = 2.4,
+        } do
+            if string.find(container.name, container_filter, 1, true) then
+                data.raw[prototype_type][container.name].inventory_size = math.ceil(container.inventory_size / reduction_factor)
+                return
+            end
+        end
+        -- Every other container. 8 is chosen because containers below that size are often used for other puposes than just storage, and it wouldn't be a significant nerf anyway
+        if container.inventory_size >= 8 then
+            data.raw[prototype_type][container.name].inventory_size = math.ceil(container.inventory_size / 2)
+        end
+    end
+    for _, container in pairs(data.raw["container"]) do
+        reduce_container_size("container", container)
+    end
+    for _, container in pairs(data.raw["logistic-container"]) do
+        reduce_container_size("logistic-container", container)
+    end
 end
 
 RECIPE("neutron-absorber-mk01"):remove_unlock("nuclear-power"):add_unlock("uranium-processing")
