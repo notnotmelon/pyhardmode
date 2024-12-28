@@ -56,6 +56,9 @@ if settings.startup["pyhm-decrease-containers-inventory-size"].value then
     for _, container in pairs(data.raw["logistic-container"]) do
         reduce_container_size("logistic-container", container)
     end
+    if mods["cargo-ships"] then
+        reduce_size("cargo-wagon", "cargo_ship", 4)
+    end
 end
 
 RECIPE("neutron-absorber-mk01"):remove_unlock("nuclear-power"):add_unlock("uranium-processing")
