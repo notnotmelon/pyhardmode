@@ -138,48 +138,28 @@ local cracker = {
     }
 }
 local burner = {
-    {
-        position = {1, 0},
-        direction = defines.direction.east
-    },
-    {
-        position = {-1, 0},
-        direction = defines.direction.west
-    },
+    {position = {1, 0},  direction = defines.direction.east},
+    {position = {-1, 0}, direction = defines.direction.west},
+    {position = {0, 1},  direction = defines.direction.south},
+    {position = {0, -1}, direction = defines.direction.north},
 }
 local coal_plant = {
-    {
-        position = {5, -6},
-        direction = defines.direction.north
-    },
-    {
-        position = {4, -6},
-        direction = defines.direction.north
-    },
-    {
-        position = {-5, -6},
-        direction = defines.direction.north
-    },
-    {
-        position = {-4, -6},
-        direction = defines.direction.north
-    },
-    {
-        position = {5, 6},
-        direction = defines.direction.south
-    },
-    {
-        position = {4, 6},
-        direction = defines.direction.south
-    },
-    {
-        position = {-5, 6},
-        direction = defines.direction.south
-    },
-    {
-        position = {-4, 6},
-        direction = defines.direction.south
-    },
+    {position = {5, -6},  direction = defines.direction.north},
+    {position = {4, -6},  direction = defines.direction.north},
+    {position = {-5, -6}, direction = defines.direction.north},
+    {position = {-4, -6}, direction = defines.direction.north},
+    {position = {5, 6},   direction = defines.direction.south},
+    {position = {4, 6},   direction = defines.direction.south},
+    {position = {-5, 6},  direction = defines.direction.south},
+    {position = {-4, 6},  direction = defines.direction.south},
+    {position = {-6, 5},  direction = defines.direction.west},
+    {position = {-6, 4},  direction = defines.direction.west},
+    {position = {-6, -5}, direction = defines.direction.west},
+    {position = {-6, -4}, direction = defines.direction.west},
+    {position = {6, 5},   direction = defines.direction.east},
+    {position = {6, 4},   direction = defines.direction.east},
+    {position = {6, -5},  direction = defines.direction.east},
+    {position = {6, -4},  direction = defines.direction.east},
 }
 local rhe = {
     {
@@ -369,15 +349,16 @@ end
 data.raw.reactor["py-burner"].energy_source.fuel_categories = {"biomass"}
 data.raw.reactor["py-burner"].energy_source.burnt_inventory_size = 0
 local horizontal_pipe = {
-    hr_version = {
-        filename = "__base__/graphics/entity/heat-pipe/hr-heat-pipe-straight-horizontal-1.png",
-        size = {64, 64},
-        scale = 0.5
-    },
     filename = "__base__/graphics/entity/heat-pipe/heat-pipe-straight-horizontal-1.png",
-    size = {32, 32},
+    size = {64, 64},
+	scale = 0.5,
 }
-data.raw.reactor["py-burner"].connection_patches_connected = {horizontal_pipe, horizontal_pipe}
+local vertical_pipe = {
+    filename = "__base__/graphics/entity/heat-pipe/heat-pipe-straight-vertical-1.png",
+    size = {64, 64},
+	scale = 0.5,
+}
+data.raw.reactor["py-burner"].connection_patches_connected = {horizontal_pipe, horizontal_pipe, vertical_pipe, vertical_pipe}
 
 data.raw["heat-pipe"]["heat-pipe"].heat_buffer.specific_heat = "200kJ"
 data.raw["heat-pipe"]["heat-pipe"].heat_buffer.max_temperature = 5000
