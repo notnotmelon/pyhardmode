@@ -1,91 +1,17 @@
 local pipe_covers = make_4way_animation_from_spritesheet {
     filename = "__base__/graphics/entity/heat-exchanger/heatex-endings.png",
-    width = 32,
-    height = 32,
+    width = 64,
+    height = 64,
     direction_count = 4,
-    hr_version = {
-        filename = "__base__/graphics/entity/heat-exchanger/hr-heatex-endings.png",
-        width = 64,
-        height = 64,
-        direction_count = 4,
-        scale = 0.5
-    }
+	scale = 0.5
 }
 local heat_pipe_covers = make_4way_animation_from_spritesheet(apply_heat_pipe_glow {
     filename = "__base__/graphics/entity/heat-exchanger/heatex-endings-heated.png",
-    width = 32,
-    height = 32,
+    width = 64,
+    height = 64,
     direction_count = 4,
-    hr_version = {
-        filename = "__base__/graphics/entity/heat-exchanger/hr-heatex-endings-heated.png",
-        width = 64,
-        height = 64,
-        direction_count = 4,
-        scale = 0.5
-    }
+    scale = 0.5
 })
-local heat_picture = {
-    north = apply_heat_pipe_glow {
-        filename = "__base__/graphics/entity/heat-exchanger/heatex-N-heated.png",
-        priority = "extra-high",
-        width = 24,
-        height = 48,
-        shift = util.by_pixel(-1, 8),
-        hr_version = {
-            filename = "__base__/graphics/entity/heat-exchanger/hr-heatex-N-heated.png",
-            priority = "extra-high",
-            width = 44,
-            height = 96,
-            shift = util.by_pixel(-0.5, 8.5),
-            scale = 0.5
-        }
-    },
-    east = apply_heat_pipe_glow {
-        filename = "__base__/graphics/entity/heat-exchanger/heatex-E-heated.png",
-        priority = "extra-high",
-        width = 40,
-        height = 40,
-        shift = util.by_pixel(-21, -13),
-        hr_version = {
-            filename = "__base__/graphics/entity/heat-exchanger/hr-heatex-E-heated.png",
-            priority = "extra-high",
-            width = 80,
-            height = 80,
-            shift = util.by_pixel(-21, -13),
-            scale = 0.5
-        }
-    },
-    south = apply_heat_pipe_glow {
-        filename = "__base__/graphics/entity/heat-exchanger/heatex-S-heated.png",
-        priority = "extra-high",
-        width = 16,
-        height = 20,
-        shift = util.by_pixel(-1, -30),
-        hr_version = {
-            filename = "__base__/graphics/entity/heat-exchanger/hr-heatex-S-heated.png",
-            priority = "extra-high",
-            width = 28,
-            height = 40,
-            shift = util.by_pixel(-1, -30),
-            scale = 0.5
-        }
-    },
-    west = apply_heat_pipe_glow {
-        filename = "__base__/graphics/entity/heat-exchanger/heatex-W-heated.png",
-        priority = "extra-high",
-        width = 32,
-        height = 40,
-        shift = util.by_pixel(23, -13),
-        hr_version = {
-            filename = "__base__/graphics/entity/heat-exchanger/hr-heatex-W-heated.png",
-            priority = "extra-high",
-            width = 64,
-            height = 76,
-            shift = util.by_pixel(23, -13),
-            scale = 0.5
-        }
-    }
-}
 
 local foundry = {
     {
@@ -138,48 +64,28 @@ local cracker = {
     }
 }
 local burner = {
-    {
-        position = {1, 0},
-        direction = defines.direction.east
-    },
-    {
-        position = {-1, 0},
-        direction = defines.direction.west
-    },
+    {position = {1, 0},  direction = defines.direction.east},
+    {position = {-1, 0}, direction = defines.direction.west},
+    {position = {0, 1},  direction = defines.direction.south},
+    {position = {0, -1}, direction = defines.direction.north},
 }
 local coal_plant = {
-    {
-        position = {5, -6},
-        direction = defines.direction.north
-    },
-    {
-        position = {4, -6},
-        direction = defines.direction.north
-    },
-    {
-        position = {-5, -6},
-        direction = defines.direction.north
-    },
-    {
-        position = {-4, -6},
-        direction = defines.direction.north
-    },
-    {
-        position = {5, 6},
-        direction = defines.direction.south
-    },
-    {
-        position = {4, 6},
-        direction = defines.direction.south
-    },
-    {
-        position = {-5, 6},
-        direction = defines.direction.south
-    },
-    {
-        position = {-4, 6},
-        direction = defines.direction.south
-    },
+    {position = {5, -6},  direction = defines.direction.north},
+    {position = {4, -6},  direction = defines.direction.north},
+    {position = {-5, -6}, direction = defines.direction.north},
+    {position = {-4, -6}, direction = defines.direction.north},
+    {position = {5, 6},   direction = defines.direction.south},
+    {position = {4, 6},   direction = defines.direction.south},
+    {position = {-5, 6},  direction = defines.direction.south},
+    {position = {-4, 6},  direction = defines.direction.south},
+    {position = {-6, 5},  direction = defines.direction.west},
+    {position = {-6, 4},  direction = defines.direction.west},
+    {position = {-6, -5}, direction = defines.direction.west},
+    {position = {-6, -4}, direction = defines.direction.west},
+    {position = {6, 5},   direction = defines.direction.east},
+    {position = {6, 4},   direction = defines.direction.east},
+    {position = {6, -5},  direction = defines.direction.east},
+    {position = {6, -4},  direction = defines.direction.east},
 }
 local rhe = {
     {
@@ -244,7 +150,6 @@ for name, info in pairs {
         connections = info.connections,
         pipe_covers = pipe_covers,
         heat_pipe_covers = heat_pipe_covers,
-        heat_picture = heat_picture
     }
 end
 
@@ -369,15 +274,16 @@ end
 data.raw.reactor["py-burner"].energy_source.fuel_categories = {"biomass"}
 data.raw.reactor["py-burner"].energy_source.burnt_inventory_size = 0
 local horizontal_pipe = {
-    hr_version = {
-        filename = "__base__/graphics/entity/heat-pipe/hr-heat-pipe-straight-horizontal-1.png",
-        size = {64, 64},
-        scale = 0.5
-    },
     filename = "__base__/graphics/entity/heat-pipe/heat-pipe-straight-horizontal-1.png",
-    size = {32, 32},
+    size = {64, 64},
+	scale = 0.5,
 }
-data.raw.reactor["py-burner"].connection_patches_connected = {horizontal_pipe, horizontal_pipe}
+local vertical_pipe = {
+    filename = "__base__/graphics/entity/heat-pipe/heat-pipe-straight-vertical-1.png",
+    size = {64, 64},
+	scale = 0.5,
+}
+data.raw.reactor["py-burner"].connection_patches_connected = {horizontal_pipe, horizontal_pipe, vertical_pipe, vertical_pipe}
 
 data.raw["heat-pipe"]["heat-pipe"].heat_buffer.specific_heat = "200kJ"
 data.raw["heat-pipe"]["heat-pipe"].heat_buffer.max_temperature = 5000
