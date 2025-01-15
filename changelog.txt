@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.17
+Date: 2025-01-15
+  Bugfixes:
+    - Made burner and coal powerplants have heat connections in all 4 directions, fixed heat connection graphics.
+---------------------------------------------------------------------------------------------------
 Version: 1.3.16
 Date: 2024-12-23
   Balancing:
