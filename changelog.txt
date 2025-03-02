@@ -1,8 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.19
 Date: ???
-  Changes:
-    - Make burner insterter burn again
   Bugfixes:
     - Migrated internal names of railway-mk01 to railway
     - Migrated internal names of vacuum-tube-electronics to electronics

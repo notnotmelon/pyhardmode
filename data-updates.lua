@@ -108,25 +108,6 @@ data.raw["assembling-machine"]["antelope-enclosure-mk01"].fluid_boxes = {
     },
 }
 
--- make burner inserter burn again
-data.raw.inserter["burner-inserter"].energy_source = {
-  type = "burner",
-  fuel_categories = {"chemical"},
-  initial_fuel = "wood",
-  initial_fuel_percent = 0.25,
-  effectivity = 1,
-  fuel_inventory_size = 1,
-  burnt_inventory_size = 8,
-  light_flicker = {color = {0,0,0}},
-  smoke = {
-    {
-      name = "smoke",
-      deviation = {0.1, 0.1},
-      frequency = 9
-    }
-  }
-},
-
 data.raw.recipe["space-science-pack-real"].allow_productivity = true
 
 table.insert(data.raw.technology["steam-power"].effects, {
