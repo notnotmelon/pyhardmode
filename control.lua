@@ -19,6 +19,13 @@ script.on_init(function()
                 ["configurable-valve"] = 6,
                 ["offshore-pump"] = 1
             })
+        elseif script.active_mods["valves"] then
+            remote.call("freeplay", "set_ship_items", {
+                ["burner-mining-drill"] = 10,
+                ["valves-overflow"] = 3,
+                ["valves-top_up"] = 3,
+                ["offshore-pump"] = 1
+            })
         else
             remote.call("freeplay", "set_ship_items", {
                 ["burner-mining-drill"] = 10,
