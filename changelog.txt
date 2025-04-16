@@ -177,7 +177,7 @@ Date: 2023-11-27
 Version: 1.0.11
 Date: 2023-11-21
   Features:
-    - Added a recycling recipe for used control rods. Fun fact; This recipe actually exists in real life but was outlawed in 1977 by Jimmy Carter due to fears of nuclear proliferation. In countries such as France and Japan this technique is in use. Over 90% of the potential energy remains inside of used control rods. Additionally, after recycling the rods the half life dramatially decreases and is safe after only a few decades compared to US nuclear reactors whos waste can last 100000 years or further. Historically, big oil and coal have used this legislation as leverage in order to install fears over nuclear waste. End of soap box.
+    - Added a recycling recipe for used control rods. Fun fact; This recipe actually exists in real life but was outlawed in 1977 by Jimmy Carter due to fears of nuclear proliferation. In countries such as France and Japan this technique is in use. Over 90% of the potential energy remains inside of used control rods. Additionally, after recycling the rods the half life dramatically decreases and is safe after only a few decades compared to US nuclear reactors whos waste can last 100000 years or further. Historically, big oil and coal have used this legislation as leverage in order to install fears over nuclear waste. End of soap box.
     - Added a nice cozy sweater
     - Pyrrhic victory technology now has more prerequisites
     - added decentralised PyPP cache file
