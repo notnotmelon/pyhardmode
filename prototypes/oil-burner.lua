@@ -2,8 +2,9 @@
   {
     fluid = "",
     flue_ratio = 0,
+    flue_replacement = "",
     fuel_efficiency = 0,
-    emissions_multiplier = 0
+    emissions_multiplier = 0,
   },
 ]]
 
@@ -407,7 +408,7 @@ for _, recipe in pairs(recipes) do
       {
         type = "fluid",
         name = "water",
-        amount = steam_per_second * seconds_per_craft / 10
+        amount = steam_per_second * seconds_per_craft
       },
       {
         type = "fluid",
@@ -423,9 +424,9 @@ for _, recipe in pairs(recipes) do
         temperature = recipe.steam_temp,
         fluidbox_index = 1
       },
-      (recipe.flue_ratio ~= 0) and {
+      (recipe.flue_ratio and recipe.flue_ratio ~= 0) and {
         type = "fluid",
-        name = "flue-gas",
+        name = recipe.flue_replacement or "flue-gas",
         amount = oil_per_craft * (recipe.flue_ratio or 1),
         fluidbox_index = 2
       } or nil
