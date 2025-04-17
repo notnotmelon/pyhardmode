@@ -407,7 +407,7 @@ for _, recipe in pairs(recipes) do
       {
         type = "fluid",
         name = "water",
-        amount = steam_per_second * seconds_per_craft
+        amount = steam_per_second * seconds_per_craft / 10
       },
       {
         type = "fluid",
