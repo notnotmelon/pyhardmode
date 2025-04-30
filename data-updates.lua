@@ -97,7 +97,7 @@ data.raw["assembling-machine"]["antelope-enclosure-mk01"].fluid_boxes = {
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
         volume = 1000,
-        pipe_connections = {{flow_direction = "input", position = {-8, 0}, direction = defines.direction.east}}
+        pipe_connections = {{flow_direction = "input", position = {-8, 0}, direction = defines.direction.west}}
     },
     {
         production_type = "input",
