@@ -1,8 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.20
-Date: ????
-  Changes:
-    - Changed the oil burner to output flue gas dependant on the fuel burned
+Date: 2025-04-30
+  Bugfixes:
+    - Adjusted pipe connections for antelope enclosure.
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.19
 Date: 2025-03-08
