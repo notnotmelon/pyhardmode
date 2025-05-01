@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.21
+Date: 2025-05-01
+  Balancing:
+    - Changed the oil burner to output flue gas dependant on the fuel burned. All old oil burners will be marked with "legacy" tag and function as-normal.
+---------------------------------------------------------------------------------------------------
 Version: 1.3.20
 Date: 2025-04-30
   Bugfixes:
