@@ -12,8 +12,7 @@
     "pyalternativeenergy >= 3.0.0",
     "? enable-all-feature-flags",
     "? aai-loaders >= 0.2.3",
-    "? PyBlock",
-    "? configurable-valves"
+    "? PyBlock"
   ],
   "package": {
     "ignore": [],

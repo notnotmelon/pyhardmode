@@ -22,8 +22,8 @@ script.on_init(function()
         else
             remote.call("freeplay", "set_ship_items", {
                 ["burner-mining-drill"] = 10,
-                --["py-overflow-valve"] = 3,
-                --["py-underflow-valve"] = 3,
+                ["py-overflow-valve"] = 3,
+                ["py-underflow-valve"] = 3,
                 ["offshore-pump"] = 1
             })
         end
