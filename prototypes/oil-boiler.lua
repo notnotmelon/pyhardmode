@@ -14,7 +14,7 @@ data:extend {{
 
 RECIPE {
     name = "oil-boiler-water-to-steam",
-    energy_required = 1,
+    energy_required = 5,
     enabled = false,
     ingredients = {
         {type = "fluid", name = "water", amount = 300}
