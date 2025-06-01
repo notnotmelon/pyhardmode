@@ -439,6 +439,9 @@ for _, recipe in pairs(recipes) do
 end
 
 data.raw["assembling-machine"]["oil-boiler-mk01"] = table.deepcopy(data.raw.boiler["oil-boiler-mk01"])
+data.raw.boiler["legacy-oil-boiler-mk01"] = table.deepcopy(data.raw.boiler["oil-boiler-mk01"])
+data.raw.boiler["legacy-oil-boiler-mk01"].name = "legacy-oil-boiler-mk01"
+data.raw.boiler["legacy-oil-boiler-mk01"].localised_name = {"", {"entity-name.oil-boiler-mk01"}, " (Legacy)"}
 data.raw.boiler["oil-boiler-mk01"] = nil
 ENTITY("oil-boiler-mk01"):set_fields{
   type = "assembling-machine",
