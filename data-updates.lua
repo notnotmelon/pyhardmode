@@ -40,13 +40,13 @@ end
 RECIPE("neutron-absorber-mk01"):remove_unlock("nuclear-power"):add_unlock("uranium-processing")
 
 if not mods.pystellarexpedition then
-    RECIPE("military-science-pack"):add_ingredient {"guar-gum", 1}
-    RECIPE("military-science-pack"):add_ingredient {"zipir1", 1}
-    RECIPE("capacitor2"):add_ingredient {"cadaveric-arum-seeds", 5}
-    RECIPE("chemical-science-pack"):add_ingredient {"mukmoux", 2}
-    RECIPE("py-science-pack-3"):add_ingredient {"gas-bladder", 5}
-    RECIPE("arqad-propolis-01"):remove_ingredient("dhilmos-egg"):add_ingredient("dhilmos")
-    RECIPE("arqad-propolis-02"):remove_ingredient("dhilmos-egg"):add_ingredient {"dhilmos", 2}
+    RECIPE("military-science-pack"):add_ingredient {name = "guar-gum", amount = 1, type = "item"}
+    RECIPE("military-science-pack"):add_ingredient {name = "zipir1", amount = 1, type = "item"}
+    RECIPE("capacitor2"):add_ingredient {name = "cadaveric-arum-seeds", amount = 5, type = "item"}
+    RECIPE("chemical-science-pack"):add_ingredient {name = "mukmoux", amount = 2, type = "item"}
+    RECIPE("py-science-pack-3"):add_ingredient {name = "gas-bladder", amount = 5, type = "item"}
+    RECIPE("arqad-propolis-01"):remove_ingredient("dhilmos-egg"):add_ingredient {name = "dhilmos", amount = 1, type = "item"}
+    RECIPE("arqad-propolis-02"):remove_ingredient("dhilmos-egg"):add_ingredient {name = "dhilmos", amount = 2, type = "item"}
 end
 
 data.raw.unit["caravan"].affected_by_tiles = false
@@ -83,9 +83,9 @@ data.raw["logistic-robot"]["py-logistic-robot-mk04"].max_payload_size = 4
 
 RECIPE("creosote-to-aromatics"):add_unlock("creosote"):add_ingredient {type = "fluid", name = "gasoline", amount = 35}.hidden = false
 
-RECIPE("primers"):add_ingredient {"shell", 2}
-RECIPE("primers-02"):add_ingredient {"shell", 2}
-RECIPE("primers-03"):add_ingredient {"shell", 2}
+RECIPE("primers"):add_ingredient {name = "shell", amount = 2, type = "item"}
+RECIPE("primers-02"):add_ingredient {name = "shell", amount = 2, type = "item"}
+RECIPE("primers-03"):add_ingredient {name = "shell", amount = 2, type = "item"}
 
 data.raw.recipe["purex-waste-vitrification"].results[4].amount = 1
 

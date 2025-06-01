@@ -23,9 +23,9 @@ RECIPE("py-gas-vent"):remove_unlock("coal-processing-1")
 RECIPE("py-gas-vent"):add_unlock("filtration")
 RECIPE("tailings-pond"):remove_unlock("coal-processing-1")
 RECIPE("tailings-pond"):add_unlock("filtration-mk02")
-RECIPE("tailings-pond"):add_ingredient {"small-parts-03", 10}
-RECIPE("tailings-pond"):add_ingredient {"saturated-nexelit-cartridge", 10}
-RECIPE("tailings-pond"):add_ingredient {"super-steel", 20}
+RECIPE("tailings-pond"):add_ingredient {name = "small-parts-03", amount = 10, type = "item"}
+RECIPE("tailings-pond"):add_ingredient {name = "saturated-nexelit-cartridge", amount = 10, type = "item"}
+RECIPE("tailings-pond"):add_ingredient {name = "super-steel", amount = 20, type = "item"}
 RECIPE("bio-reactor-mk01"):remove_ingredient("tailings-pond")
 RECIPE("bio-reactor-mk01-with-baffles"):remove_ingredient("tailings-pond")
 RECIPE("centrifugal-pan-mk01"):remove_ingredient("tailings-pond")

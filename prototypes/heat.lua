@@ -158,10 +158,10 @@ data.raw["utility-sprites"].default.heat_exchange_indication.filename = "__core_
 RECIPE("heat-pipe"):remove_unlock("advanced-material-processing-2"):add_unlock("py-burner").ingredients[2].amount = 5
 
 RECIPE("py-coal-powerplant-mk01"):remove_ingredient("mechanical-parts-01"):remove_unlock("coalplant-mk01"):add_unlock("oil-machines-mk01")
-RECIPE("py-coal-powerplant-mk01"):add_ingredient {"heat-pipe", 10}
-RECIPE("py-coal-powerplant-mk02"):add_ingredient {"heat-pipe", 10}
-RECIPE("py-coal-powerplant-mk03"):add_ingredient {"heat-pipe", 10}
-RECIPE("py-coal-powerplant-mk04"):add_ingredient {"heat-pipe", 10}
+RECIPE("py-coal-powerplant-mk01"):add_ingredient {name = "heat-pipe", amount = 10, type = "item"}
+RECIPE("py-coal-powerplant-mk02"):add_ingredient {name = "heat-pipe", amount = 10, type = "item"}
+RECIPE("py-coal-powerplant-mk03"):add_ingredient {name = "heat-pipe", amount = 10, type = "item"}
+RECIPE("py-coal-powerplant-mk04"):add_ingredient {name = "heat-pipe", amount = 10, type = "item"}
 RECIPE("he-01"):remove_unlock("coalplant-mk01")
 RECIPE("he-02"):remove_unlock("coalplant-mk02")
 RECIPE("he-03"):remove_unlock("coalplant-mk03")
