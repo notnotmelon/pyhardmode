@@ -82,6 +82,7 @@ boiler.graphics_set = {
                     filename = "__pypetroleumhandlinggraphics__/graphics/entity/py-converter-valve.png",
                     priority = "extra-high",
                     frame_count = 1,
+                    repeat_count = 80,
                     width = 64,
                     height = 64,
                     shift = util.by_pixel(-1, -6.5),
