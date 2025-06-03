@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.25
+Date: 2025-06-03
+  Bugfixes:
+    - Added heat pipes as a tech prereq to oil industry machines. Resolves https://github.com/notnotmelon/pyhardmode/issues/52
+    - Fixed nonsensical tech ordering for mining productivity. Resolves https://github.com/notnotmelon/pyhardmode/issues/57
+---------------------------------------------------------------------------------------------------
 Version: 1.3.24
 Date: 2025-06-02
   Bugfixes:
