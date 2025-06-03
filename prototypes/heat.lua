@@ -170,6 +170,7 @@ RECIPE("coal-molten-salt-01"):remove_unlock("coalplant-mk01")
 RECIPE("coal-molten-salt-02"):remove_unlock("coalplant-mk02")
 RECIPE("coal-molten-salt-03"):remove_unlock("coalplant-mk03")
 RECIPE("coal-molten-salt-04"):remove_unlock("coalplant-mk04")
+TECHNOLOGY("oil-machines-mk01"):add_prereq("py-burner")
 data.raw.recipe["coal-molten-salt-01"] = nil
 data.raw.recipe["coal-molten-salt-02"] = nil
 data.raw.recipe["coal-molten-salt-03"] = nil
