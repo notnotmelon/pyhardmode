@@ -138,3 +138,7 @@ RECIPE {
 }:add_unlock("uranium-processing")
 
 data.raw.recipe["plutonium-seperation"].energy_required = 60
+
+-- acetone
+
+data.raw.fluid["acetone"].fuel_value = "375kJ"
