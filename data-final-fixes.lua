@@ -26,6 +26,18 @@ for name, recipe in pairs(data.raw.recipe) do
     end
 end
 
+if type(data.data_crawler) == "string" and string.sub(data.data_crawler, 1, 5) == "yafc " then
+    data.script_enabled = data.script_enabled or {}
+    table.insert(data.script_enabled, {
+        type = "item",
+        name = "burner-mining-drill",
+    })
+    table.insert(data.script_enabled, {
+        type = "item",
+        name = "offshore-pump",
+    })
+end
+
 RECIPE("zipir1-pyvoid"):add_unlock("zipir")
 
 require "prototypes.pyrrhic"
