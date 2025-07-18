@@ -62,6 +62,9 @@ fluegas_to_ash.category = "quenching-tower"
 data:extend {fluegas_to_ash}
 RECIPE("fluegas-to-ash"):add_unlock("tar-processing")
 
+data.raw.recipe["fluegas-filtration"]:remove_unlock("filtration")
+data.raw.recipe["fluegas-filtration"] = nil
+
 -- ore
 
 --plutonium isotopes
