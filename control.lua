@@ -32,12 +32,10 @@ script.on_init(function()
 end)
 script.on_configuration_changed(init)
 
---I don't know why this runs 3 times, but it does so only add 1/3rd the bonus per call
-script.on_event(defines.events.on_technology_effects_reset, function()
-    for _, force in pairs(game.forces) do
-        if(force.name == "player") then
-            force.manual_crafting_speed_modifier = force.manual_crafting_speed_modifier + 2/3
-        end
+script.on_event(defines.events.on_technology_effects_reset, function(event)
+    local force = event["force"]
+    if(force.name == "player") then
+        force.manual_crafting_speed_modifier = force.manual_crafting_speed_modifier + 2
     end
 end)
 
