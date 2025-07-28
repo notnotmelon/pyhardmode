@@ -8,7 +8,7 @@ if mods.PyBlock then
         enabled = true,
         energy_required = 4,
         ingredients = {
-            {type = "fluid", name = "dirty-water-light", amount = 100},
+            {type = "fluid", name = "tailings", amount = 100},
         },
         results = {
             {type = "fluid", name = "water", amount = 100},
@@ -24,7 +24,7 @@ else
         enabled = false,
         energy_required = 3,
         ingredients = {
-            {type = "fluid", name = "dirty-water-light", amount = 100},
+            {type = "fluid", name = "tailings", amount = 100},
         },
         results = {
             {type = "fluid", name = "water",  amount = 100},
