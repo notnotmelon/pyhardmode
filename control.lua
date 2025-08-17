@@ -31,7 +31,13 @@ script.on_init(function()
     init()
 end)
 script.on_configuration_changed(init)
-script.on_event(defines.events.on_technology_effects_reset, init)
+
+script.on_event(defines.events.on_technology_effects_reset, function(event)
+    local force = event["force"]
+    if(force.name == "player") then
+        force.manual_crafting_speed_modifier = force.manual_crafting_speed_modifier + 2
+    end
+end)
 
 script.on_nth_tick(87, function(event)
     for unit_number, entities in pairs(storage.coal_plants) do
