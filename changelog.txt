@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.29
+Date: 2025-08-17
+  Compatibility:
+    - Deleted duplicate code defining plutonium reshuffle recipes that exists now in pyAE.
+---------------------------------------------------------------------------------------------------
 Version: 1.3.28
 Date: 2025-08-17
   Bugfixes:
