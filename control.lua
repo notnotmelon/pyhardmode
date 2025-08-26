@@ -88,17 +88,23 @@ script.on_event(defines.events.on_entity_died, function(event)
     inventory.clear()
 end)
 
---[[
 -- teleport player to cursor position when they are in map view & wearing a sweater
 local armor_inventory = defines.inventory.character_armor
 local render_mode = defines.render_mode.game
+local controller_type = defines.controllers.character
 script.on_event("open-gui", function(event)
     local player = game.get_player(event.player_index)
-    if player.render_mode == render_mode then return end
-    local armor = player.get_inventory(armor_inventory)
+    if player.render_mode == render_mode then return end -- don't teleport in game view
+    if event.selected_prototype then return end -- don't teleport when opening things remotely
+    if player.physical_controller_type ~= controller_type then return end -- don't teleport players who don't have bodies
+
+    local character = player.character
+    if not character or not character.valid then return end
+    local armor = character.get_inventory(armor_inventory)
     if not armor then return end
+
     local armor_slot = armor[1]
     if armor_slot.valid_for_read and armor_slot.name == "sweater" then
-        player.teleport(event.cursor_position)
+        character.teleport(event.cursor_position)
     end
-end)--]]
+end)
