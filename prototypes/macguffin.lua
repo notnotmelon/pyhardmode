@@ -82,7 +82,7 @@ RECIPE {
     results = {
         {type = "item", name = "space-science-pack", amount = 6},
     },
-}:add_unlock("quantum")
+}:add_unlock("space-science-pack")
 
 if not mods["pystellarexpedition"] then
     data.raw["assembling-machine"]["quantum-computer"].energy_usage = "5GW"
