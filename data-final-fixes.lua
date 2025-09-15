@@ -39,5 +39,3 @@ if type(data.data_crawler) == "string" and string.sub(data.data_crawler, 1, 5) =
 end
 
 RECIPE("zipir1-pyvoid"):add_unlock("zipir")
-
-require "prototypes.pyrrhic"
