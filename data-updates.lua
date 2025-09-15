@@ -39,7 +39,6 @@ end
 RECIPE("neutron-absorber-mk01"):remove_unlock("nuclear-power"):add_unlock("uranium-processing")
 
 if not mods.pystellarexpedition then
-    RECIPE("military-science-pack"):add_ingredient {name = "guar-gum", amount = 1, type = "item"}
     RECIPE("military-science-pack"):add_ingredient {name = "zipir1", amount = 1, type = "item"}
     RECIPE("capacitor2"):add_ingredient {name = "cadaveric-arum-seeds", amount = 5, type = "item"}
     RECIPE("chemical-science-pack"):add_ingredient {name = "mukmoux", amount = 2, type = "item"}
