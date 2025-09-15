@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.32
+Date: 2025-09-15
+  Balancing:
+    - Removed guar from military science.
+    - Removed many prereqs for pyrrhic victory to match vanilla py.
+---------------------------------------------------------------------------------------------------
 Version: 1.3.31
 Date: 2025-09-15
   Balancing:
