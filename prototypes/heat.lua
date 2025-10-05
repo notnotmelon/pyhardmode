@@ -305,10 +305,10 @@ data.raw.furnace["electric-furnace"].energy_source = {
     emissions_per_minute = {pollution = 10},
 }
 
-ENTITY("advanced-foundry-mk01"):energy_useage = "1MW" 
-ENTITY("advanced-foundry-mk02"):energy_useage = "2MW" 
-ENTITY("advanced-foundry-mk03"):energy_useage = "3MW" 
-ENTITY("advanced-foundry-mk04"):energy_useage = "4MW" 
+ENTITY("advanced-foundry-mk01"):energy_usage = "1MW" 
+ENTITY("advanced-foundry-mk02"):energy_usage = "2MW" 
+ENTITY("advanced-foundry-mk03"):energy_usage = "3MW" 
+ENTITY("advanced-foundry-mk04"):energy_usage = "4MW" 
 
 RECIPE("py-burner"):remove_ingredient("titanium-plate"):remove_ingredient("steel-plate"):remove_unlock("py-burner"):add_unlock("steel-processing")
 
