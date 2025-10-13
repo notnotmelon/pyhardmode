@@ -89,13 +89,13 @@ local coal_plant = {
 }
 local rhe = {
     {
-        position = {2, 0},
-        direction = defines.direction.east
-    },
-    {
         position = {-2, 0},
         direction = defines.direction.west
-    }
+    },
+    not mods.PyBlock and {
+        position = {2, 0},
+        direction = defines.direction.east
+    } or nil
 }
 local rtg = {
     {
