@@ -94,14 +94,14 @@ data.raw["assembling-machine"]["antelope-enclosure-mk01"].fluid_boxes_off_when_n
 data.raw["assembling-machine"]["antelope-enclosure-mk01"].fluid_boxes = {
     {
         production_type = "input",
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
         pipe_covers = pipecoverspictures(),
         volume = 1000,
         pipe_connections = {{flow_direction = "input", position = {-8, 0}, direction = defines.direction.west}}
     },
     {
         production_type = "input",
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = require("__base__.prototypes.entity.assembler-pictures").assembler2pipepictures,
         pipe_covers = pipecoverspictures(),
         volume = 1000,
         pipe_connections = {{flow_direction = "input", position = {8, 0}, direction = defines.direction.east}}
