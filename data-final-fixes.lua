@@ -10,7 +10,7 @@ for name, recipe in pairs(data.raw.recipe) do
             recipe.energy_required = 20
         elseif name == "zipir1-pyvoid" or name == "zipir1-pyvoid-hatchery" then
             recipe.enabled = false
-            recipe.category = "hpf"
+            recipe.categories = {"hpf"}
             recipe.flags = {}
             recipe.hidden = nil
         else

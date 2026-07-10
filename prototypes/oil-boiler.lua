@@ -23,7 +23,7 @@ RECIPE {
         {type = "fluid", name = "steam", amount = 300, temperature = 250},
         {type = "fluid", name = "flue-gas", amount = 60}
     },
-    category = "oil-boiler-mk01",
+    categories = {"oil-boiler-mk01"},
     main_product = "steam"
 }
 

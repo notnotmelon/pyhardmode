@@ -18,7 +18,7 @@ ITEM {
 RECIPE {
     type = "recipe",
     name = "macguffin",
-    category = "antelope",
+    categories = {"antelope"},
     enabled = false,
     energy_required = 60,
     ingredients = {
@@ -50,9 +50,9 @@ RECIPE {
         {type = "item",  name = "pheromones",            amount = 1},
     },
     results = {
-        {type = "item", name = "macguffin",        amount = 1, probability = 0.1},
-        {type = "item", name = "caged-antelope",   amount = 1, probability = 0.5},
-        {type = "item", name = "yag-laser-module", amount = 1, probability = 0.9},
+        {type = "item", name = "macguffin",        amount = 1, independent_probability = 0.1},
+        {type = "item", name = "caged-antelope",   amount = 1, independent_probability = 0.5},
+        {type = "item", name = "yag-laser-module", amount = 1, independent_probability = 0.9},
     },
     main_product = "macguffin",
 }:add_unlock("space-science-pack")
@@ -72,7 +72,7 @@ data.raw.recipe["space-science-pack"].results = {{name = "quantum-simulation-dat
 RECIPE {
     name = "space-science-pack-real",
     type = "recipe",
-    category = "quantum",
+    categories = {"quantum"},
     enabled = false,
     energy_required = 600,
     ingredients = {
@@ -160,5 +160,5 @@ RECIPE {
     results = {
         {type = "item", name = "sweater", amount = 1},
     },
-    category = "quantum"
+    categories = {"quantum"}
 }:add_unlock("sweater")

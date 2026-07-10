@@ -4,7 +4,7 @@ if mods.PyBlock then
     RECIPE {
         type = "recipe",
         name = "muddy-sludge-void",
-        category = "washer",
+        categories = {"washer"},
         enabled = true,
         energy_required = 4,
         ingredients = {
@@ -20,7 +20,7 @@ else
     RECIPE {
         type = "recipe",
         name = "muddy-sludge-void-electrolyzer",
-        category = "electrolyzer",
+        categories = {"electrolyzer"},
         enabled = false,
         energy_required = 3,
         ingredients = {
@@ -40,7 +40,7 @@ end
 RECIPE {
     type = "recipe",
     name = "yaedols-spores-to-oxygen",
-    category = "hpf",
+    categories = {"hpf"},
     enabled = false,
     energy_required = 4,
     ingredients = {
@@ -58,7 +58,7 @@ local fluegas_to_ash = table.deepcopy(data.raw.recipe["fluegas-filtration"])
 data.raw.recipe["fluegas-filtration"].results = {}
 data.raw.recipe["fluegas-filtration"].energy_required = 2
 fluegas_to_ash.name = "fluegas-to-ash"
-fluegas_to_ash.category = "quenching-tower"
+fluegas_to_ash.categories = {"quenching-tower"}
 data:extend {fluegas_to_ash}
 RECIPE("fluegas-to-ash"):add_unlock("tar-processing")
 
